@@ -26,6 +26,7 @@ public class Start extends JFrame{
 		getContentPane().add("member_login", new Member_login(this));
 		getContentPane().add("find_id", new Find_id(this));
 		getContentPane().add("find_pw", new Find_password(this));
+		getContentPane().add("non_member_login", new Non_Member_Login(this));
 		
 		setVisible(true);
 	} 
@@ -44,6 +45,9 @@ public class Start extends JFrame{
 	public void find_pw_Panel() {
 		cards.show(this.getContentPane(), "find_pw");
 	}
+	public void non_member_login_Panel() {
+		cards.show(this.getContentPane(),"non_member_login"); 
+	} 
 
 
 	

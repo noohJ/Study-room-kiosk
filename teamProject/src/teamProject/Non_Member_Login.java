@@ -1,4 +1,4 @@
-package project_lsk;
+package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -95,7 +95,7 @@ public class Non_Member_Login extends JPanel {
 		});
 		prev_btn.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				start.base_screen_panel();
+				start.base_screen_Panel();
 			};
 		});
 		
@@ -151,7 +151,6 @@ public class Non_Member_Login extends JPanel {
 		
 		add(null1);
 		
-//		setBounds(1000, 100, 800, 1000);
 		setSize(800, 1000);
 		setVisible(true);
 		setLayout(null);
@@ -189,8 +188,7 @@ public class Non_Member_Login extends JPanel {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if((jtf.getText()).equals("")) {
-//					jtf.setText(""+(int)(Math.random()*899999+100001));
-//					jtf.setForeground(new Color(0xd0d0d0));
+					
 					string.setVisible(true);
 				} else {
 					string.setVisible(false);
@@ -205,21 +203,4 @@ public class Non_Member_Login extends JPanel {
 			}
 		});
 	}
-//	public static void main(String[] args) {
-//		new Non_Members_Login();
-//	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
