@@ -18,11 +18,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Member_login extends JPanel {
-	private JTextField id;
-	private JButton confirm,previous,f_id,f_pw;
+	private JTextField id,pw;
+	private JButton confirm,previous,f_id;
 	private Start F;
 	private JLabel chk,pwf;
-	private JPasswordField pw;
 	
 	
 	public Member_login(Start f) {
@@ -42,14 +41,15 @@ public class Member_login extends JPanel {
 				
 		
 		
-		pw = new JPasswordField("");
+		pw = new JPasswordField("비밀번호");
 		pw.addMouseListener(new MouseAdapter() {		
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				pw.setText("");
 			}
 		});
-		pw.setBounds(100,250,600,100);		
+		pw.setBounds(100,250,600,100);
+		add(pw);
 		
 		chk = new JLabel("");
 		chk.setBounds(100,350,600,100);
@@ -127,18 +127,6 @@ public class Member_login extends JPanel {
 		f_id.setBounds(100,700,270,200);
 		add(f_id);
 		
-		f_pw = new JButton("비밀번호 찾기");
-		f_pw.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				id.setText("아아디");
-				pw.setText("비밀번호");
-				chk.setText("");
-				F.find_pw_Panel();
-			}
-		});
-		f_pw.setBounds(430,700,270,200);
-		add(f_pw);
 		
 		setVisible(true);
 	}
