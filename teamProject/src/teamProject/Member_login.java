@@ -21,7 +21,7 @@ public class Member_login extends JPanel {
 	private JTextField id;
 	private JButton confirm,previous,f_id,f_pw;
 	private Start F;
-	private JLabel chk,pwf;
+	private JLabel chk;
 	private JPasswordField pw;
 	
 	
@@ -42,7 +42,7 @@ public class Member_login extends JPanel {
 				
 		
 		
-		pw = new JPasswordField("");
+		pw = new JPasswordField("비밀번호");
 		pw.addMouseListener(new MouseAdapter() {		
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -50,7 +50,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		pw.setBounds(100,250,600,100);		
-		
+		add(pw);
 		chk = new JLabel("");
 		chk.setBounds(100,350,600,100);
 		add(chk);
