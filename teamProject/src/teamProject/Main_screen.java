@@ -186,6 +186,8 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//new Part();
+				f.add("use_pass_or_seasn_ticket",new Use_PassOrSeasnTicket(f, id));
+				f.use_post_Panel();
 				setVisible(false);
 			}
 		});

@@ -46,7 +46,10 @@ public class Start extends JFrame{
 	}
 	public void non_member_login_Panel() {
 		cards.show(this.getContentPane(),"non_member_login"); 
-	} 
+	}
+	public void use_post_Panel() {
+		cards.show(this.getContentPane(),"use_pass_or_seasn_ticket"); 
+	}
 
 
 	
