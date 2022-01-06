@@ -27,6 +27,8 @@ public class Start extends JFrame{
 		getContentPane().add("find_id", new Find_id(this));
 		getContentPane().add("find_pw", new Find_password(this));
 		getContentPane().add("non_member_login", new Non_Member_Login(this));
+		getContentPane().add("member_or_non_member", new Member_or_non_member(this));
+		getContentPane().add("non_member_login2", new Non_member_login2(this));
 		
 		setVisible(true);
 	} 
@@ -47,7 +49,13 @@ public class Start extends JFrame{
 	}
 	public void non_member_login_Panel() {
 		cards.show(this.getContentPane(),"non_member_login"); 
-	} 
+	}
+	public void member_or_non_member_Panel() {
+		cards.show(this.getContentPane(),"member_or_non_member");
+	}
+	public void Non_member_login2_Panel() {
+		cards.show(this.getContentPane(),"non_member_login2");
+	}
 
 
 	

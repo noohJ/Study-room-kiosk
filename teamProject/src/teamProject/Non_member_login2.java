@@ -1,8 +1,7 @@
 package teamProject;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -17,30 +16,27 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Member_login extends JPanel {
-	private JTextField id;
-	private JButton confirm,previous,f_id,f_pw;
-	private Start F;
-	private JLabel chk;
+public class Non_member_login2 extends JPanel{
+	private JTextField ph;
 	private JPasswordField pw;
+	private JLabel chk;
+	private JButton confirm,previous;
+	private Start F;
 	
-	
-	public Member_login(Start f) {
+	Non_member_login2(Start f){
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
-		id = new JTextField("아이디");
-		id.addMouseListener(new MouseAdapter() {		
+		ph = new JTextField("전화번호");
+		ph.addMouseListener(new MouseAdapter() {		
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				id.setText("");
+				ph.setText("");
 			}
 		});
-		id.setBounds(100,100,600,100);
-		add(id);
-				
-		
+		ph.setBounds(100,100,600,100);
+		add(ph);
 		
 		pw = new JPasswordField("비밀번호");
 		pw.addMouseListener(new MouseAdapter() {		
@@ -70,25 +66,25 @@ public class Member_login extends JPanel {
 							"1234");
 					System.out.println("연결 생성 완료.");
 					
-					PreparedStatement find_id = conn.prepareStatement("SELECT * FROM MEMBERS");
+					PreparedStatement find_id = conn.prepareStatement("SELECT * FROM NON_MEMBERS");
 					boolean chk_member = false;
 					ResultSet rs = find_id.executeQuery();
 				
 					
 					while (rs.next()){
-						if(rs.getString("MEMBER_ID").equals(id.getText())&&rs.getString("MEMBER_PW").equals(pw.getText())) {
+						if(rs.getString("NON_MEMBER_PHONE").equals(ph.getText())&&rs.getString("NON_MEMBER_PW").equals(pw.getText())) {
 							
 							chk_member = true;
 							System.out.println("성공");
-							f.add("main_screen",new Main_screen(f,id.getText()));
+							f.add("main_screen",new Main_screen(f,ph.getText()));
 							f.main_screen_Panel();	
-							id.setText("아이디");
+							ph.setText("전화번호");
 							pw.setText("패스워드");
 							break;
 						}						
 					}	
 					if (chk_member == false) {
-						chk.setText("아이디 혹은 비밀번호가 올바르지 않습니다.");
+						chk.setText("전화번호 혹은 비밀번호가 올바르지 않습니다.");
 					}
 					chk_member =false;
 					
@@ -98,9 +94,7 @@ public class Member_login extends JPanel {
 					
 				} catch (SQLException a) {
 					a.printStackTrace();
-				}
-				
-				
+				}				
 			}
 		});
 		
@@ -111,7 +105,7 @@ public class Member_login extends JPanel {
 		previous.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				id.setText("아아디");
+				ph.setText("전화번호");
 				pw.setText("비밀번호");
 				chk.setText("");
 				f.member_or_non_member_Panel();
@@ -119,37 +113,5 @@ public class Member_login extends JPanel {
 		});
 		previous.setBounds(430,450,270,200);
 		add(previous);
-		
-		f_id = new JButton("아이디 찾기");
-		f_id.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				id.setText("아아디");
-				pw.setText("비밀번호");
-				chk.setText("");
-				F.find_id_Panel();
-			}
-		});
-		f_id.setBounds(100,700,270,200);
-		add(f_id);
-		
-		f_pw = new JButton("비밀번호 찾기");
-		f_pw.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				id.setText("아아디");
-				pw.setText("비밀번호");
-				chk.setText("");
-				F.find_pw_Panel();
-			}
-		});
-		f_pw.setBounds(430,700,270,200);
-		add(f_pw);
-		
-		
-		setVisible(true);
-	}
-	public static String idm(String idd) {
-		return idd;
 	}
 }

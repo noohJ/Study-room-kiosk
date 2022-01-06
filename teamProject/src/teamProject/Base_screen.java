@@ -16,13 +16,13 @@ public class Base_screen extends JPanel {
 		setLayout(null);
 		F = f;		
 
-		member_btn = new JButton("회원 로그인");
+		member_btn = new JButton("로그인");
 		non_member_btn = new JButton("비회원 로그인");
 		sign_up_btn = new JButton("회원 가입");
 		
 		member_btn.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent arg0) {
-				F.member_login_Panel();
+				F.member_or_non_member_Panel();
 			}
 		});
 		
