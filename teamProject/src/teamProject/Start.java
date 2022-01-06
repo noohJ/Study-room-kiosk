@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 public class Start extends JFrame{
 	
 	private CardLayout cards = new CardLayout();
+	static String nmid;
 	
 	public Start() { 
 		try {
@@ -21,8 +22,7 @@ public class Start extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		getContentPane().add("base_screen", new Base_screen(this));
-		getContentPane().add("main_screen",new Main_screen(this));
+		getContentPane().add("base_screen", new Base_screen(this));		
 		getContentPane().add("member_login", new Member_login(this));
 		getContentPane().add("find_id", new Find_id(this));
 		getContentPane().add("find_pw", new Find_password(this));
