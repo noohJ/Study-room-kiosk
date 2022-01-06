@@ -2,6 +2,8 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
@@ -40,9 +42,9 @@ public class Non_Member_Login extends JPanel {
 		nmb_login_ml(nmb_pw_chk);
 		nmb_login_pw_fl(nmb_pw_chk, string3);
 
-		chk_btn.addMouseListener(new MouseAdapter() {
+		chk_btn.addActionListener(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void actionPerformed(ActionEvent e) {
 				String ph_val = nmb_phone.getText();
 				int ph_err = 0;
 				// DB_Non_Members 클래스에서 논멤버의 번호를 가져와서 비교함. 번호가 없으면 true 
@@ -93,8 +95,8 @@ public class Non_Member_Login extends JPanel {
 				}
 			}
 		});
-		prev_btn.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
+		prev_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				start.base_screen_Panel();
 			};
 		});
