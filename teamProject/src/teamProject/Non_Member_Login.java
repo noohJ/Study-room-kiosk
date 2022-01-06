@@ -78,6 +78,7 @@ public class Non_Member_Login extends JPanel {
 									chk_str.setVisible(true);
 									chk_str.setText("DB에 추가되었습니다.");
 									JOptionPane.showMessageDialog(null, "비회원 ID가 생성되었습니다.", "회원가입", JOptionPane.PLAIN_MESSAGE);
+									f.add("main_screen",new Main_screen(f,ph_val));
 									f.main_screen_Panel();
 								}					
 							} else {

@@ -44,7 +44,7 @@ public class Main_screen extends JPanel implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	public Main_screen(Start f) {
+	public Main_screen(Start f,String id) {
 		
 		setSize(800, 1000);
 		setLayout(null);
