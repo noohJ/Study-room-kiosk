@@ -90,12 +90,13 @@ public class Main_screen extends JPanel implements ActionListener{
 				{
 	
 		// JButton 설정
-		b1 = new JButton(new ImageIcon("icons/당일권구입.jpg"));
-		b2 = new JButton(new ImageIcon("icons/정액권구입.jpg"));
-		b3 = new JButton(new ImageIcon("icons/정액권정기권사용.jpg"));
-		b4 = new JButton(new ImageIcon("icons/시간연장.jpg"));
+		b1 = new JButton(new ImageIcon("teamProject/src/icons/당일권구입.jpg"));
+		b2 = new JButton(new ImageIcon("teamProject/src/icons/정액권구입.jpg"));
+		b3 = new JButton(new ImageIcon("teamProject/src/icons/정액권정기권사용.jpg"));
+		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));
+		
 		b5 = new JButton("기타");
-		b6 = new JButton(new ImageIcon("icons/퇴실.jpg"));
+		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
 		
 	
 		
