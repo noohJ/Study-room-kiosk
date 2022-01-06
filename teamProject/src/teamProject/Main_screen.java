@@ -45,7 +45,6 @@ public class Main_screen extends JPanel implements ActionListener{
 		}
 	}
 	public Main_screen(Start f,String id) {
-		
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
