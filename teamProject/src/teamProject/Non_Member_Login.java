@@ -1,7 +1,9 @@
-package project_lsk;
+package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
@@ -40,9 +42,9 @@ public class Non_Member_Login extends JPanel {
 		nmb_login_ml(nmb_pw_chk);
 		nmb_login_pw_fl(nmb_pw_chk, string3);
 
-		chk_btn.addMouseListener(new MouseAdapter() {
+		chk_btn.addActionListener(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void actionPerformed(ActionEvent e) {
 				String ph_val = nmb_phone.getText();
 				int ph_err = 0;
 				// DB_Non_Members 클래스에서 논멤버의 번호를 가져와서 비교함. 번호가 없으면 true 
@@ -93,9 +95,9 @@ public class Non_Member_Login extends JPanel {
 				}
 			}
 		});
-		prev_btn.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				start.base_screen_panel();
+		prev_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				start.base_screen_Panel();
 			};
 		});
 		
@@ -151,7 +153,6 @@ public class Non_Member_Login extends JPanel {
 		
 		add(null1);
 		
-//		setBounds(1000, 100, 800, 1000);
 		setSize(800, 1000);
 		setVisible(true);
 		setLayout(null);
@@ -189,8 +190,7 @@ public class Non_Member_Login extends JPanel {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if((jtf.getText()).equals("")) {
-//					jtf.setText(""+(int)(Math.random()*899999+100001));
-//					jtf.setForeground(new Color(0xd0d0d0));
+					
 					string.setVisible(true);
 				} else {
 					string.setVisible(false);
@@ -205,21 +205,4 @@ public class Non_Member_Login extends JPanel {
 			}
 		});
 	}
-//	public static void main(String[] args) {
-//		new Non_Members_Login();
-//	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-package project_lsk;
+package teamProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,3 +22,4 @@ public class DBConnector {
 		return DriverManager.getConnection(url, user, password);
 	}
 }
+

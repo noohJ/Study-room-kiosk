@@ -21,7 +21,12 @@ public class Member_login extends JPanel {
 	private JTextField id,pw;
 	private JButton confirm,previous,f_id;
 	private Start F;
+<<<<<<< HEAD
 	private JLabel chk,pwf;
+=======
+	private JLabel chk;
+	private JPasswordField pw;
+>>>>>>> refs/remotes/origin/test
 	
 	
 	public Member_login(Start f) {
@@ -48,9 +53,14 @@ public class Member_login extends JPanel {
 				pw.setText("");
 			}
 		});
+<<<<<<< HEAD
 		pw.setBounds(100,250,600,100);
 		add(pw);
 		
+=======
+		pw.setBounds(100,250,600,100);		
+		add(pw);
+>>>>>>> refs/remotes/origin/test
 		chk = new JLabel("");
 		chk.setBounds(100,350,600,100);
 		add(chk);
