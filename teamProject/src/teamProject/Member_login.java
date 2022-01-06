@@ -80,7 +80,7 @@ public class Member_login extends JPanel {
 							
 							chk_member = true;
 							System.out.println("성공");
-							f.add("main_screen",new Main_screen(f,id.getText()));
+							f.add("main_screen",new Main_screen(f,id.getText(),0)); // 회원 = 0 비회원 = 1
 							f.main_screen_Panel();	
 							id.setText("아이디");
 							pw.setText("패스워드");

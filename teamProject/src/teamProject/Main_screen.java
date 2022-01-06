@@ -44,7 +44,7 @@ public class Main_screen extends JPanel implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	public Main_screen(Start f,String id) {
+	public Main_screen(Start f,String id, int m_or_nm) {
 		System.out.println(id);
 		setSize(800, 1000);
 		setLayout(null);
@@ -167,44 +167,52 @@ public class Main_screen extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		setVisible(true);
+
+		if (m_or_nm == 1) {               //비회원은 정액권/정기권 사용및 구매 불가      (0 = 회원 1 = 비회원)
+			b2.setEnabled(false);
+			b3.setEnabled(false);
+		}
 		
-		// 버튼 클릭시 이벤트 설정 다른 팀원들과 연결 필요
-		b1.addActionListener(new ActionListener() {		
+
+		
+		// 버튼 클릭시 다른 페널 확인
+		b1.addActionListener(new ActionListener() {	//당일권 구입	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+//				f.add("daily_pass_ticket",new daily_pass_ticket(f,id));
+				f.daily_pass_ticket_Panel();
+			}
+		});
+		b2.addActionListener(new ActionListener() {	//정기권/정액권 구입
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.add("Buy_a_voucher",new Buy_a_voucher(f,id));
+				f.Buy_a_voucher_Panel();
+			}
+		});
+		b3.addActionListener(new ActionListener() {	// 정액권/정기권 사용
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				f.add("Use_PassOrSeasnTicket",new Use_PassOrSeasnTicket(f,id));
+				f.Use_PassOrSeasnTicket_Panel();
+			}
+		});
+		b4.addActionListener(new ActionListener() {	//시간 연장
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//new Part();
 				setVisible(false);
 			}
 		});
-		b2.addActionListener(new ActionListener() {		
+		b5.addActionListener(new ActionListener() {	//공란 추후 자리이동 예정
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//new Part();
 				setVisible(false);
 			}
 		});
-		b3.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//new Part();
-				setVisible(false);
-			}
-		});
-		b4.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//new Part();
-				setVisible(false);
-			}
-		});
-		b5.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//new Part();
-				setVisible(false);
-			}
-		});
-		b6.addActionListener(new ActionListener() {		
+		b6.addActionListener(new ActionListener() {	//퇴실
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//new Part();

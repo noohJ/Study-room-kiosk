@@ -76,7 +76,7 @@ public class Non_member_login2 extends JPanel{
 							
 							chk_member = true;
 							System.out.println("성공");
-							f.add("main_screen",new Main_screen(f,ph.getText()));
+							f.add("main_screen",new Main_screen(f,ph.getText(),1));// 회원 = 0 비회원 = 1
 							f.main_screen_Panel();	
 							ph.setText("전화번호");
 							pw.setText("패스워드");

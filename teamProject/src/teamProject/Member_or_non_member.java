@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class Member_or_non_member extends JPanel {
 	
-	private JButton member,non_member;
+	private JButton member,non_member,previous;
 	private Start F;
 	
 	public Member_or_non_member(Start f) {
@@ -41,5 +41,15 @@ public class Member_or_non_member extends JPanel {
 			}
 		});
 		add(non_member);
+		
+		previous = new JButton("이전 화면");
+		previous.setBounds(100,100,100,50);
+		previous.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.base_screen_Panel();
+			}
+		});
+		add(previous);
 	}
 }
