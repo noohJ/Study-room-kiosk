@@ -26,6 +26,12 @@ public class Base_screen extends JPanel {
 			}
 		});
 		
+		non_member_btn.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent arg0) {
+				F.non_member_login_Panel();
+			}
+		});
+		
 		member_btn.setBounds(100,100,600,200);
 		non_member_btn.setBounds(100,380,600,200);
 		sign_up_btn.setBounds(100,650,600,200);

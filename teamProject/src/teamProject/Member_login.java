@@ -18,10 +18,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Member_login extends JPanel {
-	private JTextField id,pw;
+	private JTextField id;
 	private JButton confirm,previous,f_id,f_pw;
 	private Start F;
 	private JLabel chk;
+	private JPasswordField pw;
 	
 	
 	public Member_login(Start f) {
@@ -48,6 +49,7 @@ public class Member_login extends JPanel {
 				pw.setText("");
 			}
 		});
+
 		pw.setBounds(100,250,600,100);
 		add(pw);
 		
@@ -139,6 +141,7 @@ public class Member_login extends JPanel {
 		});
 		f_pw.setBounds(430,700,270,200);
 		add(f_pw);
+		
 		
 		setVisible(true);
 	}
