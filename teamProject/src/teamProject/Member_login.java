@@ -19,9 +19,9 @@ import javax.swing.JTextField;
 
 public class Member_login extends JPanel {
 	private JTextField id,pw;
-	private JButton confirm,previous,f_id;
+	private JButton confirm,previous,f_id,f_pw;
 	private Start F;
-	private JLabel chk,pwf;
+	private JLabel chk;
 	
 	
 	public Member_login(Start f) {
@@ -127,6 +127,18 @@ public class Member_login extends JPanel {
 		f_id.setBounds(100,700,270,200);
 		add(f_id);
 		
+		f_pw = new JButton("비밀번호 찾기");
+		f_pw.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				id.setText("아아디");
+				pw.setText("비밀번호");
+				chk.setText("");
+				F.find_pw_Panel();
+			}
+		});
+		f_pw.setBounds(430,700,270,200);
+		add(f_pw);
 		
 		setVisible(true);
 	}
