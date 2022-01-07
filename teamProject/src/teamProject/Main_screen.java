@@ -187,7 +187,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		b2.addActionListener(new ActionListener() {	//정기권/정액권 구입
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("Buy_a_voucher",new Buy_a_voucher(f,id));
+//				f.add("Buy_a_voucher",new Buy_a_voucher(f,id));
 				f.Buy_a_voucher_Panel();
 			}
 		});
@@ -215,8 +215,8 @@ public class Main_screen extends JPanel implements ActionListener{
 		b6.addActionListener(new ActionListener() {	//퇴실
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//new Part();
-				setVisible(false);
+				//퇴실처리 추가
+				f.base_screen_Panel();
 			}
 		});	
 	}

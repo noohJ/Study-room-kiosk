@@ -70,6 +70,9 @@ public class Start extends JFrame{
 	public void Use_PassOrSeasnTicket_Panel() { //이용권 사용
 		cards.show(this.getContentPane(),"Use_PassOrSeasnTicket");
 	}
+	public void Payment_Panel() {  // 결제
+		cards.show(this.getContentPane(), "payment");
+	}
 
 
 	

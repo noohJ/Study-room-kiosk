@@ -1,8 +1,9 @@
 package teamProject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -21,7 +22,7 @@ public class Member_login extends JPanel {
 	private JTextField id;
 	private JButton confirm,previous,f_id,f_pw;
 	private Start F;
-	private JLabel chk;
+	private JLabel chk,pw2;
 	private JPasswordField pw;
 	
 	
@@ -29,7 +30,6 @@ public class Member_login extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
-		
 		id = new JTextField("아이디");
 		id.addMouseListener(new MouseAdapter() {		
 			@Override
@@ -39,13 +39,18 @@ public class Member_login extends JPanel {
 		});
 		id.setBounds(100,100,600,100);
 		add(id);
-				
+		id.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				id.setText("");
+			}
+		});	
 		
 		
 		pw = new JPasswordField("비밀번호");
-		pw.addMouseListener(new MouseAdapter() {		
+		pw.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				pw.setText("");
 			}
 		});
