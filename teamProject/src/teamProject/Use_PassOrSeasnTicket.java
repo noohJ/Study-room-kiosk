@@ -17,6 +17,7 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
+		
 		String ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름
 		String remaining_days = DB_Members.mb_rd_arr(id);
 		JLabel header = new JLabel(" 정액권/정기권 사용");
@@ -26,6 +27,12 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		JButton seat_selection = new JButton("입실 : 좌석 선택하기");
 		JButton prev_btn = new JButton("이전 화면");
 		
+		seat_selection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				f.add("seat_selection",new Seat_Selection(f, id));
+				f.seat_selection_Panel();
+			};
+		});
 		prev_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				f.main_screen_Panel();

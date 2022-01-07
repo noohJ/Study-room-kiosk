@@ -50,6 +50,9 @@ public class Start extends JFrame{
 	public void use_post_Panel() {
 		cards.show(this.getContentPane(),"use_pass_or_seasn_ticket"); 
 	}
+	public void seat_selection_Panel() {
+		cards.show(this.getContentPane(),"seat_selection"); 
+	}
 
 
 	
