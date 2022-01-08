@@ -188,7 +188,6 @@ public class Main_screen extends JPanel implements ActionListener{
 				//new Part();
 				f.add("use_pass_or_seasn_ticket",new Use_PassOrSeasnTicket(f, id));
 				f.use_post_Panel();
-				setVisible(false);
 			}
 		});
 		b4.addActionListener(new ActionListener() {		
