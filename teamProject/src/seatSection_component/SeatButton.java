@@ -14,7 +14,11 @@ import teamProject.Start;
 
 public class SeatButton extends JButton {
 	
-	public SeatButton(int x, int y, String seat_number) {
+	private Start F;
+	
+	public SeatButton(int x, int y, String seat_number, Start f, String id) {
+		
+		F = f;
 		
 		if(DB_Seats.seats_num_arr(seat_number)) {
 			setText(seat_number);
@@ -32,10 +36,8 @@ public class SeatButton extends JButton {
 				public void actionPerformed(ActionEvent e) {
 					int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리를 사용하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 					if(answer==JOptionPane.YES_OPTION) {
-						Start start = new Start();
-						// 초기화하면서 재시작 되는건 좋은데 전에게 꺼지지 않음
-						// 하나만 끄는 메소드로는 dispose가 있음
-						// setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 이런식으로 사용
+						DB_Current_users_Add.c_user_add(seat_number, id);
+						F.base_screen_Panel();
 					}					
 				}
 			});

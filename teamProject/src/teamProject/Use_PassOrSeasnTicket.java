@@ -20,22 +20,30 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		
 		String ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름
 		String remaining_days = DB_Members.mb_rd_arr(id);
+		String end_date = DB_Members.mb_ed_arr(id);
+		int t_hour = Integer.parseInt(end_date) / 60;
+		int t_minute = Integer.parseInt(end_date) % 60;
 		JLabel header = new JLabel(" 정액권/정기권 사용");
 		JLabel string1 = new JLabel("<html><body style='text-align:center;'>"
 				+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
-		JLabel string2 = new JLabel("남은 시간 : "+remaining_days);
+		JLabel string2 = new JLabel("?");
+		if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
+			string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
+		} else if(ticket.contains("season_ticket")) {
+			string2.setText("남은 기간 : "+remaining_days);
+		}
 		JButton seat_selection = new JButton("입실 : 좌석 선택하기");
 		JButton prev_btn = new JButton("이전 화면");
 		
 		seat_selection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				f.add("seat_selection",new Seat_Selection(f, id));
-				f.seat_selection_Panel();
+				F.add("seat_selection",new Seat_Selection(F, id));
+				F.seat_selection_Panel();
 			};
 		});
 		prev_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				f.main_screen_Panel();
+				F.main_screen_Panel();
 			};
 		});
 		

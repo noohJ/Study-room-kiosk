@@ -99,4 +99,25 @@ public class DB_Members {
 		}
 		return temp;
 	}
+	
+	public static String mb_ed_arr(String keyword) {
+		String sql = "SELECT * FROM members WHERE member_id = '"+keyword+"'";
+		String temp = "";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				temp = rs.getString("end_date");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
 }
