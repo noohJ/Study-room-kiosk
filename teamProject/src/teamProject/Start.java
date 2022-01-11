@@ -22,7 +22,7 @@ public class Start extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		
+	
 		// 프레임 내부에 패널 추가
 		
 		getContentPane().add("base_screen", new Base_screen(this));		
