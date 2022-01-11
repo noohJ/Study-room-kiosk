@@ -18,22 +18,36 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		setLayout(null);
 		F = f;
 		
-		String ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름
-		String remaining_days = DB_Members.mb_rd_arr(id);
-		String end_date = DB_Members.mb_ed_arr(id);
-		int t_hour = Integer.parseInt(end_date) / 60;
-		int t_minute = Integer.parseInt(end_date) % 60;
+		String ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름		
+		String remaining_days;
+		String end_date;
+		int t_hour;
+		int t_minute;
 		JLabel header = new JLabel(" 정액권/정기권 사용");
-		JLabel string1 = new JLabel("<html><body style='text-align:center;'>"
-				+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
+		JLabel string1 = new JLabel("!");
 		JLabel string2 = new JLabel("?");
-		if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
-			string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
-		} else if(ticket.contains("season_ticket")) {
-			string2.setText("남은 기간 : "+remaining_days);
-		}
 		JButton seat_selection = new JButton("입실 : 좌석 선택하기");
 		JButton prev_btn = new JButton("이전 화면");
+		if(ticket.equals("")) {
+			string1.setText("<html><body style='text-align:center;'>"
+					+ "현재 사용 중인 티켓 :<br>사용 중인 티켓이 없습니다.</html>");
+			string2.setText("<html><body style='text-align:center;'>"
+					+ "티켓을 구해하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
+			seat_selection.setEnabled(false);
+		} else {
+			remaining_days = DB_Members.mb_rd_arr(id);
+			end_date = DB_Members.mb_ed_arr(id);
+			t_hour = Integer.parseInt(end_date) / 60;
+			t_minute = Integer.parseInt(end_date) % 60;
+			string1.setText("<html><body style='text-align:center;'>"
+					+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
+			if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
+				string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
+			} else if(ticket.contains("season_ticket")) {
+				string2.setText("남은 기간 : "+remaining_days);
+			}
+			seat_selection.setEnabled(true);
+		}
 		
 		seat_selection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,8 +75,9 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		string1.setVerticalAlignment(JLabel.CENTER);
 		add(string2);
 		string2.setFont(new Font("MapoDPP", Font.BOLD, 50));
-		string2.setBounds(0, 450, 800, 100);
+		string2.setBounds(0, 400, 800, 200);
 		string2.setHorizontalAlignment(JLabel.CENTER);
+		string2.setVerticalAlignment(JLabel.CENTER);
 		add(seat_selection);
 		seat_selection.setFont(new Font("MapoDPP", Font.PLAIN, 46));
 		seat_selection.setForeground(new Color(0xffffff));
