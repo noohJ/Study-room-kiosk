@@ -20,8 +20,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import seatSection_component.DB_Current_users_Add;
 
 public class Main_screen extends JPanel implements ActionListener{
 	JButton b1, b2, b3, b4, b5, b6;
@@ -214,27 +217,13 @@ public class Main_screen extends JPanel implements ActionListener{
 		b6.addActionListener(new ActionListener() {	//Åð½Ç
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("use_pass_or_seasn_ticket",new Use_PassOrSeasnTicket(f, id));
-				f.use_post_Panel();
+				int answer = JOptionPane.showConfirmDialog(null, "Åð½Ç ÇÏ½Ã°Ú½À´Ï±î?", "confirm", JOptionPane.YES_NO_OPTION );
+				if(answer==JOptionPane.YES_OPTION) {
+					DB_Current_users_Add.c_user_del(id);
+					F.base_screen_Panel();
+				}
 			}
 		});
-		b4.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		b5.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		b6.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//Åð½ÇÃ³¸® Ãß°¡
-				f.base_screen_Panel();
-			}
-		});	
 	}
 	
 	
