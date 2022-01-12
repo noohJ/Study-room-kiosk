@@ -1,11 +1,11 @@
 package seatSection_component;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
 
 import teamProject.DBConnector;
 
@@ -13,6 +13,7 @@ public class DB_Current_users_Add {
 	//entry_time에는 입실시간(현재시간)을 넣어서 퇴실할 때 빼준다.
 	public static void c_user_add(String seat_number, String id) {
 		// current_users의 pk를 넣기 위해 총 row를 구하는 것
+		boolean empty;
 		String sql1 = "SELECT COUNT(*) FROM current_users";
 		int user_num = 0;
 		try(
@@ -58,24 +59,27 @@ public class DB_Current_users_Add {
 		){
 			int insert = pstmt.executeUpdate();
 			System.out.println("성공적으로 추가되었습니다.");
+			empty = true;
 			pstmt.close();
 			conn.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			empty = false;
+			JOptionPane.showMessageDialog(null, id+"님은 자리가 있습니다!");
 		}
-		
-		String sql3 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number ='"+seat_number+"'";		
-		try (
-			Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql3);
-		){
-			int update = pstmt.executeUpdate();
-			System.out.printf("%d행이 변경되었습니다.", update);
-			
-			pstmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		if(empty) {
+			String sql3 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number ='"+seat_number+"'";		
+			try (
+					Connection conn = DBConnector.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql3);
+					){
+				int update = pstmt.executeUpdate();
+				System.out.printf("%d행이 변경되었습니다.", update);
+				
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
 		}
 	}
 }
