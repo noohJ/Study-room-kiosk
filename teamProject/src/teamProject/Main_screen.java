@@ -64,9 +64,10 @@ public class Main_screen extends JPanel implements ActionListener{
 			System.out.println("이용권 없는 유저..");
 		} else {
 			System.out.println("시간 유저 검사..");
+			int deferred_payment = (Integer.parseInt(DB_Members.mb_ed_arr(id)) * -1) * 50;
 			if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
 				DB_Members.mb_vc_del(id);
-				JOptionPane.showMessageDialog(null, "정액권이 종료되었습니다.", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(null, "<html>정액권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
 			}
 		}
 		
@@ -252,9 +253,14 @@ public class Main_screen extends JPanel implements ActionListener{
 						System.out.println("이용권없는 유저로 종료");
 						F.base_screen_Panel();
 					} else {
-						DB_Current_users_Add.c_user_del(id);
-						System.out.println("시간 유저로 종료");
-						F.base_screen_Panel();						
+						if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
+							System.out.println("시간 유저로 종료");
+							F.base_screen_Panel();				
+						} else {
+							DB_Current_users_Add.c_user_del(id);
+							System.out.println("시간 유저로 종료");
+							F.base_screen_Panel();
+						}
 					}
 				}
 			}

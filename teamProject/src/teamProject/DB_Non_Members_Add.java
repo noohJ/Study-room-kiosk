@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class DB_Non_Members_Add {
 	
 	public static void nmb_phone_add(String ph, String pw) {
-		String sql = "INSERT INTO non_members VALUES('"+ph+"','"+pw+"', SYSDATE)";
+		String sql = "INSERT INTO non_members VALUES('"+ph+"','"+pw+"', null)";
 		try(
 			// DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
 			Connection conn = DBConnector.getConnection();

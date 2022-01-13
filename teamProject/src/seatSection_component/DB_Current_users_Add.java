@@ -12,26 +12,9 @@ import teamProject.DBConnector;
 
 public class DB_Current_users_Add {
 	
-	public static void c_user_add(String seat_number, String id) {
+	public static boolean c_user_add(String seat_number, String id) {
 		// current_users의 pk를 넣기 위해 총 row를 구하는 것
-		boolean empty;
-		
-		int user_num = Integer.parseInt(seat_number);
-//		int user_num = 0;
-//		String sql1 = "SELECT COUNT(*) FROM current_users";
-//		try(
-//			Connection conn = DBConnector.getConnection();
-//			PreparedStatement pstmt = conn.prepareStatement(sql1);
-//			ResultSet rs = pstmt.executeQuery();
-//		){
-//			if(rs.next()) user_num = rs.getInt(1) + 1;
-//			
-//			rs.close();
-//			pstmt.close();
-//			conn.close();			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		boolean empty;		
 		
 		// current_users의 phone을 넣기위한 것
 		String sql2 = "SELECT * FROM members WHERE member_id = '"+id+"'";
@@ -52,6 +35,7 @@ public class DB_Current_users_Add {
 		}
 		
 		// current_users DB에 추가하기
+		int user_num = Integer.parseInt(seat_number);
 		String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
 				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI'))";
 		try(
@@ -83,6 +67,7 @@ public class DB_Current_users_Add {
 				e.printStackTrace();
 			}			
 		}
+		return empty;
 	}
 	
 	public static void c_user_del(String id) {
