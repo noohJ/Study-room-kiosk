@@ -20,8 +20,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import seatSection_component.DB_Current_users_Add;
 
 public class Main_screen extends JPanel implements ActionListener{
 	JButton b1, b2, b3, b4, b5, b6;
@@ -45,7 +48,6 @@ public class Main_screen extends JPanel implements ActionListener{
 		}
 	}
 	public Main_screen(Start f,String id, int m_or_nm) {
-		System.out.println(id);
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
@@ -188,15 +190,16 @@ public class Main_screen extends JPanel implements ActionListener{
 		b2.addActionListener(new ActionListener() {	//정기권/정액권 구입
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				f.add("Buy_a_voucher", // new Buy_a_voucher(f,id));
+
+				f.add("Buy_a_voucher",  new Buy_a_voucher(f,id));
 				f.Buy_a_voucher_Panel();
 			}
 		});
 		b3.addActionListener(new ActionListener() {	// 정액권/정기권 사용
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				f.add("Use_PassOrSeasnTicket",new Use_PassOrSeasnTicket(f,id));
-				f.Use_PassOrSeasnTicket_Panel();
+				f.add("Use_PassOrSeasnTicket",new Use_PassOrSeasnTicket(f,id));
+				f.use_post_Panel();
 			}
 		});
 		b4.addActionListener(new ActionListener() {	//시간 연장
@@ -216,10 +219,13 @@ public class Main_screen extends JPanel implements ActionListener{
 		b6.addActionListener(new ActionListener() {	//퇴실
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//퇴실처리 추가
-				f.base_screen_Panel();
+				int answer = JOptionPane.showConfirmDialog(null, "퇴실 하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
+				if(answer==JOptionPane.YES_OPTION) {
+					DB_Current_users_Add.c_user_del(id);
+					F.base_screen_Panel();
+				}
 			}
-		});	
+		});
 	}
 	
 	

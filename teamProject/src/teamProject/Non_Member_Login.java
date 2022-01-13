@@ -48,7 +48,8 @@ public class Non_Member_Login extends JPanel {
 				String ph_val = nmb_phone.getText();
 				int ph_err = 0;
 				// DB_Non_Members 클래스에서 논멤버의 번호를 가져와서 비교함. 번호가 없으면 true 
-				if(DB_Non_Members.nmb_phone_arr(ph_val)) {					
+				if(DB_Non_Members.nmb_phone_arr(ph_val) &&
+						DB_Members.mb_phone_arr(ph_val)) {	// 멤버의 폰번호도 같이 확인하게끔 수정
 					if(ph_val.length() == 10 || ph_val.length() == 11) {
 						for(int i = 0; i < ph_val.length(); i++) {
 							if(!(ph_val.charAt(i) >= '0' &&
@@ -80,6 +81,7 @@ public class Non_Member_Login extends JPanel {
 									JOptionPane.showMessageDialog(null, "비회원 ID가 생성되었습니다.", "회원가입", JOptionPane.PLAIN_MESSAGE);
 									f.add("main_screen",new Main_screen(f,ph_val,1));
 									f.main_screen_Panel();	
+
 								}					
 							} else {
 								chk_str.setVisible(true);

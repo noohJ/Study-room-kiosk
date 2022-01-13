@@ -22,7 +22,7 @@ public class Start extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		
+	
 		// 프레임 내부에 패널 추가
 		
 		getContentPane().add("base_screen", new Base_screen(this));		
@@ -67,18 +67,26 @@ public class Start extends JFrame{
 	public void Buy_a_voucher_Panel() { //이용권 구입
 		cards.show(this.getContentPane(),"Buy_a_voucher");
 	}
-	public void Use_PassOrSeasnTicket_Panel() { //이용권 사용
-		cards.show(this.getContentPane(),"Use_PassOrSeasnTicket");
-	}
 	public void Payment_Panel() {  // 결제
 		cards.show(this.getContentPane(), "payment");
 	}
+
 	public void Private_Seat_Selection_Panel() { //개인실 좌석 선택
 		cards.show(this.getContentPane(),"Private_Seat_Selection"); 
 	}
 	public void Meeting_Room_Selection_Panel() { //단체실 좌석 선택
 		cards.show(this.getContentPane(),"Meeting_Room_Selection"); 
 	}
+
+	public void use_post_Panel() { // 이용권 사용
+		cards.show(this.getContentPane(),"Use_PassOrSeasnTicket"); 
+	}
+	public void seat_selection_Panel() { // 이용권 좌석선택
+		cards.show(this.getContentPane(),"seat_selection"); 
+	}
+
+
+
 	
 	public static void main(String[] args) {
 		
