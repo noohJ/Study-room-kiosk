@@ -163,30 +163,30 @@ public class daily_pass_ticket extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			btn3.setBackground(new Color(227,227,227));
+			 btn3.setBackground(new Color(227,227,227));
 			 btn4.setBackground(new Color(255,255,255));
 			 btn5.setBackground(new Color(255,255,255));
 			 btn6.setBackground(new Color(255,255,255));
 			 
-			try (
-					Connection conn = DriverManager.getConnection(url, user, password);
-					PreparedStatement pstmt = conn.prepareStatement(SQL);	
-					){
-				pstmt.setInt(1, 1);
-				pstmt.setString(2, "60");
-				pstmt.setString(3, id);
-				System.out.println("값 들어감");
-				
-				
-				int cnt = pstmt.executeUpdate();
-				
-				System.out.println(cnt + "건 실행");
-				
-		}catch (SQLException ex) {
-			ex.printStackTrace();
-		}catch (Exception e1) {	
-			e1.printStackTrace();
-		}
+//			try (
+//					Connection conn = DriverManager.getConnection(url, user, password);
+//					PreparedStatement pstmt = conn.prepareStatement(SQL);	
+//					){
+//				pstmt.setInt(1, 1);
+//				pstmt.setString(2, "60");
+//				pstmt.setString(3, id);
+//				System.out.println("값 들어감");
+//				
+//				
+//				int cnt = pstmt.executeUpdate();
+//				
+//				System.out.println(cnt + "건 실행");
+//				
+//		}catch (SQLException ex) {
+//			ex.printStackTrace();
+//		}catch (Exception e1) {	
+//			e1.printStackTrace();
+//		}
 		}
 	  });
 	  btn4.addActionListener(new ActionListener() {
@@ -280,6 +280,8 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn8.setBackground(new Color(227,227,249));
+				
+				
 				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id));
 				f.Private_Seat_Selection_Panel();
 				btn8.setBackground(new Color(255,255,255));
