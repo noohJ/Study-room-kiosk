@@ -73,8 +73,12 @@ public class Start extends JFrame{
 	public void Payment_Panel() {  // 결제
 		cards.show(this.getContentPane(), "payment");
 	}
-
-
+	public void Private_Seat_Selection_Panel() { //개인실 좌석 선택
+		cards.show(this.getContentPane(),"Private_Seat_Selection"); 
+	}
+	public void Meeting_Room_Selection_Panel() { //단체실 좌석 선택
+		cards.show(this.getContentPane(),"Meeting_Room_Selection"); 
+	}
 	
 	public static void main(String[] args) {
 		

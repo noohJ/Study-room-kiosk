@@ -180,14 +180,15 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-//				f.add("daily_pass_ticket",new daily_pass_ticket(f,id));
+				f.add("daily_pass_ticket", new daily_pass_ticket(f,id));
 				f.daily_pass_ticket_Panel();
+				
 			}
 		});
 		b2.addActionListener(new ActionListener() {	//정기권/정액권 구입
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				f.add("Buy_a_voucher",new Buy_a_voucher(f,id));
+//				f.add("Buy_a_voucher", // new Buy_a_voucher(f,id));
 				f.Buy_a_voucher_Panel();
 			}
 		});
