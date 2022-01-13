@@ -52,6 +52,24 @@ public class Main_screen extends JPanel implements ActionListener{
 		setLayout(null);
 		F = f;
 		
+		// 현재 이용권의 잔여시간 및 기한이 없으면 삭제
+		if(DB_Members.mb_vc_type(id) >= 9 && 
+				DB_Members.mb_vc_type(id) <= 11) {
+			System.out.println("시즌 유저 검사..");
+			if(DB_Members.mb_rd_cal(id) <= 0) {
+				DB_Members.mb_vc_del(id);
+				JOptionPane.showMessageDialog(null, "기간권이 종료되었습니다.", "기간권 종료", JOptionPane.PLAIN_MESSAGE);
+			}
+		} else if(DB_Members.mb_vc_type(id) == 0) {
+			System.out.println("이용권 없는 유저..");
+		} else {
+			System.out.println("시간 유저 검사..");
+			if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
+				DB_Members.mb_vc_del(id);
+				JOptionPane.showMessageDialog(null, "정액권이 종료되었습니다.", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
+			}
+		}
+		
 		LocalDate str = LocalDate.now();
 		LocalTime str1 = LocalTime.now();
 		int hour = str1.getHour();
@@ -95,9 +113,8 @@ public class Main_screen extends JPanel implements ActionListener{
 		b1 = new JButton(new ImageIcon("teamProject/src/icons/당일권구입.jpg"));
 		b2 = new JButton(new ImageIcon("teamProject/src/icons/정액권구입.jpg"));
 		b3 = new JButton(new ImageIcon("teamProject/src/icons/정액권정기권사용.jpg"));
-		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));
-		
-		b5 = new JButton("기타");
+		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));		
+		b5 = new JButton(new ImageIcon("teamProject/src/icons/자리이동.jpg"));
 		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
 		
 	
@@ -207,11 +224,16 @@ public class Main_screen extends JPanel implements ActionListener{
 				setVisible(false);
 			}
 		});
-		b5.addActionListener(new ActionListener() {	//공란 추후 자리이동 예정
+		b5.addActionListener(new ActionListener() {	//자리이동
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//new Part();
-				setVisible(false);
+				String c_user_seat = DB_Current_users_Add.c_user_seat(id);
+				if(c_user_seat.equals("0")) {
+					JOptionPane.showMessageDialog(null, "이용 중인 자리가 없습니다.");
+				} else {
+					f.add("seat_change",new Seat_change(f,id));
+					f.seat_change_Panel();					
+				}
 			}
 		});
 		b6.addActionListener(new ActionListener() {	//퇴실
@@ -219,8 +241,19 @@ public class Main_screen extends JPanel implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int answer = JOptionPane.showConfirmDialog(null, "퇴실 하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 				if(answer==JOptionPane.YES_OPTION) {
-					DB_Current_users_Add.c_user_del(id);
-					F.base_screen_Panel();
+					if(DB_Members.mb_vc_type(id) >= 9 && 
+							DB_Members.mb_vc_type(id) <= 11) {
+						DB_Current_users_Add.c_season_user_del(id);
+						System.out.println("시즌 유저로 종료");
+						F.base_screen_Panel();
+					} else if(DB_Members.mb_vc_type(id) == 0) {
+						System.out.println("이용권없는 유저로 종료");
+						F.base_screen_Panel();
+					} else {
+						DB_Current_users_Add.c_user_del(id);
+						System.out.println("시간 유저로 종료");
+						F.base_screen_Panel();						
+					}
 				}
 			}
 		});

@@ -37,14 +37,14 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		} else {
 			remaining_days = DB_Members.mb_rd_arr(id);
 			end_date = DB_Members.mb_ed_arr(id);
-			t_hour = Integer.parseInt(end_date) / 60;
-			t_minute = Integer.parseInt(end_date) % 60;
 			string1.setText("<html><body style='text-align:center;'>"
 					+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
 			if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
+				t_hour = Integer.parseInt(end_date) / 60;
+				t_minute = Integer.parseInt(end_date) % 60;
 				string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
 			} else if(ticket.contains("season_ticket")) {
-				string2.setText("남은 기간 : "+remaining_days);
+				string2.setText("사용 기한 : "+remaining_days);
 			}
 			seat_selection.setEnabled(true);
 		}

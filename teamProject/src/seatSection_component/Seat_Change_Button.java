@@ -12,11 +12,11 @@ import javax.swing.JOptionPane;
 
 import teamProject.Start;
 
-public class SeatButton extends JButton {
+public class Seat_Change_Button extends JButton {
 	
 	private Start F;
 	
-	public SeatButton(int x, int y, String seat_number, Start f, String id) {
+	public Seat_Change_Button(int x, int y, String seat_number, Start f, String id) {
 		
 		F = f;
 		
@@ -34,9 +34,9 @@ public class SeatButton extends JButton {
 			this.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리를 사용하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
+					int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리로 이동하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 					if(answer==JOptionPane.YES_OPTION) {
-						DB_Current_users_Add.c_user_add(seat_number, id);
+						DB_Current_users_Add.c_user_change_seat(seat_number, id);
 						F.base_screen_Panel();
 					}					
 				}

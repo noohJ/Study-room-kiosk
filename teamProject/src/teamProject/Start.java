@@ -8,7 +8,7 @@ public class Start extends JFrame{
 	private CardLayout cards = new CardLayout();
 	static String nmid;
 	
-	public Start() { 
+	public Start() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("로딩 완료");
@@ -75,6 +75,9 @@ public class Start extends JFrame{
 	}
 	public void seat_selection_Panel() { // 이용권 좌석선택
 		cards.show(this.getContentPane(),"seat_selection"); 
+	}
+	public void seat_change_Panel() { // 이용권 좌석선택
+		cards.show(this.getContentPane(),"seat_change"); 
 	}
 
 
