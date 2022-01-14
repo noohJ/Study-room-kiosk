@@ -44,7 +44,7 @@ public class Member_login extends JPanel {
 		
 		JLabel string1 = new JLabel("È¸¿ø ·Î±×ÀÎ");
 		add(string1);
-		string1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 90));
+		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
 		string1.setBounds(0, 230, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -56,7 +56,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(id);
-		id.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		id.setFont(new Font("MapoDPP", Font.PLAIN, 40));
 		id.setForeground(new Color(0xd0d0d0));
 		id.setBounds(115, 400, 560, 70);
 		id.setText("¾ÆÀÌµð ÀÔ·Â");
@@ -78,7 +78,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(pw);
-		pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		pw.setFont(new Font("MapoDPP", Font.PLAIN, 40));
 		pw.setForeground(new Color(0xd0d0d0));
 		pw.setBounds(115, 500, 560, 70);
 		
@@ -135,7 +135,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(confirm);
-		confirm.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 46));
+		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
 		confirm.setForeground(new Color(0xffffff));
 		confirm.setOpaque(true);
 		confirm.setBackground(new Color(0x5777ff));
@@ -152,7 +152,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));
@@ -169,7 +169,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(f_id);
-		f_id.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
+		f_id.setFont(new Font("MapoDPP", Font.PLAIN, 18));
 		f_id.setForeground(new Color(0x222222));
 		f_id.setOpaque(true);
 		f_id.setBackground(new Color(0xc3cdf8));
@@ -186,7 +186,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(f_pw);
-		f_pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
+		f_pw.setFont(new Font("MapoDPP", Font.PLAIN, 18));
 		f_pw.setForeground(new Color(0x222222));
 		f_pw.setOpaque(true);
 		f_pw.setBackground(new Color(0xc3cdf8));

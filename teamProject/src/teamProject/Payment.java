@@ -40,20 +40,24 @@ public class Payment extends JPanel{
 		String code = String.valueOf(voucher_code);
 		
 		Voucher_con = new JLabel("");
-		Voucher_con.setBounds(100,250,600,150);
+		Voucher_con.setBounds(115,704,600,150);
 		add(Voucher_con);
 		
 		voucher_type = new JLabel();
-		voucher_type.setBounds(100, 100,600,150);
 		add(voucher_type);
+		voucher_type.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		voucher_type.setBounds(0, 200, 800, 200);
 		voucher_type.setHorizontalAlignment(JLabel.CENTER);
+		voucher_type.setVerticalAlignment(JLabel.CENTER);
 		
 		voucher_price = new JLabel();
-		voucher_price.setBounds(100, 200, 600,150);
 		add(voucher_price);
+		voucher_price.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		voucher_price.setBounds(0, 400, 800, 200);
 		voucher_price.setHorizontalAlignment(JLabel.CENTER);
+		voucher_price.setVerticalAlignment(JLabel.CENTER);
 		
-		confirm = new JButton("확인");
+		confirm = new JButton("이용권 결제하기");
 		confirm.addActionListener(new ActionListener() {
 			int vochk;
 			@Override
@@ -149,11 +153,11 @@ public class Payment extends JPanel{
 
 			}
 		});
-		confirm.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
-		confirm.setForeground(new Color(0x222222));
+		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
+		confirm.setForeground(new Color(0xffffff));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0xd0d0d0));
-		confirm.setBounds(90,810,200,90);
+		confirm.setBackground(new Color(0x5777ff));
+		confirm.setBounds(115, 670, 560, 94);
 		add(confirm);
 		
 		previous = new JButton("이전 화면");
@@ -165,7 +169,7 @@ public class Payment extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));
@@ -179,7 +183,7 @@ public class Payment extends JPanel{
 				f.main_screen_Panel();
 			}
 		});
-		main.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+		main.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		main.setForeground(new Color(0x222222));
 		main.setOpaque(true);
 		main.setBackground(new Color(0xd0d0d0));
@@ -200,13 +204,16 @@ public class Payment extends JPanel{
 			while(rs.next()) {
 				type = rs.getString("VOUCHER_TYPE");
 				if(type.equals("daily_ticket")) {
-					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));					
 				}else if (type.equals("pass_ticket")) {
-					voucher_type.setText("선택하신 정액권 : "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("<html><body style='text-align:center;'>"
+							+ "선택하신 정액권 :<br> "+rs.getString("VOUCHER_NAME")+" </html>");
 				}else {
-					voucher_type.setText("선택하신 정기권 : "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("<html><body style='text-align:center;'>"
+							+ "선택하신 정기권 :<br> "+rs.getString("VOUCHER_NAME")+" </html>");
 				}
-				voucher_price.setText("결제하실 금액 : "+rs.getString("VOUCHER_PRICE")+"원");
+				voucher_price.setText("<html><body style='text-align:center;'>"
+						+ "결제하실 금액 :<br> "+rs.getString("VOUCHER_PRICE")+"원 </html>");
 			}
 			
 			

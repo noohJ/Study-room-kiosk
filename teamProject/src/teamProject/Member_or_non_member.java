@@ -31,7 +31,7 @@ public class Member_or_non_member extends JPanel {
 		
 		member = new JButton("È¸¿ø ·Î±×ÀÎ");
 		member.setBounds(100,230,600,200);
-		member.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 60 ));
+		member.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 60 ));
 		member.setForeground(new Color(0xffffff));
 		member.setBackground(new Color(0x5777ff));
 		member.addActionListener(new ActionListener() {
@@ -47,7 +47,7 @@ public class Member_or_non_member extends JPanel {
 		
 		non_member = new JButton("ºñÈ¸¿ø ·Î±×ÀÎ");
 		non_member.setBounds(100,510,600,200);
-		non_member.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 60 ));
+		non_member.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 60 ));
 		non_member.setForeground(new Color(0xffffff));
 		non_member.setBackground(new Color(0x5777ff));
 		non_member.addActionListener(new ActionListener() {
@@ -68,7 +68,7 @@ public class Member_or_non_member extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));

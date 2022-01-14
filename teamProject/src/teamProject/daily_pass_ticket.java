@@ -40,32 +40,11 @@ public class daily_pass_ticket extends JPanel{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-	}	
+	}
 	
-	static // 이미지 삽입
-	File f = new File("teamProject/src/icons/로고.jpg");
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	Image img = tk.getImage("teamProject/src/icons/로고.jpg");
-	
-	 
-	// 이미지 삽입
-	 JPanel panel = new JPanel() {
-		 @Override
-		 public void paint(Graphics g) {
-			 g.drawImage(img, 0, 0, this);
-			 g.drawImage(img, 100, 0, this);
-			 g.drawImage(img, 200, 0, this);
-			 g.drawImage(img, 300, 0, this);
-			 g.drawImage(img, 400, 0, this);
-			 g.drawImage(img, 500, 0, this);
-			 g.drawImage(img, 600, 0, this);
-			 g.drawImage(img, 700, 0, this);
-		 }
-	 };
 	 // 패널 생성
-	 JPanel panel3 = new JPanel();
 	 JPanel panel1 = new JPanel();
-	 JPanel panel2 = new JPanel();
+//	 JPanel panel2 = new JPanel();
 	 JPanel null1 = new JPanel();
 	 
 	 // 버튼 생성
@@ -85,76 +64,87 @@ public class daily_pass_ticket extends JPanel{
 	public daily_pass_ticket(Start f , String id , int m_or_nm){
 	//프레임 레이아웃 설정, 사이즈 설정
 		F = f;
-		 setLayout(null);
-		 
-		 
-			
-	 
+		setSize(800, 1000);
+		setLayout(null);
+		
+		JLabel header = new JLabel(" 당일권 구입");
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0xdedede));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0x545454)); 
+		
+		JLabel string1 = new JLabel("정액권 구매 선택");
+		string1.setBounds(100,160,300,50);
+		string1.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
+		add(string1);
+		
+		JLabel string2 = new JLabel("<html>xxxx를 선택하셨습니다.<br>사용하실 좌석타입을 선택해주세요.</html>");
+		string2.setBounds(100,670,500,60);
+		string2.setFont(new Font("MapoDPP", Font.PLAIN , 25));
+		add(string2);
 	  
 	  
 	// 라벨 설정  
 	  JLabel label = new JLabel("시간을 선택해주세요");
-	  panel3.add(label);
+	  add(label);
 	  label.setHorizontalAlignment(JLabel.CENTER);
 	  label.setFont(new Font("맑은 고딕" , Font.BOLD, 20));
 	  
-	  
-	  
-	  
-	// 패널 위치 및 여백 설정
-	  panel.setBounds(0, 0, 800, 100);
-	  panel3.setBounds(0, 100, 800, 50);
-	  panel1.setBounds(0, 150, 800, 700);
-	  panel2.setBounds(0, 850, 800, 110);
-	  panel1.setBorder(BorderFactory.createEmptyBorder(100 , 100, 100 , 100));
-	  panel2.setBorder(BorderFactory.createEmptyBorder(0 , 0, 0 , 0));
-	  
-	// 버튼 색상  
-	  btn3.setBackground(new Color(255,255,255));
-	  btn4.setBackground(new Color(255,255,255));
-	  btn5.setBackground(new Color(255,255,255));
-	  btn6.setBackground(new Color(255,255,255));
-	  btn7.setBackground(new Color(255,255,255));
-	  btn8.setBackground(new Color(255,255,255));
-	  btn9.setBackground(new Color(255,255,255));
-	// 패널에 추가  
-	  panel1.add(btn3);
-	  panel1.add(btn4);
-	  panel1.add(btn5);
-	  panel1.add(btn6);
-	  panel2.add(btn7);
-	  panel2.add(btn8);
-	  panel2.add(btn9);
+	  add(btn3);
+	  btn3.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
+	  btn3.setForeground(new Color(0x444444));
+	  btn3.setOpaque(true);
+	  btn3.setBackground(new Color(0xc4ccf1));
+	  btn3.setBounds(100, 240, 250, 150);
+	  add(btn4);
+	  btn4.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
+	  btn4.setForeground(new Color(0x444444));
+	  btn4.setOpaque(true);
+	  btn4.setBackground(new Color(0xc4ccf1));
+	  btn4.setBounds(450, 240, 250, 150);
+	  add(btn5);
+	  btn5.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
+	  btn5.setForeground(new Color(0x444444));
+	  btn5.setOpaque(true);
+	  btn5.setBackground(new Color(0xc4ccf1));
+	  btn5.setBounds(100, 490, 250, 150);
+	  add(btn6);
+	  btn6.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
+	  btn6.setForeground(new Color(0x444444));
+	  btn6.setOpaque(true);
+	  btn6.setBackground(new Color(0xc4ccf1));
+	  btn6.setBounds(450, 490, 250, 150);
+	  add(btn7);
+	  btn7.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+	  btn7.setForeground(new Color(0x222222));
+	  btn7.setOpaque(true);
+	  btn7.setBackground(new Color(0xd0d0d0));
+	  btn7.setBounds(530, 810, 200, 90);
+	  add(btn8);
+	  btn8.setFont(new Font("MapoDPP", Font.PLAIN, 30));
+	  btn8.setForeground(new Color(0x222222));
+	  btn8.setOpaque(true);
+	  btn8.setBackground(new Color(0xd0d0d0));
+	  btn8.setBounds(70, 810, 200, 90);
+	  add(btn9);
+	  btn9.setFont(new Font("MapoDPP", Font.PLAIN, 30));
+	  btn9.setForeground(new Color(0x222222));
+	  btn9.setOpaque(true);
+	  btn9.setBackground(new Color(0xd0d0d0));
+	  btn9.setBounds(300, 810, 200, 90);
 	  
 	 // 버튼 텍스트 입력 및 폰트 설정
-	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "3000￦");
-	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "8000￦");
-	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "15000￦");
-	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "25000￦");
-	  btn7.setText("이전으로");
-	  btn8.setText("개인실선택");
-	  btn9.setText("단체실선택");
-	  btn3.setFont(new Font("맑은 고딕" , Font.BOLD, 30));
-	  btn4.setFont(new Font("맑은 고딕" , Font.BOLD, 30));
-	  btn5.setFont(new Font("맑은 고딕" , Font.BOLD, 30));
-	  btn6.setFont(new Font("맑은 고딕" , Font.BOLD, 30));
-	  btn7.setFont(new Font("맑은 고딕" , Font.BOLD, 20));
-	  btn8.setFont(new Font("맑은 고딕" , Font.BOLD, 20));
-	  btn9.setFont(new Font("맑은 고딕" , Font.BOLD, 20));
-	  
-	  // 패널 레이아웃 설정 및 배경색 설정
-	  panel1.setLayout(new GridLayout(2, 2,100,100));
-	  panel2.setLayout(new GridLayout(1, 3,50,50));
-	  panel.setBackground(new Color(204,255,255));
-	  panel3.setBackground(new Color(255,255,255));
-	  panel1.setBackground(new Color(255,255,255));
-	  panel2.setBackground(new Color(64,64,64));
-	  
-	  // 프레임에 패널 추가
-	  add(panel);
-	  add(panel3);
-	  add(panel1);
-	  add(panel2);
+	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "3,000원");
+	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "8,000원");
+	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "15,000원");
+	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "25,000원");
+	  btn7.setText("이전 화면");
+	  btn8.setText("개인실 선택");
+	  btn9.setText("단체실 선택");
+
 	  String SQL = "UPDATE  members SET VOUCHER_CODE = ? , END_DATE = ? WHERE MEMBER_ID = ?";
 	  
 	  // 버튼 클릭시 반응
@@ -164,9 +154,9 @@ public class daily_pass_ticket extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			 btn3.setBackground(new Color(227,227,227));
-			 btn4.setBackground(new Color(255,255,255));
-			 btn5.setBackground(new Color(255,255,255));
-			 btn6.setBackground(new Color(255,255,255));
+			 btn4.setBackground(new Color(0xc4ccf1));
+			 btn5.setBackground(new Color(0xc4ccf1));
+			 btn6.setBackground(new Color(0xc4ccf1));
 			 
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
@@ -194,9 +184,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn4.setBackground(new Color(227,227,227));
-				btn3.setBackground(new Color(255,255,255));
-				btn5.setBackground(new Color(255,255,255));
-				btn6.setBackground(new Color(255,255,255));
+				btn3.setBackground(new Color(0xc4ccf1));
+				btn5.setBackground(new Color(0xc4ccf1));
+				btn6.setBackground(new Color(0xc4ccf1));
 			
 				try (
 						Connection conn = DriverManager.getConnection(url, user, password);
@@ -207,11 +197,11 @@ public class daily_pass_ticket extends JPanel{
 					pstmt.setString(3, id);
 					System.out.println("값 들어감");	
 					int cnt = pstmt.executeUpdate();		
-			}catch (SQLException ex) {
-				ex.printStackTrace();
-			}catch (Exception e1) {	
-				e1.printStackTrace();
-			}
+				}catch (SQLException ex) {
+					ex.printStackTrace();
+				}catch (Exception e1) {	
+					e1.printStackTrace();
+				}
 			}
 		  });
 	  btn5.addActionListener(new ActionListener() {
@@ -219,9 +209,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 btn5.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(255,255,255));
-				 btn4.setBackground(new Color(255,255,255));
-				 btn6.setBackground(new Color(255,255,255));
+				 btn3.setBackground(new Color(0xc4ccf1));
+				 btn4.setBackground(new Color(0xc4ccf1));
+				 btn6.setBackground(new Color(0xc4ccf1));
 				 
 				
 				try (
@@ -245,9 +235,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn6.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(255,255,255));
-				 btn4.setBackground(new Color(255,255,255));
-				 btn5.setBackground(new Color(255,255,255));
+				 btn3.setBackground(new Color(0xc4ccf1));
+				 btn4.setBackground(new Color(0xc4ccf1));
+				 btn5.setBackground(new Color(0xc4ccf1));
 				
 				
 				

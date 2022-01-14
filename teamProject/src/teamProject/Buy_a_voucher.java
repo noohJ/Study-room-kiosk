@@ -76,7 +76,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ffh);
-		ffh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		ffh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		ffh.setForeground(new Color(0x444444));
 		ffh.setOpaque(true);
 		ffh.setBackground(new Color(0xc4ccf1));
@@ -91,7 +91,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ohh);
-		ohh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		ohh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		ohh.setForeground(new Color(0x444444));
 		ohh.setOpaque(true);
 		ohh.setBackground(new Color(0xc4ccf1));
@@ -121,7 +121,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(fhh);
-		fhh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		fhh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		fhh.setForeground(new Color(0x444444));
 		fhh.setOpaque(true);
 		fhh.setBackground(new Color(0xc4ccf1));
@@ -143,7 +143,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(od);
-		od.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		od.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		od.setForeground(new Color(0x444444));
 		od.setOpaque(true);
 		od.setBackground(new Color(0xc4ccf1));
@@ -158,7 +158,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(sd);
-		sd.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		sd.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		sd.setForeground(new Color(0x444444));
 		sd.setOpaque(true);
 		sd.setBackground(new Color(0xc4ccf1));
@@ -173,7 +173,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(td);
-		td.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		td.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		td.setForeground(new Color(0x444444));
 		td.setOpaque(true);
 		td.setBackground(new Color(0xc4ccf1));
@@ -187,7 +187,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));
@@ -201,7 +201,7 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(exit);
-		exit.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		exit.setFont(new Font("MapoDPP", Font.PLAIN, 35));
 		exit.setForeground(new Color(0x222222));
 		exit.setOpaque(true);
 		exit.setBackground(new Color(0xd0d0d0));
