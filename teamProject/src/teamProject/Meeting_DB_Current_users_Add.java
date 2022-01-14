@@ -14,7 +14,7 @@ import teamProject.DBConnector;
 
 public class Meeting_DB_Current_users_Add {
    //entry_time에는 입실시간(현재시간)을 넣어서 퇴실할 때 빼준다.
-   public static void c_user_add(String seat_number, String id) {
+   public static void c_user_add(String seat_number, String id, int m_or_nm) {
       // current_users의 pk를 넣기 위해 총 row를 구하는 것
 	  boolean empty;
       String sql1 = "SELECT COUNT(*) FROM current_users";
@@ -39,7 +39,11 @@ public class Meeting_DB_Current_users_Add {
       // 비회원일 경우에는 실행안되게 
       String sql2 = "SELECT * FROM members WHERE member_id = '"+id+"'";
       String user_phone = "";
+      String sql4 = "SELECT * FROM non_members Where non_member_phone = '"+id+"'";
+      String non_user_phone = "";
+      String phone = "";
       
+      if(m_or_nm == 0) {
       try(
          Connection conn = DBConnector.getConnection();
          PreparedStatement pstmt = conn.prepareStatement(sql2);
@@ -47,6 +51,7 @@ public class Meeting_DB_Current_users_Add {
       ){
          while(rs.next()) {
             user_phone = rs.getString("member_phone");
+            phone = user_phone;
          }
          rs.close();
          pstmt.close();
@@ -54,12 +59,28 @@ public class Meeting_DB_Current_users_Add {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      
+      }
+      if(m_or_nm == 1) {
+          try(
+             Connection conn = DBConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql4);
+             ResultSet rs = pstmt.executeQuery();
+          ){
+             while(rs.next()) {
+            	 phone = rs.getString("non_member_phone");
+             }
+             rs.close();
+             pstmt.close();
+             conn.close();         
+          } catch (SQLException e) {
+             e.printStackTrace();
+          }
+          }
       
       
       
       // current_users DB에 추가하기
-      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
+      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+phone+"',"
             + "'"+seat_number+"',SYSDATE)";
       try(
          // DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.

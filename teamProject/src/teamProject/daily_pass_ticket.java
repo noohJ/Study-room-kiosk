@@ -82,7 +82,7 @@ public class daily_pass_ticket extends JPanel{
 
 	
 
-	public daily_pass_ticket(Start f , String id){
+	public daily_pass_ticket(Start f , String id , int m_or_nm){
 	//프레임 레이아웃 설정, 사이즈 설정
 		F = f;
 		 setLayout(null);
@@ -282,7 +282,7 @@ public class daily_pass_ticket extends JPanel{
 				btn8.setBackground(new Color(227,227,249));
 				
 				
-				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id));
+				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm));
 				f.Private_Seat_Selection_Panel();
 				btn8.setBackground(new Color(255,255,255));
 			}
@@ -292,7 +292,7 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn9.setBackground(new Color(227,227,249));
-				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id));
+				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 				f.Meeting_Room_Selection_Panel();
 				btn9.setBackground(new Color(255,255,255));
 			}
@@ -303,5 +303,11 @@ public class daily_pass_ticket extends JPanel{
 	  setVisible(true);
 	  
 	  }
+
+
+
+
+
+	
 }
 	

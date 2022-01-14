@@ -51,6 +51,10 @@ public class DB_Current_users_Add {
 			e.printStackTrace();
 		}
 		
+		
+		
+		
+		
 		// current_users DB에 추가하기
 		String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
 				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI'))";

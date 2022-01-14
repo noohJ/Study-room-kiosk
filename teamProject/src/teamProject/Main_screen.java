@@ -199,7 +199,7 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				f.add("daily_pass_ticket", new daily_pass_ticket(f,id));
+				f.add("daily_pass_ticket", new daily_pass_ticket(f,id,m_or_nm));
 				f.daily_pass_ticket_Panel();
 				
 			}
