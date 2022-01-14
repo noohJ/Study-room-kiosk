@@ -65,7 +65,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
 		header.setForeground(new Color(0x000000));
 		header.setOpaque(true);
-		header.setBounds(0, 0, 800, 130);
+		header.setBounds(0, 0, 800, 100);
 		header.setBackground(new Color(0xBFFFD9));
 		
 		
@@ -229,33 +229,24 @@ public class Main_screen extends JPanel implements ActionListener{
 		j2.setBackground(new Color(0x1DCBEE));
 		j3.setBackground(new Color(0x1DCBEE));
 
-		b1.setBounds(80, 270, 200, 100);
-		b2.setBounds(290, 270, 200, 100);
-		b3.setBounds(500, 270, 200, 100);
-		b4.setBounds(80, 420, 200, 100);
-		b5.setBounds(290, 420, 200, 100);
-		b6.setBounds(500, 420, 200, 100);
-		j.setBounds(0, 130, 200, 120);
-		j1.setBounds(200, 130, 200, 120);
-		j2.setBounds(400, 130, 200, 120);
-		j3.setBounds(600, 130, 200, 120);
+		
 		
 		prev_btn.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
         prev_btn.setForeground(new Color(0x222222));
         prev_btn.setOpaque(true);
         prev_btn.setBackground(new Color(0xd0d0d0));
-        prev_btn.setBounds(530, 810, 200, 90);
+        prev_btn.setBounds(530, 850, 200, 90);
 
-		b1.setBounds(50, 150, 200, 100);
-		b2.setBounds(260, 150, 200, 100);
-		b3.setBounds(470, 150, 200, 100);
-		b4.setBounds(50, 300, 200, 100);
-		b5.setBounds(260, 300, 200, 100);
-		b6.setBounds(470, 300, 200, 100);
-		j.setBounds(50, 30, 150, 100);
-		j1.setBounds(210, 30, 150, 100);
-		j2.setBounds(370, 30, 150, 100);
-		j3.setBounds(530, 30, 150, 100);
+		b1.setBounds(80, 220, 200, 100);
+		b2.setBounds(290, 220, 200, 100);
+		b3.setBounds(500, 220, 200, 100);
+		b4.setBounds(80, 330, 200, 100);
+		b5.setBounds(290, 330, 200, 100);
+		b6.setBounds(500, 330, 200, 100);
+		j.setBounds(0, 100, 200, 100);
+		j1.setBounds(200, 100, 200, 100);
+		j2.setBounds(400, 100, 200, 100);
+		j3.setBounds(600, 100, 200, 100);
 		j4.setBounds(0, 200, 800, 500);
 		j5.setBounds(0, 450, 800, 500);
 
