@@ -41,7 +41,6 @@ public class Private_DB_Current_users_Add {
       String sql2 = "SELECT * FROM members WHERE member_id = '"+id+"'";
       String user_phone = "";
       String sql4 = "SELECT * FROM non_members Where non_member_phone = '"+id+"'";
-      String non_user_phone = "";
       String phone = "";
       
       
