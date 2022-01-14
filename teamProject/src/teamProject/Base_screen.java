@@ -19,7 +19,7 @@ public class Base_screen extends JPanel {
 		setLayout(null);
 		F = f;		
 		
-		JLabel header = new JLabel("  비회원 로그인");
+		JLabel header = new JLabel("  훈환희광 스터디카페");
 		member_btn = new JButton("회원/비회원 로그인");
 		non_member_btn = new JButton("비회원 이용");
 		sign_up_btn = new JButton("회원 가입");

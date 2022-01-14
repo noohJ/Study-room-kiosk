@@ -1,5 +1,7 @@
 package teamProject;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,13 +19,22 @@ public class Buy_a_voucher extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
-
-		pass = new JLabel("Á¤¾×±Ç");
-		pass.setBounds(80,180,200,50);
+		
+		JLabel header = new JLabel("  Á¤¾×±Ç/Á¤±â±Ç ±¸ÀÔ");
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0xdedede));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0x545454));
+		
+		pass = new JLabel("Á¤¾×±Ç ±¸¸Å ¼±ÅÃ");
+		pass.setBounds(80,160,300,50);
+		pass.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 30));
 		add(pass);
 		
-		ffh = new JButton("50½Ã°£");
-		ffh.setBounds(80, 240, 300, 100);
+		ffh = new JButton("<html><body style='text-align:center;'>50½Ã°£<br>xx,xxx¿ø</html>");		
 		ffh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -32,9 +43,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ffh);
+		ffh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		ffh.setForeground(new Color(0x444444));
+		ffh.setOpaque(true);
+		ffh.setBackground(new Color(0xc4ccf1));
+		ffh.setBounds(80, 220, 300, 130);
 		
-		ohh = new JButton("100½Ã°£");
-		ohh.setBounds(420, 240, 300, 100);
+		ohh = new JButton("<html><body style='text-align:center;'>100½Ã°£<br>xxx,xxx¿ø</html>");
 		ohh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -43,9 +58,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ohh);
+		ohh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		ohh.setForeground(new Color(0x444444));
+		ohh.setOpaque(true);
+		ohh.setBackground(new Color(0xc4ccf1));
+		ohh.setBounds(420, 220, 300, 130);
 		
-		thfh = new JButton("250½Ã°£");
-		thfh.setBounds(80, 375, 300, 100);
+		thfh = new JButton("<html><body style='text-align:center;'>250½Ã°£<br>xxx,xxx¿ø</html>");
 		thfh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -54,9 +73,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(thfh);
+		thfh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		thfh.setForeground(new Color(0x444444));
+		thfh.setOpaque(true);
+		thfh.setBackground(new Color(0xc4ccf1));
+		thfh.setBounds(80, 380, 300, 130);
 		
-		fhh = new JButton("500½Ã°£");
-		fhh.setBounds(420, 375, 300, 100);
+		fhh = new JButton("<html><body style='text-align:center;'>500½Ã°£<br>xxx,xxx¿ø</html>");
 		fhh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -65,15 +88,20 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(fhh);
+		fhh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		fhh.setForeground(new Color(0x444444));
+		fhh.setOpaque(true);
+		fhh.setBackground(new Color(0xc4ccf1));
+		fhh.setBounds(420, 380, 300, 130);
 		
 		
 		
-		season_ticket = new JLabel("Á¤±â±Ç");
-		season_ticket.setBounds(80,500,200,50);
+		season_ticket = new JLabel("Á¤±â±Ç ±¸¸Å ¼±ÅÃ");
 		add(season_ticket);
+		season_ticket.setBounds(80,550,300,50);
+		season_ticket.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 30));
 		
-		od = new JButton("1ÀÏ±Ç");
-		od.setBounds(80, 560, 200, 300);
+		od = new JButton("<html><body style='text-align:center;'>1ÀÏ±Ç<br>xx,xxx¿ø</html>");
 		od.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -82,9 +110,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(od);
+		od.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		od.setForeground(new Color(0x444444));
+		od.setOpaque(true);
+		od.setBackground(new Color(0xc4ccf1));
+		od.setBounds(80, 610, 200, 160);
 		
-		sd = new JButton("7ÀÏ±Ç");
-		sd.setBounds(300, 560, 200, 300);
+		sd = new JButton("<html><body style='text-align:center;'>7ÀÏ±Ç<br>xxx,xxx¿ø</html>");
 		sd.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -93,9 +125,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(sd);
+		sd.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		sd.setForeground(new Color(0x444444));
+		sd.setOpaque(true);
+		sd.setBackground(new Color(0xc4ccf1));
+		sd.setBounds(300, 610, 200, 160);
 		
-		td = new JButton("30ÀÏ±Ç");
-		td.setBounds(520, 560, 200, 300);
+		td = new JButton("<html><body style='text-align:center;'>30ÀÏ±Ç<br>xxx,xxx¿ø</html>");
 		td.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,9 +140,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(td);
+		td.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
+		td.setForeground(new Color(0x444444));
+		td.setOpaque(true);
+		td.setBackground(new Color(0xc4ccf1));
+		td.setBounds(520, 610, 200, 160);
 		
 		previous = new JButton("ÀÌÀü È­¸é");
-		previous.setBounds(80,100,100,30);
 		previous.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -114,9 +154,13 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(previous);
+		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setForeground(new Color(0x222222));
+		previous.setOpaque(true);
+		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBounds(530, 810, 200, 90);
 		
 		exit = new JButton("³ª°¡±â");
-		exit.setBounds(210,100,100,30);
 		exit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -124,5 +168,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(exit);
+		exit.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		exit.setForeground(new Color(0x222222));
+		exit.setOpaque(true);
+		exit.setBackground(new Color(0xd0d0d0));
+		exit.setBounds(310, 810, 200, 90);
 	}
 }

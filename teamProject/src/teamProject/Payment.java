@@ -1,5 +1,7 @@
 package teamProject;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -25,6 +27,16 @@ public class Payment extends JPanel{
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
+		
+		JLabel header = new JLabel("  결제하기");
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0xdedede));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0x545454));
+		
 		String code = String.valueOf(voucher_code);
 		
 		Voucher_con = new JLabel("");
@@ -140,7 +152,7 @@ public class Payment extends JPanel{
 		confirm.setBounds(100,450,270,100);
 		add(confirm);
 		
-		previous = new JButton("이전");
+		previous = new JButton("이전 화면");
 		previous.addActionListener(new ActionListener() {		
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -148,8 +160,12 @@ public class Payment extends JPanel{
 				f.Buy_a_voucher_Panel();
 			}
 		});
-		previous.setBounds(430,450,270,100);
 		add(previous);
+		previous.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+		previous.setForeground(new Color(0x222222));
+		previous.setOpaque(true);
+		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBounds(530, 810, 200, 90);
 		
 		main = new JButton("메인 화면");
 		main.addActionListener(new ActionListener() {	
@@ -159,7 +175,7 @@ public class Payment extends JPanel{
 				f.main_screen_Panel();
 			}
 		});
-		main.setBounds(100,600,270,100);
+		main.setBounds(0,900,150,100);
 		add(main);
 		
 		exit = new JButton("나가기");
@@ -170,7 +186,7 @@ public class Payment extends JPanel{
 				f.base_screen_Panel();
 			}
 		});
-		exit.setBounds(430,600,270,100);
+		exit.setBounds(150,900,150,100);
 		add(exit);
 		
 		
