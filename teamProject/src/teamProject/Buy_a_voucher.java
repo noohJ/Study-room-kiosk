@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,12 +19,39 @@ public class Buy_a_voucher extends JPanel {
 	private JButton exit,previous,ffh,ohh,thfh,fhh,od,sd,td;
 	private Start F;
 	private String id;
+	private String[] price = new String[7];;
 	
 	public Buy_a_voucher(Start f, String id){
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
+		for(int i = 0,j=5;i<price.length;++i,++j) {
+			try {
+				Connection conn = DriverManager.getConnection(
+						"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+						"hr",
+						"1234");
+				System.out.println("연결 생성 완료.");
+				
+				PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+String.valueOf(j));
+
+				ResultSet rs = voucher_tp_t.executeQuery();
+				
+				while(rs.next()) {
+					price[i] = rs.getString("VOUCHER_PRICE")+"원";
+				}
+				
+				
+				rs.close();
+				voucher_tp_t.close();
+				conn.close();
+				
+			} catch (SQLException a) {
+				a.printStackTrace();
+			}
+		}
+	
 		JLabel header = new JLabel("  정액권/정기권 구입");
 		add(header);
 		header.setFocusable(true);
@@ -34,7 +66,7 @@ public class Buy_a_voucher extends JPanel {
 		pass.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
 		add(pass);
 		
-		ffh = new JButton("<html><body style='text-align:center;'>50시간<br>xx,xxx원</html>");		
+		ffh = new JButton("<html><body style='text-align:center;'>50시간<br>"+price[0]+"</html>");		
 		ffh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -49,7 +81,7 @@ public class Buy_a_voucher extends JPanel {
 		ffh.setBackground(new Color(0xc4ccf1));
 		ffh.setBounds(80, 220, 300, 130);
 		
-		ohh = new JButton("<html><body style='text-align:center;'>100시간<br>xxx,xxx원</html>");
+		ohh = new JButton("<html><body style='text-align:center;'>100시간<br>"+price[1]+"</html>");
 		ohh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +96,7 @@ public class Buy_a_voucher extends JPanel {
 		ohh.setBackground(new Color(0xc4ccf1));
 		ohh.setBounds(420, 220, 300, 130);
 		
-		thfh = new JButton("<html><body style='text-align:center;'>250시간<br>xxx,xxx원</html>");
+		thfh = new JButton("<html><body style='text-align:center;'>250시간<br>"+price[2]+"</html>");
 		thfh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -79,7 +111,7 @@ public class Buy_a_voucher extends JPanel {
 		thfh.setBackground(new Color(0xc4ccf1));
 		thfh.setBounds(80, 380, 300, 130);
 		
-		fhh = new JButton("<html><body style='text-align:center;'>500시간<br>xxx,xxx원</html>");
+		fhh = new JButton("<html><body style='text-align:center;'>500시간<br>"+price[3]+"</html>");
 		fhh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,7 +133,7 @@ public class Buy_a_voucher extends JPanel {
 		season_ticket.setBounds(80,550,300,50);
 		season_ticket.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
 		
-		od = new JButton("<html><body style='text-align:center;'>1일권<br>xx,xxx원</html>");
+		od = new JButton("<html><body style='text-align:center;'>1일권<br>"+price[4]+"</html>");
 		od.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -116,7 +148,7 @@ public class Buy_a_voucher extends JPanel {
 		od.setBackground(new Color(0xc4ccf1));
 		od.setBounds(80, 610, 200, 160);
 		
-		sd = new JButton("<html><body style='text-align:center;'>7일권<br>xxx,xxx원</html>");
+		sd = new JButton("<html><body style='text-align:center;'>7일권<br>"+price[5]+"</html>");
 		sd.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -131,7 +163,7 @@ public class Buy_a_voucher extends JPanel {
 		sd.setBackground(new Color(0xc4ccf1));
 		sd.setBounds(300, 610, 200, 160);
 		
-		td = new JButton("<html><body style='text-align:center;'>30일권<br>xxx,xxx원</html>");
+		td = new JButton("<html><body style='text-align:center;'>30일권<br>"+price[6]+"</html>");
 		td.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
