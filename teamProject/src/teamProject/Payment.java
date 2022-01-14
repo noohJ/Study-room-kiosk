@@ -117,7 +117,7 @@ public class Payment extends JPanel{
 							pstmt.setString(3, id);
 							int cnt = pstmt.executeUpdate(); 
 
-							System.out.println(cnt + "건이 실행되었습니다.");	
+							System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
 
 						} catch (SQLException e2) {
 							e2.printStackTrace();
@@ -137,7 +137,7 @@ public class Payment extends JPanel{
 							pstmt.setString(3, id);
 							int cnt = pstmt.executeUpdate(); 
 							
-							System.out.println(cnt + "건이 실행되었습니다.");	
+							System.out.println("선택하신 정기권 :"+cnt + "건이 실행되었습니다.");	
 
 						} catch (SQLException e2) {
 							e2.printStackTrace();
@@ -202,11 +202,11 @@ public class Payment extends JPanel{
 				if(type.equals("daily_ticket")) {
 					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));
 				}else if (type.equals("pass_ticket")) {
-					voucher_type.setText("정액 "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("선택하신 정액권 : "+rs.getString("VOUCHER_NAME"));
 				}else {
-					voucher_type.setText("기간 "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("선택하신 정기권 : "+rs.getString("VOUCHER_NAME"));
 				}
-				voucher_price.setText(rs.getString("VOUCHER_PRICE")+"원");
+				voucher_price.setText("결제하실 금액 : "+rs.getString("VOUCHER_PRICE")+"원");
 			}
 			
 			
