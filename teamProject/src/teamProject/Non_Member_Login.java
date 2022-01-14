@@ -23,8 +23,8 @@ public class Non_Member_Login extends JPanel {
 	public Non_Member_Login(Start f) {
 		start = f;
 		
-		JLabel header = new JLabel("  비회원 로그인");
-		JLabel string1 = new JLabel("비회원 로그인");
+		JLabel header = new JLabel("  비회원 이용");
+		JLabel string1 = new JLabel("비회원 가입");
 		JTextField nmb_phone = new JTextField();
 		JPasswordField nmb_pw = new JPasswordField();
 		JLabel string2 = new JLabel(" 임시비밀번호를 입력해주세요.");

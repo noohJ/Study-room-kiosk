@@ -1,5 +1,7 @@
 package teamProject;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -28,29 +30,50 @@ public class Non_member_login2 extends JPanel{
 		setLayout(null);
 		F = f;
 		
+		JLabel header = new JLabel("  ºñÈ¸¿ø ·Î±×ÀÎ");
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0xdedede));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0x545454));
+		
+		JLabel string1 = new JLabel("ºñÈ¸¿ø ·Î±×ÀÎ");
+		add(string1);
+		string1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 90));
+		string1.setBounds(0, 230, 800, 100);
+		string1.setHorizontalAlignment(JLabel.CENTER);
+		
 		ph = new JTextField("ÀüÈ­¹øÈ£");
 		ph.addFocusListener(new FocusAdapter() {		
 			@Override
 			public void focusGained(FocusEvent e) {
 				ph.setText("");
+				ph.setForeground(new Color(0x000000));
 			}
 		});
-		ph.setBounds(100,100,600,100);
 		add(ph);
+		ph.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		ph.setForeground(new Color(0xd0d0d0));
+		ph.setBounds(115, 400, 560, 70);
+		ph.setText("ÀüÈ­¹øÈ£ ÀÔ·Â");
 		
 		pw = new JPasswordField("ºñ¹Ð¹øÈ£");
 		pw.addFocusListener(new FocusAdapter() {		
 			@Override
 			public void focusGained(FocusEvent e) {
 				pw.setText("");
+				pw.setForeground(new Color(0x000000));
 			}
 		});
-
-		pw.setBounds(100,250,600,100);
 		add(pw);
+		pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		pw.setForeground(new Color(0xd0d0d0));
+		pw.setBounds(115, 500, 560, 70);
 		
 		chk = new JLabel("");
-		chk.setBounds(100,350,600,100);
+		chk.setBounds(115,670,600,100);
 		add(chk);
 	
 		confirm = new JButton("È®ÀÎ");
@@ -96,10 +119,13 @@ public class Non_member_login2 extends JPanel{
 					a.printStackTrace();
 				}				
 			}
-		});
-		
-		confirm.setBounds(100,450,270,200);
+		});		
 		add(confirm);
+		confirm.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 46));
+		confirm.setForeground(new Color(0xffffff));
+		confirm.setOpaque(true);
+		confirm.setBackground(new Color(0x5777ff));
+		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("ÀÌÀü È­¸é");
 		previous.addActionListener(new ActionListener() {
@@ -111,7 +137,11 @@ public class Non_member_login2 extends JPanel{
 				f.member_or_non_member_Panel();
 			}
 		});
-		previous.setBounds(430,450,270,200);
 		add(previous);
+		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setForeground(new Color(0x222222));
+		previous.setOpaque(true);
+		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBounds(530, 810, 200, 90);
 	}
 }
