@@ -13,7 +13,7 @@ public class Meeting_SeatButton extends JButton{
 	private Start F;
 	
 	
-	public Meeting_SeatButton(int x, int y, String seat_number, Start f, String id) {
+	public Meeting_SeatButton(int x, int y, String seat_number, Start f, String id, int m_or_nm) {
 		F = f;
 		if(DB_Seats.seats_num_arr(seat_number)) {
 	         setText("단체 세미나룸" + seat_number);
@@ -31,7 +31,7 @@ public class Meeting_SeatButton extends JButton{
 	            public void actionPerformed(ActionEvent e) {
 	               int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리를 사용하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 	               if(answer==JOptionPane.YES_OPTION) {
-	                  Private_DB_Current_users_Add.c_user_add(seat_number, id);
+	                  Meeting_DB_Current_users_Add.c_user_add(seat_number, id, m_or_nm);
 	                  F.base_screen_Panel();
 	               }               
 	            }
