@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -21,6 +22,11 @@ public class Buy_a_voucher extends JPanel {
 	private Start F;
 	private String id;
 	private String[] price = new String[7];;
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	public Buy_a_voucher(Start f, String id){
 		setSize(800, 1000);
@@ -76,7 +82,7 @@ public class Buy_a_voucher extends JPanel {
 		ffh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		ffh.setForeground(new Color(0x444444));
 		ffh.setOpaque(true);
-		ffh.setBackground(new Color(0xc4ccf1));
+		ffh.setBackground(new Color(0xc8d77f));
 		ffh.setBounds(80, 220, 300, 130);
 		
 		ohh = new JButton("<html><body style='text-align:center;'>100시간<br>"+price[1]+"</html>");
@@ -91,7 +97,7 @@ public class Buy_a_voucher extends JPanel {
 		ohh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		ohh.setForeground(new Color(0x444444));
 		ohh.setOpaque(true);
-		ohh.setBackground(new Color(0xc4ccf1));
+		ohh.setBackground(new Color(0xc8d77f));
 		ohh.setBounds(420, 220, 300, 130);
 		
 		thfh = new JButton("<html><body style='text-align:center;'>250시간<br>"+price[2]+"</html>");
@@ -106,7 +112,7 @@ public class Buy_a_voucher extends JPanel {
 		thfh.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 35));
 		thfh.setForeground(new Color(0x444444));
 		thfh.setOpaque(true);
-		thfh.setBackground(new Color(0xc4ccf1));
+		thfh.setBackground(new Color(0xc8d77f));
 		thfh.setBounds(80, 380, 300, 130);
 		
 		fhh = new JButton("<html><body style='text-align:center;'>500시간<br>"+price[3]+"</html>");
@@ -121,7 +127,7 @@ public class Buy_a_voucher extends JPanel {
 		fhh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 		fhh.setForeground(new Color(0x444444));
 		fhh.setOpaque(true);
-		fhh.setBackground(new Color(0xc4ccf1));
+		fhh.setBackground(new Color(0xc8d77f));
 		fhh.setBounds(420, 380, 300, 130);
 		
 		
@@ -143,7 +149,7 @@ public class Buy_a_voucher extends JPanel {
 		od.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		od.setForeground(new Color(0x444444));
 		od.setOpaque(true);
-		od.setBackground(new Color(0xc4ccf1));
+		od.setBackground(new Color(0xc8d77f));
 		od.setBounds(80, 610, 200, 160);
 		
 		sd = new JButton("<html><body style='text-align:center;'>7일권<br>"+price[5]+"</html>");
@@ -158,7 +164,7 @@ public class Buy_a_voucher extends JPanel {
 		sd.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		sd.setForeground(new Color(0x444444));
 		sd.setOpaque(true);
-		sd.setBackground(new Color(0xc4ccf1));
+		sd.setBackground(new Color(0xc8d77f));
 		sd.setBounds(300, 610, 200, 160);
 		
 		td = new JButton("<html><body style='text-align:center;'>30일권<br>"+price[6]+"</html>");
@@ -173,7 +179,7 @@ public class Buy_a_voucher extends JPanel {
 		td.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
 		td.setForeground(new Color(0x444444));
 		td.setOpaque(true);
-		td.setBackground(new Color(0xc4ccf1));
+		td.setBackground(new Color(0xc8d77f));
 		td.setBounds(520, 610, 200, 160);
 		
 		previous = new JButton("이전 화면");

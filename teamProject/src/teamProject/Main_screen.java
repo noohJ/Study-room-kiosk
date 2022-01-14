@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -37,7 +38,10 @@ public class Main_screen extends JPanel implements ActionListener{
 	private static String password = "1234";
 	private Start F;
 	
-	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	
 	static {

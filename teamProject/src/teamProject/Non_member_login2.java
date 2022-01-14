@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -25,6 +26,11 @@ public class Non_member_login2 extends JPanel{
 	private JLabel chk;
 	private JButton confirm,previous;
 	private Start F;
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	Non_member_login2(Start f){
 		setSize(800, 1000);
@@ -121,7 +127,7 @@ public class Non_member_login2 extends JPanel{
 		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
 		confirm.setForeground(new Color(0xffffff));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0x5777ff));
+		confirm.setBackground(new Color(0x96ad60));
 		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("이전 화면");

@@ -3,9 +3,11 @@ package teamProject;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import javax.swing.JPanel;
@@ -18,6 +20,10 @@ public class Meeting_Room_Selection extends JPanel {
 	
 	private Start F;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 		
 	static {
 		try {
@@ -35,7 +41,10 @@ public class Meeting_Room_Selection extends JPanel {
 	      setLayout(null);
 	      F = f;
 	      
-	      JLabel header = new JLabel(" 좌석 선택 (단체실)");
+	      JLabel header = new JLabel(new ImageIcon("teamProject/src/header/좌적_선택_단체실.jpg"));
+			add(header);
+			header.setFocusable(true);
+			header.setBounds(0, 0, 800, 130);
 	      JLabel string0 = new JLabel("입구↓");
 	      JLabel string1 = new JLabel(": 선택 가능");
 	      JLabel string1_square = new JLabel();
@@ -55,13 +64,6 @@ public class Meeting_Room_Selection extends JPanel {
 			f.daily_pass_ticket_Panel();
 			}
 	      });
-	      add(header);
-	      header.setFocusable(true);
-	      header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-	      header.setForeground(new Color(0xdedede));
-	      header.setOpaque(true);
-	      header.setBounds(0, 0, 800, 130);
-	      header.setBackground(new Color(0x545454));
 	      add(string0);
 	      string0.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 20));
 	      string0.setForeground(new Color(0x545454));

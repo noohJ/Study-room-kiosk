@@ -1,7 +1,10 @@
 package teamProject;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Start extends JFrame{
 	
@@ -15,7 +18,7 @@ public class Start extends JFrame{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		
 		setBounds(600,20,800, 1000);
 		
 		getContentPane().setLayout(cards);

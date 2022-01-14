@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,6 +31,10 @@ public class daily_pass_ticket extends JPanel{
 	
 	private Start F;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 		
 	static {
 		try {
@@ -67,14 +72,10 @@ public class daily_pass_ticket extends JPanel{
 		setSize(800, 1000);
 		setLayout(null);
 		
-		JLabel header = new JLabel(" 당일권 구입");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/당일권_구입.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454)); 
 		
 		JLabel string1 = new JLabel("정액권 구매 선택");
 		string1.setBounds(100,160,300,50);
@@ -97,25 +98,25 @@ public class daily_pass_ticket extends JPanel{
 	  btn3.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 	  btn3.setForeground(new Color(0x444444));
 	  btn3.setOpaque(true);
-	  btn3.setBackground(new Color(0xc4ccf1));
+	  btn3.setBackground(new Color(0xc8d77f));
 	  btn3.setBounds(100, 240, 250, 150);
 	  add(btn4);
 	  btn4.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 	  btn4.setForeground(new Color(0x444444));
 	  btn4.setOpaque(true);
-	  btn4.setBackground(new Color(0xc4ccf1));
+	  btn4.setBackground(new Color(0xc8d77f));
 	  btn4.setBounds(450, 240, 250, 150);
 	  add(btn5);
 	  btn5.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 	  btn5.setForeground(new Color(0x444444));
 	  btn5.setOpaque(true);
-	  btn5.setBackground(new Color(0xc4ccf1));
+	  btn5.setBackground(new Color(0xc8d77f));
 	  btn5.setBounds(100, 490, 250, 150);
 	  add(btn6);
 	  btn6.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
 	  btn6.setForeground(new Color(0x444444));
 	  btn6.setOpaque(true);
-	  btn6.setBackground(new Color(0xc4ccf1));
+	  btn6.setBackground(new Color(0xc8d77f));
 	  btn6.setBounds(450, 490, 250, 150);
 	  add(btn7);
 	  btn7.setFont(new Font("MapoDPP", Font.PLAIN, 35));
@@ -154,9 +155,9 @@ public class daily_pass_ticket extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			 btn3.setBackground(new Color(227,227,227));
-			 btn4.setBackground(new Color(0xc4ccf1));
-			 btn5.setBackground(new Color(0xc4ccf1));
-			 btn6.setBackground(new Color(0xc4ccf1));
+			 btn4.setBackground(new Color(0xc8d77f));
+			 btn5.setBackground(new Color(0xc8d77f));
+			 btn6.setBackground(new Color(0xc8d77f));
 			 
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
@@ -184,9 +185,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn4.setBackground(new Color(227,227,227));
-				btn3.setBackground(new Color(0xc4ccf1));
-				btn5.setBackground(new Color(0xc4ccf1));
-				btn6.setBackground(new Color(0xc4ccf1));
+				btn3.setBackground(new Color(0xc8d77f));
+				btn5.setBackground(new Color(0xc8d77f));
+				btn6.setBackground(new Color(0xc8d77f));
 			
 				try (
 						Connection conn = DriverManager.getConnection(url, user, password);
@@ -209,9 +210,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 btn5.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(0xc4ccf1));
-				 btn4.setBackground(new Color(0xc4ccf1));
-				 btn6.setBackground(new Color(0xc4ccf1));
+				 btn3.setBackground(new Color(0xc8d77f));
+				 btn4.setBackground(new Color(0xc8d77f));
+				 btn6.setBackground(new Color(0xc8d77f));
 				 
 				
 				try (
@@ -235,9 +236,9 @@ public class daily_pass_ticket extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btn6.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(0xc4ccf1));
-				 btn4.setBackground(new Color(0xc4ccf1));
-				 btn5.setBackground(new Color(0xc4ccf1));
+				 btn3.setBackground(new Color(0xc8d77f));
+				 btn4.setBackground(new Color(0xc8d77f));
+				 btn5.setBackground(new Color(0xc8d77f));
 				
 				
 				

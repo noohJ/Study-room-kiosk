@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -9,6 +10,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,10 +22,18 @@ public class Non_Member_Login extends JPanel {
 	
 	private Start start;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
+	
 	public Non_Member_Login(Start f) {
 		start = f;
 		
-		JLabel header = new JLabel("  비회원 이용");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/비회원_이용.jpg"));
+		add(header);
+		header.setFocusable(true);
+		header.setBounds(0, 0, 800, 130);
 		JLabel string1 = new JLabel("비회원 가입");
 		JTextField nmb_phone = new JTextField();
 		JPasswordField nmb_pw = new JPasswordField();
@@ -104,13 +114,6 @@ public class Non_Member_Login extends JPanel {
 			};
 		});
 		
-		add(header);
-		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
-		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		add(string1);
 		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
 		string1.setBounds(0, 200, 800, 100);
@@ -140,7 +143,7 @@ public class Non_Member_Login extends JPanel {
 		chk_btn.setFont(new Font("MapoDPP", Font.PLAIN, 46));
 		chk_btn.setForeground(new Color(0xffffff));
 		chk_btn.setOpaque(true);
-		chk_btn.setBackground(new Color(0x5777ff));
+		chk_btn.setBackground(new Color(0x96ad60));
 		chk_btn.setBounds(115, 670, 560, 94);
 		add(chk_str);
 		chk_str.setFont(new Font("MapoDPP", Font.PLAIN, 15));
