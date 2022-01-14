@@ -27,7 +27,7 @@ import javax.swing.border.Border;
 import seatSection_component.DB_Current_users_Add;
 
 public class Main_screen extends JPanel implements ActionListener{
-	JButton b1, b2, b3, b4, b5, b6;
+	JButton b1, b2, b3, b4, b5, b6, prev_btn;
 	
 	JPanel p;
 	JLabel j, j1, j2, j3;
@@ -51,6 +51,19 @@ public class Main_screen extends JPanel implements ActionListener{
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
+		setBackground(new Color(255,255,255));
+		
+		
+		JLabel header = new JLabel(" MAIN");
+		
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0x000000));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0xBFFFD9));
+		
 		
 		// 현재 이용권의 잔여시간 및 기한이 없으면 삭제
 		if(DB_Members.mb_vc_type(id) >= 9 && 
@@ -117,7 +130,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));		
 		b5 = new JButton(new ImageIcon("teamProject/src/icons/자리이동.jpg"));
 		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
-		
+		prev_btn = new JButton("나가기");
 	
 		
 		// Jlabel 위에 칸 설정
@@ -160,19 +173,25 @@ public class Main_screen extends JPanel implements ActionListener{
 		j1.setBackground(new Color(0x1DCBEE));
 		j2.setBackground(new Color(0x1DCBEE));
 		j3.setBackground(new Color(0x1DCBEE));
-		b1.setBounds(50, 150, 200, 100);
-		b2.setBounds(260, 150, 200, 100);
-		b3.setBounds(470, 150, 200, 100);
-		b4.setBounds(50, 300, 200, 100);
-		b5.setBounds(260, 300, 200, 100);
-		b6.setBounds(470, 300, 200, 100);
-		j.setBounds(50, 30, 150, 100);
-		j1.setBounds(210, 30, 150, 100);
-		j2.setBounds(370, 30, 150, 100);
-		j3.setBounds(530, 30, 150, 100);
+		b1.setBounds(80, 270, 200, 100);
+		b2.setBounds(290, 270, 200, 100);
+		b3.setBounds(500, 270, 200, 100);
+		b4.setBounds(80, 420, 200, 100);
+		b5.setBounds(290, 420, 200, 100);
+		b6.setBounds(500, 420, 200, 100);
+		j.setBounds(0, 130, 200, 120);
+		j1.setBounds(200, 130, 200, 120);
+		j2.setBounds(400, 130, 200, 120);
+		j3.setBounds(600, 130, 200, 120);
+		
+		prev_btn.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+        prev_btn.setForeground(new Color(0x222222));
+        prev_btn.setOpaque(true);
+        prev_btn.setBackground(new Color(0xd0d0d0));
+        prev_btn.setBounds(530, 810, 200, 90);
 		
 		
-		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);
+		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);add(prev_btn);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -265,6 +284,17 @@ public class Main_screen extends JPanel implements ActionListener{
 				}
 			}
 		});
+		prev_btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.base_screen_Panel();
+				
+			}
+		});
+		
+		
+		
 	}
 	
 	
