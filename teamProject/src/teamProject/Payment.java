@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class Payment extends JPanel{
 	private JLabel voucher_type, voucher_price,Voucher_con;
-	private JButton confirm,previous,main,exit;
+	private JButton confirm,previous,main;
 	private boolean chk = false;
 	private Start F;
 	private String id,type,time;
@@ -117,7 +117,7 @@ public class Payment extends JPanel{
 							pstmt.setString(3, id);
 							int cnt = pstmt.executeUpdate(); 
 
-							System.out.println(cnt + "건이 실행되었습니다.");	
+							System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
 
 						} catch (SQLException e2) {
 							e2.printStackTrace();
@@ -137,7 +137,7 @@ public class Payment extends JPanel{
 							pstmt.setString(3, id);
 							int cnt = pstmt.executeUpdate(); 
 							
-							System.out.println(cnt + "건이 실행되었습니다.");	
+							System.out.println("선택하신 정기권 :"+cnt + "건이 실행되었습니다.");	
 
 						} catch (SQLException e2) {
 							e2.printStackTrace();
@@ -149,7 +149,11 @@ public class Payment extends JPanel{
 
 			}
 		});
-		confirm.setBounds(100,450,270,100);
+		confirm.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+		confirm.setForeground(new Color(0x222222));
+		confirm.setOpaque(true);
+		confirm.setBackground(new Color(0xd0d0d0));
+		confirm.setBounds(90,810,200,90);
 		add(confirm);
 		
 		previous = new JButton("이전 화면");
@@ -175,20 +179,13 @@ public class Payment extends JPanel{
 				f.main_screen_Panel();
 			}
 		});
-		main.setBounds(0,900,150,100);
+		main.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+		main.setForeground(new Color(0x222222));
+		main.setOpaque(true);
+		main.setBackground(new Color(0xd0d0d0));
+		main.setBounds(310,810,200,90);
 		add(main);
-		
-		exit = new JButton("나가기");
-		exit.addActionListener(new ActionListener() {		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Voucher_con.setText("");
-				f.base_screen_Panel();
-			}
-		});
-		exit.setBounds(150,900,150,100);
-		add(exit);
-		
+				
 		
 		try {
 			Connection conn = DriverManager.getConnection(
@@ -205,11 +202,11 @@ public class Payment extends JPanel{
 				if(type.equals("daily_ticket")) {
 					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));
 				}else if (type.equals("pass_ticket")) {
-					voucher_type.setText("정액 "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("선택하신 정액권 : "+rs.getString("VOUCHER_NAME"));
 				}else {
-					voucher_type.setText("기간 "+rs.getString("VOUCHER_NAME"));
+					voucher_type.setText("선택하신 정기권 : "+rs.getString("VOUCHER_NAME"));
 				}
-				voucher_price.setText(rs.getString("VOUCHER_PRICE")+"원");
+				voucher_price.setText("결제하실 금액 : "+rs.getString("VOUCHER_PRICE")+"원");
 			}
 			
 			
