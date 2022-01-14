@@ -1,4 +1,6 @@
 package teamProject;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -30,6 +32,22 @@ public class Member_login extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
+		
+		JLabel header = new JLabel("  È¸¿ø ·Î±×ÀÎ");
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0xdedede));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 130);
+		header.setBackground(new Color(0x545454));
+		
+		JLabel string1 = new JLabel("È¸¿ø ·Î±×ÀÎ");
+		add(string1);
+		string1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 90));
+		string1.setBounds(0, 230, 800, 100);
+		string1.setHorizontalAlignment(JLabel.CENTER);
+		
 		id = new JTextField("¾ÆÀÌµð");
 		id.addMouseListener(new MouseAdapter() {		
 			@Override
@@ -37,12 +55,16 @@ public class Member_login extends JPanel {
 				id.setText("");
 			}
 		});
-		id.setBounds(100,100,600,100);
 		add(id);
+		id.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		id.setForeground(new Color(0xd0d0d0));
+		id.setBounds(115, 400, 560, 70);
+		id.setText("¾ÆÀÌµð ÀÔ·Â");
 		id.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				id.setText("");
+				id.setForeground(new Color(0x000000));
 			}
 		});	
 		
@@ -52,14 +74,16 @@ public class Member_login extends JPanel {
 			@Override
 			public void focusGained(FocusEvent e) {
 				pw.setText("");
+				pw.setForeground(new Color(0x000000));
 			}
 		});
-
-		pw.setBounds(100,250,600,100);
 		add(pw);
+		pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		pw.setForeground(new Color(0xd0d0d0));
+		pw.setBounds(115, 500, 560, 70);
 		
 		chk = new JLabel("");
-		chk.setBounds(100,350,600,100);
+		chk.setBounds(115,670,600,100);
 		add(chk);
 	
 		confirm = new JButton("È®ÀÎ");
@@ -110,9 +134,12 @@ public class Member_login extends JPanel {
 				
 			}
 		});
-		
-		confirm.setBounds(100,450,270,200);
 		add(confirm);
+		confirm.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 46));
+		confirm.setForeground(new Color(0xffffff));
+		confirm.setOpaque(true);
+		confirm.setBackground(new Color(0x5777ff));
+		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("ÀÌÀü È­¸é");
 		previous.addActionListener(new ActionListener() {
@@ -124,8 +151,12 @@ public class Member_login extends JPanel {
 				f.member_or_non_member_Panel();
 			}
 		});
-		previous.setBounds(430,450,270,200);
 		add(previous);
+		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		previous.setForeground(new Color(0x222222));
+		previous.setOpaque(true);
+		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBounds(530, 810, 200, 90);
 		
 		f_id = new JButton("¾ÆÀÌµð Ã£±â");
 		f_id.addActionListener(new ActionListener() {		
@@ -137,8 +168,12 @@ public class Member_login extends JPanel {
 				F.find_id_Panel();
 			}
 		});
-		f_id.setBounds(100,700,270,200);
 		add(f_id);
+		f_id.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
+		f_id.setForeground(new Color(0x222222));
+		f_id.setOpaque(true);
+		f_id.setBackground(new Color(0xc3cdf8));
+		f_id.setBounds(355, 735, 150, 50);
 		
 		f_pw = new JButton("ºñ¹Ð¹øÈ£ Ã£±â");
 		f_pw.addActionListener(new ActionListener() {
@@ -150,8 +185,12 @@ public class Member_login extends JPanel {
 				F.find_pw_Panel();
 			}
 		});
-		f_pw.setBounds(430,700,270,200);
 		add(f_pw);
+		f_pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
+		f_pw.setForeground(new Color(0x222222));
+		f_pw.setOpaque(true);
+		f_pw.setBackground(new Color(0xc3cdf8));
+		f_pw.setBounds(525, 735, 150, 50);
 		
 		
 		setVisible(true);
