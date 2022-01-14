@@ -29,13 +29,16 @@ import seatSection_component.DB_Current_users_Add;
 public class Main_screen extends JPanel implements ActionListener{
 	JButton b1, b2, b3, b4, b5, b6, prev_btn;
 	
-	JPanel p;
-	JLabel j, j1, j2, j3;
+	
+	JLabel j, j1, j2, j3 , j4, j5, j6;
 	private static String driverName = "oracle.jdbc.driver.OracleDriver";
 	private static String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private static String user = "hr";
 	private static String password = "1234";
 	private Start F;
+	
+	
+	
 	
 	static {
 		try {
@@ -50,6 +53,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	public Main_screen(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
 		setLayout(null);
+		setBackground(new Color(0xFFFFFF));
 		F = f;
 		setBackground(new Color(255,255,255));
 		
@@ -95,6 +99,8 @@ public class Main_screen extends JPanel implements ActionListener{
 		String sql4 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'meeting_room' and SEAT_CONDITION != 'empty_seat'";
 		String sql5 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'common_room' and SEAT_CONDITION != 'empty_seat'";
 		
+		
+		
 		try (
 				
 				Connection conn = DriverManager.getConnection(url, user, password);
@@ -130,14 +136,60 @@ public class Main_screen extends JPanel implements ActionListener{
 		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));		
 		b5 = new JButton(new ImageIcon("teamProject/src/icons/자리이동.jpg"));
 		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
+<<<<<<< HEAD
 		prev_btn = new JButton("나가기");
 	
+=======
+		
+>>>>>>> refs/heads/temp
 		
 		// Jlabel 위에 칸 설정
 		j = new JLabel("<html>" + "<div style='text-align:center'>" + "1인실 사용 좌석" + "<br>" + rs3.getInt("COUNT(SEAT_CONDITION)") + "/" + rs.getInt("COUNT(SEAT_TYPE)") + "<html>");
 		j1 = new JLabel("<html>" + "<div style='text-align:center'>" + "단체실 사용 좌석"  + "<br>"+ rs4.getInt("COUNT(SEAT_CONDITION)") + "/" + rs1.getInt("COUNT(SEAT_TYPE)"));
 		j2 = new JLabel("<html>" + "<div style='text-align:center'>" + "공용실 사용 좌석" + "<br>"+ rs5.getInt("COUNT(SEAT_CONDITION)") + "/" + rs2.getInt("COUNT(SEAT_TYPE)"));
 		j3 = new JLabel("<html>" + "<div style='text-align:center'>" + "현재 시간  " + "<br>"+ str + "  "+ hour + "시" + min + "분" );
+		j4 = new JLabel("★ 이용방법안내 ★");
+		j5 = new JLabel("<html><body> 당일권 이용방법"
+				+ "<br>"
+				+ "&nbsp;&nbsp;1) 당일권 구입 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;2) 원하는 시간 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;3) 원하는 빈 좌석 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;4) 결제"
+				+"<br>"
+				+"<br>"
+				+ "정기권 이용방법"
+				+ "<br>"
+				+ "&nbsp;&nbsp;1) 화면의 정기권 사용 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;2) 좌석 선택 "
+				+"<br>"
+				+"<br>"
+				+"정액권 구입방법"
+				+ "<br>"
+				+ "&nbsp;&nbsp;1) 화면의 정액권 구입 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;2) 시간 선택 "
+				+"<br>"
+				+"<br>"
+				+"좌석 이동방법"
+				+ "<br>"
+				+ "&nbsp;&nbsp;1) 화면의 좌석 이동 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;2) 이동할 좌석 선택 "
+				+"<br>"
+				+"<br>"
+				+"시간 연장방법"
+				+ "<br>"
+				+ "&nbsp;&nbsp;1) 화면의 시간 연장 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;2) 연장할 시간 선택 "
+				+"<br>"
+				+"<br>"
+				);
+		
 		
 		// Jlabel 주변 border 설정
 		Border border = BorderFactory.createLineBorder(Color.pink);
@@ -151,6 +203,8 @@ public class Main_screen extends JPanel implements ActionListener{
 		j1.setHorizontalAlignment(JLabel.CENTER);
 		j2.setHorizontalAlignment(JLabel.CENTER);
 		j3.setHorizontalAlignment(JLabel.CENTER);
+		j4.setHorizontalAlignment(JLabel.CENTER);
+		
 		
 		// font 및 배경색 , 위치 설정
 		b1.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 20 ));
@@ -169,10 +223,14 @@ public class Main_screen extends JPanel implements ActionListener{
 		j1.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 18 ));
 		j2.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 18 ));
 		j3.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 13 ));
+		j4.setFont(new Font("맑은 고딕", Font.BOLD, 25 ));
+		j5.setFont(new Font("맑은 고딕", Font.BOLD, 15 ));
+		
 		j.setBackground(new Color(0x1DCBEE));
 		j1.setBackground(new Color(0x1DCBEE));
 		j2.setBackground(new Color(0x1DCBEE));
 		j3.setBackground(new Color(0x1DCBEE));
+<<<<<<< HEAD
 		b1.setBounds(80, 270, 200, 100);
 		b2.setBounds(290, 270, 200, 100);
 		b3.setBounds(500, 270, 200, 100);
@@ -189,9 +247,30 @@ public class Main_screen extends JPanel implements ActionListener{
         prev_btn.setOpaque(true);
         prev_btn.setBackground(new Color(0xd0d0d0));
         prev_btn.setBounds(530, 810, 200, 90);
+=======
+		b1.setBounds(50, 150, 200, 100);
+		b2.setBounds(260, 150, 200, 100);
+		b3.setBounds(470, 150, 200, 100);
+		b4.setBounds(50, 300, 200, 100);
+		b5.setBounds(260, 300, 200, 100);
+		b6.setBounds(470, 300, 200, 100);
+		j.setBounds(50, 30, 150, 100);
+		j1.setBounds(210, 30, 150, 100);
+		j2.setBounds(370, 30, 150, 100);
+		j3.setBounds(530, 30, 150, 100);
+		j4.setBounds(0, 200, 800, 500);
+		j5.setBounds(0, 450, 800, 500);
+>>>>>>> refs/heads/temp
 		
 		
+<<<<<<< HEAD
 		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);add(prev_btn);
+=======
+		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);add(j4);add(j5);
+		
+		
+		
+>>>>>>> refs/heads/temp
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -296,20 +375,6 @@ public class Main_screen extends JPanel implements ActionListener{
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
