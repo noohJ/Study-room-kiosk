@@ -2,8 +2,8 @@ package teamProject;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,9 +29,9 @@ public class Non_member_login2 extends JPanel{
 		F = f;
 		
 		ph = new JTextField("전화번호");
-		ph.addMouseListener(new MouseAdapter() {		
+		ph.addFocusListener(new FocusAdapter() {		
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				ph.setText("");
 			}
 		});
@@ -39,9 +39,9 @@ public class Non_member_login2 extends JPanel{
 		add(ph);
 		
 		pw = new JPasswordField("비밀번호");
-		pw.addMouseListener(new MouseAdapter() {		
+		pw.addFocusListener(new FocusAdapter() {		
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				pw.setText("");
 			}
 		});

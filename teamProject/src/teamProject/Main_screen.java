@@ -78,9 +78,9 @@ public class Main_screen extends JPanel implements ActionListener{
 		String sql = "SELECT COUNT(SEAT_TYPE) FROM seats where seat_type = 'private_room'";
 		String sql1 = "SELECT COUNT(SEAT_TYPE) FROM seats where seat_type = 'meeting_room'";
 		String sql2 = "SELECT COUNT(SEAT_TYPE) FROM seats where seat_type = 'common_room'";
-		String sql3 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'private_room' and (seat_condition = 'using_seats' or seat_condition = 'repairing_seats' or seat_condition = 'cleaning_seats')";
-		String sql4 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'meeting_room' and (seat_condition = 'using_seats' or seat_condition = 'repairing_seats' or seat_condition = 'cleaning_seats')";
-		String sql5 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'common_room' and (seat_condition = 'using_seats' or seat_condition = 'repairing_seats' or seat_condition = 'cleaning_seats')";
+		String sql3 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'private_room' and SEAT_CONDITION != 'empty_seat'";
+		String sql4 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'meeting_room' and SEAT_CONDITION != 'empty_seat'";
+		String sql5 = "SELECT COUNT(SEAT_CONDITION) FROM seats where seat_type = 'common_room' and SEAT_CONDITION != 'empty_seat'";
 		
 		try (
 				
