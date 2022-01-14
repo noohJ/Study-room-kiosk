@@ -39,7 +39,8 @@ public class Buy_a_voucher extends JPanel {
 				ResultSet rs = voucher_tp_t.executeQuery();
 				
 				while(rs.next()) {
-					price[i] = rs.getString("VOUCHER_PRICE")+"¿ø";
+					String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
+					price[i] = money+"¿ø";
 				}
 				
 				
