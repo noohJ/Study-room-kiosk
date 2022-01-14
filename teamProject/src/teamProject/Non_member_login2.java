@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,14 +31,10 @@ public class Non_member_login2 extends JPanel{
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel("  비회원 로그인");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/비회원_로그인.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		JLabel string1 = new JLabel("비회원 로그인");
 		add(string1);

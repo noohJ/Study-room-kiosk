@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,7 +20,7 @@ public class Base_screen extends JPanel {
 		setLayout(null);
 		F = f;		
 		
-		JLabel header = new JLabel("  훈환희광 스터디카페");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/스터디카페.jpg"));
 		member_btn = new JButton("회원/비회원 로그인");
 		non_member_btn = new JButton("비회원 이용");
 		sign_up_btn = new JButton("회원 가입");
@@ -51,11 +52,7 @@ public class Base_screen extends JPanel {
 		
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		add(member_btn);
 		add(non_member_btn);
 		add(sign_up_btn);

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -53,14 +54,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		}
 	
-		JLabel header = new JLabel("  정액권/정기권 구입");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/정액권_정기권_구입.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		pass = new JLabel("정액권 구매 선택");
 		pass.setBounds(80,160,300,50);
