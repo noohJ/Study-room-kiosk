@@ -209,5 +209,20 @@ public class Buy_a_voucher extends JPanel {
 		exit.setOpaque(true);
 		exit.setBackground(new Color(0xd0d0d0));
 		exit.setBounds(310, 810, 200, 90);
+		
+//		add(previous);
+//		previous.setOpaque(true);
+//		previous.setBounds(530, 810, 200, 90);
+//		
+//		exit = new JButton(new ImageIcon("teamProject/src/icons/³ª°¡±â.jpg"));
+//		exit.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				f.base_screen_Panel();
+//			}
+//		});
+//		add(exit);
+//		exit.setOpaque(true);
+//		exit.setBounds(310, 810, 200, 90);
 	}
 }

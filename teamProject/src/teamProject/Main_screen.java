@@ -233,11 +233,11 @@ public class Main_screen extends JPanel implements ActionListener{
 
 		
 		
-		prev_btn.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
+		prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
         prev_btn.setForeground(new Color(0x222222));
         prev_btn.setOpaque(true);
         prev_btn.setBackground(new Color(0xd0d0d0));
-        prev_btn.setBounds(530, 850, 200, 90);
+        prev_btn.setBounds(530, 810, 200, 90);
 
 		b1.setBounds(80, 270, 200, 100);
 		b2.setBounds(290, 270, 200, 100);
