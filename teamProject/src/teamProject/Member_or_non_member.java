@@ -16,7 +16,7 @@ public class Member_or_non_member extends JPanel {
 	private JButton member,non_member,previous;
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -27,16 +27,16 @@ public class Member_or_non_member extends JPanel {
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/회원_비회원_로그인선택.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		member = new JButton("회원 로그인");
-		member.setBounds(100,230,600,200);
-		member.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 60 ));
+		member.setBounds(150,300,500,150);
+		member.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 40 ));
 		member.setForeground(new Color(0xffffff));
-		member.setBackground(new Color(0x96ad60));
+		member.setBackground(new Color(0x00c850));
 		member.addActionListener(new ActionListener() {
 			
 			@Override
@@ -49,10 +49,10 @@ public class Member_or_non_member extends JPanel {
 		
 		
 		non_member = new JButton("비회원 로그인");
-		non_member.setBounds(100,510,600,200);
-		non_member.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 60 ));
+		non_member.setBounds(150,500,500,150);
+		non_member.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 40 ));
 		non_member.setForeground(new Color(0xffffff));
-		non_member.setBackground(new Color(0x96ad60));
+		non_member.setBackground(new Color(0x00c850));
 		non_member.addActionListener(new ActionListener() {
 			
 			@Override
@@ -71,10 +71,10 @@ public class Member_or_non_member extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 	}
 }

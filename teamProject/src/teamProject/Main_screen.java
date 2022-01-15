@@ -38,7 +38,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	private static String password = "1234";
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -60,7 +60,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		F = f;
 		
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/½ºÅÍµðÄ«Æä.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/Çì´õ.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
@@ -206,25 +206,25 @@ public class Main_screen extends JPanel implements ActionListener{
 		
 		
 		// font ¹× ¹è°æ»ö , À§Ä¡ ¼³Á¤
-		b1.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 20 ));
+		b1.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
 		b1.setBackground(new Color(0xEEF4F6));
-		b2.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 20 ));
+		b2.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
 		b2.setBackground(new Color(0xEEF4F6));
-		b3.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 20 ));
+		b3.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
 		b3.setBackground(new Color(0xEEF4F6));
-		b4.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 15 ));
+		b4.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 15 ));
 		b4.setBackground(new Color(0xEEF4F6));
-		b5.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 20 ));
+		b5.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
 		b5.setBackground(new Color(0xEEF4F6));
-		b6.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 20 ));
+		b6.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
 		b6.setBackground(new Color(0xEEF4F6));
-		j.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 18));
-		j1.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 18 ));
-		j2.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 18 ));
-		j3.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 13 ));
-		j4.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 25 ));
-		j5.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15 ));
-		j6.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15 ));
+		j.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18));
+		j1.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18 ));
+		j2.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18 ));
+		j3.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 13 ));
+		j4.setFont(new Font("NanumGothic", Font.BOLD, 25 ));
+		j5.setFont(new Font("NanumGothic", Font.BOLD, 15 ));
+		j6.setFont(new Font("NanumGothic", Font.BOLD, 15 ));
 		
 		j.setBackground(new Color(0x1DCBEE));
 		j1.setBackground(new Color(0x1DCBEE));
@@ -233,11 +233,11 @@ public class Main_screen extends JPanel implements ActionListener{
 
 		
 		
-		prev_btn.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
-        prev_btn.setForeground(new Color(0x222222));
+		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		prev_btn.setForeground(new Color(0xf5f6f7));
         prev_btn.setOpaque(true);
-        prev_btn.setBackground(new Color(0xd0d0d0));
-        prev_btn.setBounds(530, 850, 200, 90);
+        prev_btn.setBackground(new Color(0x8e8e8e));
+        prev_btn.setBounds(530, 810, 200, 90);
 
 		b1.setBounds(80, 270, 200, 100);
 		b2.setBounds(290, 270, 200, 100);

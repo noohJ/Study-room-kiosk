@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class Base_screen extends JPanel {
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -27,7 +27,7 @@ public class Base_screen extends JPanel {
 		F = f;
 		
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/스터디카페.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		member_btn = new JButton("회원/비회원 로그인");
 		non_member_btn = new JButton("비회원 이용");
 		sign_up_btn = new JButton("회원 가입");

@@ -23,7 +23,7 @@ public class Buy_a_voucher extends JPanel {
 	private String id;
 	private String[] price = new String[7];;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -60,14 +60,14 @@ public class Buy_a_voucher extends JPanel {
 			}
 		}
 	
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/정액권_정기권_구입.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		pass = new JLabel("정액권 구매 선택");
 		pass.setBounds(80,160,300,50);
-		pass.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
+		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		add(pass);
 		
 		ffh = new JButton("<html><body style='text-align:center;'>50시간<br>"+price[0]+"</html>");		
@@ -79,10 +79,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ffh);
-		ffh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-		ffh.setForeground(new Color(0x444444));
+		ffh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		ffh.setForeground(new Color(0xf5f6f7));
 		ffh.setOpaque(true);
-		ffh.setBackground(new Color(0xc8d77f));
+		ffh.setBackground(new Color(0x00c850));
 		ffh.setBounds(80, 220, 300, 130);
 		
 		ohh = new JButton("<html><body style='text-align:center;'>100시간<br>"+price[1]+"</html>");
@@ -94,10 +94,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ohh);
-		ohh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-		ohh.setForeground(new Color(0x444444));
+		ohh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		ohh.setForeground(new Color(0xf5f6f7));
 		ohh.setOpaque(true);
-		ohh.setBackground(new Color(0xc8d77f));
+		ohh.setBackground(new Color(0x00c850));
 		ohh.setBounds(420, 220, 300, 130);
 		
 		thfh = new JButton("<html><body style='text-align:center;'>250시간<br>"+price[2]+"</html>");
@@ -109,10 +109,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(thfh);
-		thfh.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 35));
-		thfh.setForeground(new Color(0x444444));
+		thfh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		thfh.setForeground(new Color(0xf5f6f7));
 		thfh.setOpaque(true);
-		thfh.setBackground(new Color(0xc8d77f));
+		thfh.setBackground(new Color(0x00c850));
 		thfh.setBounds(80, 380, 300, 130);
 		
 		fhh = new JButton("<html><body style='text-align:center;'>500시간<br>"+price[3]+"</html>");
@@ -124,10 +124,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(fhh);
-		fhh.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-		fhh.setForeground(new Color(0x444444));
+		fhh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		fhh.setForeground(new Color(0xf5f6f7));
 		fhh.setOpaque(true);
-		fhh.setBackground(new Color(0xc8d77f));
+		fhh.setBackground(new Color(0x00c850));
 		fhh.setBounds(420, 380, 300, 130);
 		
 		
@@ -135,7 +135,7 @@ public class Buy_a_voucher extends JPanel {
 		season_ticket = new JLabel("정기권 구매 선택");
 		add(season_ticket);
 		season_ticket.setBounds(80,550,300,50);
-		season_ticket.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
+		season_ticket.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		
 		od = new JButton("<html><body style='text-align:center;'>1일권<br>"+price[4]+"</html>");
 		od.addActionListener(new ActionListener() {			
@@ -146,10 +146,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(od);
-		od.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
-		od.setForeground(new Color(0x444444));
+		od.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		od.setForeground(new Color(0xf5f6f7));
 		od.setOpaque(true);
-		od.setBackground(new Color(0xc8d77f));
+		od.setBackground(new Color(0x00c850));
 		od.setBounds(80, 610, 200, 160);
 		
 		sd = new JButton("<html><body style='text-align:center;'>7일권<br>"+price[5]+"</html>");
@@ -161,10 +161,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(sd);
-		sd.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
-		sd.setForeground(new Color(0x444444));
+		sd.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		sd.setForeground(new Color(0xf5f6f7));
 		sd.setOpaque(true);
-		sd.setBackground(new Color(0xc8d77f));
+		sd.setBackground(new Color(0x00c850));
 		sd.setBounds(300, 610, 200, 160);
 		
 		td = new JButton("<html><body style='text-align:center;'>30일권<br>"+price[6]+"</html>");
@@ -176,10 +176,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(td);
-		td.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 30));
-		td.setForeground(new Color(0x444444));
+		td.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		td.setForeground(new Color(0xf5f6f7));
 		td.setOpaque(true);
-		td.setBackground(new Color(0xc8d77f));
+		td.setBackground(new Color(0x00c850));
 		td.setBounds(520, 610, 200, 160);
 		
 		previous = new JButton("이전 화면");
@@ -190,10 +190,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 		
 		exit = new JButton("나가기");
@@ -204,10 +204,25 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(exit);
-		exit.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		exit.setForeground(new Color(0x222222));
+		exit.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		exit.setForeground(new Color(0xf5f6f7));
 		exit.setOpaque(true);
-		exit.setBackground(new Color(0xd0d0d0));
+		exit.setBackground(new Color(0x8e8e8e));
 		exit.setBounds(310, 810, 200, 90);
+		
+//		add(previous);
+//		previous.setOpaque(true);
+//		previous.setBounds(530, 810, 200, 90);
+//		
+//		exit = new JButton(new ImageIcon("teamProject/src/icons/나가기.jpg"));
+//		exit.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				f.base_screen_Panel();
+//			}
+//		});
+//		add(exit);
+//		exit.setOpaque(true);
+//		exit.setBounds(310, 810, 200, 90);
 	}
 }

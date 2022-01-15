@@ -25,7 +25,7 @@ public class Payment extends JPanel{
 	private Start F;
 	private String id,type,time;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -35,7 +35,7 @@ public class Payment extends JPanel{
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/결제하기.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
@@ -48,14 +48,14 @@ public class Payment extends JPanel{
 		
 		voucher_type = new JLabel();
 		add(voucher_type);
-		voucher_type.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		voucher_type.setFont(new Font("NanumGothic", Font.BOLD, 50));
 		voucher_type.setBounds(0, 200, 800, 200);
 		voucher_type.setHorizontalAlignment(JLabel.CENTER);
 		voucher_type.setVerticalAlignment(JLabel.CENTER);
 		
 		voucher_price = new JLabel();
 		add(voucher_price);
-		voucher_price.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		voucher_price.setFont(new Font("NanumGothic", Font.BOLD, 50));
 		voucher_price.setBounds(0, 400, 800, 200);
 		voucher_price.setHorizontalAlignment(JLabel.CENTER);
 		voucher_price.setVerticalAlignment(JLabel.CENTER);
@@ -156,12 +156,12 @@ public class Payment extends JPanel{
 
 			}
 		});
-		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		confirm.setForeground(new Color(0xffffff));
-		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0x96ad60));
-		confirm.setBounds(115, 670, 560, 94);
 		add(confirm);
+		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		confirm.setForeground(new Color(0xf5f6f7));
+		confirm.setOpaque(true);
+		confirm.setBackground(new Color(0x00c850));
+		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("이전 화면");
 		previous.addActionListener(new ActionListener() {		
@@ -172,10 +172,10 @@ public class Payment extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 		
 		main = new JButton("메인 화면");
@@ -186,11 +186,11 @@ public class Payment extends JPanel{
 				f.main_screen_Panel();
 			}
 		});
-		main.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		main.setForeground(new Color(0x222222));
+		main.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		main.setForeground(new Color(0xf5f6f7));
 		main.setOpaque(true);
-		main.setBackground(new Color(0xd0d0d0));
-		main.setBounds(310,810,200,90);
+		main.setBackground(new Color(0x8e8e8e));
+		main.setBounds(310, 810, 200, 90);
 		add(main);
 				
 		

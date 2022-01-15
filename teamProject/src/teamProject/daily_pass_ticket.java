@@ -31,7 +31,7 @@ public class daily_pass_ticket extends JPanel{
 	
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -72,19 +72,19 @@ public class daily_pass_ticket extends JPanel{
 		setSize(800, 1000);
 		setLayout(null);
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/당일권_구입.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		JLabel string1 = new JLabel("정액권 구매 선택");
 		string1.setBounds(100,160,300,50);
-		string1.setFont(new Font("맑은 고딕", Font.PLAIN | Font.BOLD, 30));
+		string1.setFont(new Font("NanumBarunGothic", Font.PLAIN | Font.BOLD, 30));
 		add(string1);
 		
 		JLabel string2 = new JLabel("<html>xxxx를 선택하셨습니다.<br>사용하실 좌석타입을 선택해주세요.</html>");
 		string2.setBounds(100,670,500,60);
-		string2.setFont(new Font("MapoDPP", Font.PLAIN , 25));
+		string2.setFont(new Font("NanumGothic", Font.PLAIN , 25));
 		add(string2);
 	  
 	  
@@ -92,49 +92,49 @@ public class daily_pass_ticket extends JPanel{
 	  JLabel label = new JLabel("시간을 선택해주세요");
 	  add(label);
 	  label.setHorizontalAlignment(JLabel.CENTER);
-	  label.setFont(new Font("맑은 고딕" , Font.BOLD, 20));
+	  label.setFont(new Font("NanumGothic" , Font.BOLD, 20));
 	  
 	  add(btn3);
-	  btn3.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-	  btn3.setForeground(new Color(0x444444));
+	  btn3.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+	  btn3.setForeground(new Color(0xf5f6f7));
 	  btn3.setOpaque(true);
-	  btn3.setBackground(new Color(0xc8d77f));
+	  btn3.setBackground(new Color(0x00c850));
 	  btn3.setBounds(100, 240, 250, 150);
 	  add(btn4);
-	  btn4.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-	  btn4.setForeground(new Color(0x444444));
+	  btn4.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+	  btn4.setForeground(new Color(0xf5f6f7));
 	  btn4.setOpaque(true);
-	  btn4.setBackground(new Color(0xc8d77f));
+	  btn4.setBackground(new Color(0x00c850));
 	  btn4.setBounds(450, 240, 250, 150);
 	  add(btn5);
-	  btn5.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-	  btn5.setForeground(new Color(0x444444));
+	  btn5.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+	  btn5.setForeground(new Color(0xf5f6f7));
 	  btn5.setOpaque(true);
-	  btn5.setBackground(new Color(0xc8d77f));
+	  btn5.setBackground(new Color(0x00c850));
 	  btn5.setBounds(100, 490, 250, 150);
 	  add(btn6);
-	  btn6.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
-	  btn6.setForeground(new Color(0x444444));
+	  btn6.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+	  btn6.setForeground(new Color(0xf5f6f7));
 	  btn6.setOpaque(true);
-	  btn6.setBackground(new Color(0xc8d77f));
+	  btn6.setBackground(new Color(0x00c850));
 	  btn6.setBounds(450, 490, 250, 150);
 	  add(btn7);
-	  btn7.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-	  btn7.setForeground(new Color(0x222222));
+	  btn7.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+	  btn7.setForeground(new Color(0xf5f6f7));
 	  btn7.setOpaque(true);
-	  btn7.setBackground(new Color(0xd0d0d0));
+	  btn7.setBackground(new Color(0x8e8e8e));
 	  btn7.setBounds(530, 810, 200, 90);
 	  add(btn8);
-	  btn8.setFont(new Font("MapoDPP", Font.PLAIN, 30));
-	  btn8.setForeground(new Color(0x222222));
+	  btn8.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+	  btn8.setForeground(new Color(0xf5f6f7));
 	  btn8.setOpaque(true);
-	  btn8.setBackground(new Color(0xd0d0d0));
+	  btn8.setBackground(new Color(0x8e8e8e));
 	  btn8.setBounds(70, 810, 200, 90);
 	  add(btn9);
-	  btn9.setFont(new Font("MapoDPP", Font.PLAIN, 30));
-	  btn9.setForeground(new Color(0x222222));
+	  btn9.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+	  btn9.setForeground(new Color(0xf5f6f7));
 	  btn9.setOpaque(true);
-	  btn9.setBackground(new Color(0xd0d0d0));
+	  btn9.setBackground(new Color(0x8e8e8e));
 	  btn9.setBounds(300, 810, 200, 90);
 	  
 	 // 버튼 텍스트 입력 및 폰트 설정
@@ -154,10 +154,10 @@ public class daily_pass_ticket extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			 btn3.setBackground(new Color(227,227,227));
-			 btn4.setBackground(new Color(0xc8d77f));
-			 btn5.setBackground(new Color(0xc8d77f));
-			 btn6.setBackground(new Color(0xc8d77f));
+			 btn3.setBackground(new Color(0x5bb91b));
+			 btn4.setBackground(new Color(0x00c850));
+			 btn5.setBackground(new Color(0x00c850));
+			 btn6.setBackground(new Color(0x00c850));
 			 
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
@@ -184,10 +184,10 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn4.setBackground(new Color(227,227,227));
-				btn3.setBackground(new Color(0xc8d77f));
-				btn5.setBackground(new Color(0xc8d77f));
-				btn6.setBackground(new Color(0xc8d77f));
+				btn4.setBackground(new Color(0x5bb91b));
+				btn3.setBackground(new Color(0x00c850));
+				btn5.setBackground(new Color(0x00c850));
+				btn6.setBackground(new Color(0x00c850));
 			
 				try (
 						Connection conn = DriverManager.getConnection(url, user, password);
@@ -209,10 +209,10 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 btn5.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(0xc8d77f));
-				 btn4.setBackground(new Color(0xc8d77f));
-				 btn6.setBackground(new Color(0xc8d77f));
+				 btn5.setBackground(new Color(0x5bb91b));
+				 btn3.setBackground(new Color(0x00c850));
+				 btn4.setBackground(new Color(0x00c850));
+				 btn6.setBackground(new Color(0x00c850));
 				 
 				
 				try (
@@ -235,10 +235,10 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn6.setBackground(new Color(227,227,227));
-				 btn3.setBackground(new Color(0xc8d77f));
-				 btn4.setBackground(new Color(0xc8d77f));
-				 btn5.setBackground(new Color(0xc8d77f));
+				btn6.setBackground(new Color(0x5bb91b));
+				 btn3.setBackground(new Color(0x00c850));
+				 btn4.setBackground(new Color(0x00c850));
+				 btn5.setBackground(new Color(0x00c850));
 				
 				
 				
@@ -262,7 +262,6 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn7.setBackground(new Color(227,227,249));
 				f.main_screen_Panel();
 			}
 		  });
@@ -270,22 +269,16 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn8.setBackground(new Color(227,227,249));
-				
-				
 				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm));
 				f.Private_Seat_Selection_Panel();
-				btn8.setBackground(new Color(255,255,255));
 			}
 		  });
 	  btn9.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn9.setBackground(new Color(227,227,249));
 				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 				f.Meeting_Room_Selection_Panel();
-				btn9.setBackground(new Color(255,255,255));
 			}
 		  });
 	  

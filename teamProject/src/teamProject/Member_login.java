@@ -29,7 +29,7 @@ public class Member_login extends JPanel {
 	private JLabel chk,pw2;
 	private JPasswordField pw;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -39,14 +39,15 @@ public class Member_login extends JPanel {
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/회원_로그인.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		JLabel string1 = new JLabel("회원 로그인");
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
+		string1.setFont(new Font("NanumBarunGothic", Font.BOLD, 50));
+		string1.setForeground(new Color(0x222222));
 		string1.setBounds(0, 230, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -58,7 +59,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(id);
-		id.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		id.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		id.setForeground(new Color(0xd0d0d0));
 		id.setBounds(115, 400, 560, 70);
 		id.setText("아이디 입력");
@@ -80,7 +81,7 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(pw);
-		pw.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		pw.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		pw.setForeground(new Color(0xd0d0d0));
 		pw.setBounds(115, 500, 560, 70);
 		
@@ -137,10 +138,10 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(confirm);
-		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		confirm.setForeground(new Color(0xffffff));
+		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		confirm.setForeground(new Color(0xf5f6f7));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0x96ad60));
+		confirm.setBackground(new Color(0x00c850));
 		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("이전 화면");
@@ -154,10 +155,10 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 		
 		f_id = new JButton("아이디 찾기");
@@ -171,10 +172,10 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(f_id);
-		f_id.setFont(new Font("MapoDPP", Font.PLAIN, 18));
-		f_id.setForeground(new Color(0x222222));
+		f_id.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD , 18));
+		f_id.setForeground(new Color(0xf5f6f7));
 		f_id.setOpaque(true);
-		f_id.setBackground(new Color(0xc8d77f));
+		f_id.setBackground(new Color(0x5bb91b));
 		f_id.setBounds(355, 735, 150, 50);
 		
 		f_pw = new JButton("비밀번호 찾기");
@@ -188,10 +189,10 @@ public class Member_login extends JPanel {
 			}
 		});
 		add(f_pw);
-		f_pw.setFont(new Font("MapoDPP", Font.PLAIN, 18));
-		f_pw.setForeground(new Color(0x222222));
+		f_pw.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD , 18));
+		f_pw.setForeground(new Color(0xf5f6f7));
 		f_pw.setOpaque(true);
-		f_pw.setBackground(new Color(0xc8d77f));
+		f_pw.setBackground(new Color(0x5bb91b));
 		f_pw.setBounds(525, 735, 150, 50);
 		
 		

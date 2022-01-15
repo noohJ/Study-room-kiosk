@@ -22,7 +22,7 @@ public class Non_Member_Login extends JPanel {
 	
 	private Start start;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -30,7 +30,7 @@ public class Non_Member_Login extends JPanel {
 	public Non_Member_Login(Start f) {
 		start = f;
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/비회원_이용.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
@@ -115,46 +115,47 @@ public class Non_Member_Login extends JPanel {
 		});
 		
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
-		string1.setBounds(0, 200, 800, 100);
+		string1.setFont(new Font("NanumBarunGothic", Font.BOLD, 50));
+		string1.setForeground(new Color(0x222222));
+		string1.setBounds(0, 230, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		add(nmb_phone);
-		nmb_phone.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		nmb_phone.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		nmb_phone.setForeground(new Color(0xd0d0d0));
 		nmb_phone.setBounds(115, 370, 560, 70);
 		nmb_phone.setText(" 휴대폰 번호를 입력해주세요.");
 		add(string2);
-		string2.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		string2.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		string2.setForeground(new Color(0xd0d0d0));
 		string2.setBounds(115, 470, 560, 70);
 		add(nmb_pw);
-		nmb_pw.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		nmb_pw.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		nmb_pw.setForeground(new Color(0xd0d0d0));
 		nmb_pw.setBounds(115, 470, 560, 70);
 		add(string3);
-		string3.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		string3.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		string3.setForeground(new Color(0xd0d0d0));
 		string3.setBounds(115, 570, 560, 70);
 		add(nmb_pw_chk);
-		nmb_pw_chk.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		nmb_pw_chk.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		nmb_pw_chk.setForeground(new Color(0xd0d0d0));
 		nmb_pw_chk.setBounds(115, 570, 560, 70);
 		add(chk_btn);
-		chk_btn.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		chk_btn.setForeground(new Color(0xffffff));
+		chk_btn.setFont(new Font("NanumGothic", Font.PLAIN, 46));
+		chk_btn.setForeground(new Color(0xf5f6f7));
 		chk_btn.setOpaque(true);
-		chk_btn.setBackground(new Color(0x96ad60));
+		chk_btn.setBackground(new Color(0x00c850));
 		chk_btn.setBounds(115, 670, 560, 94);
 		add(chk_str);
-		chk_str.setFont(new Font("MapoDPP", Font.PLAIN, 15));
+		chk_str.setFont(new Font("NanumGothic", Font.PLAIN, 15));
 		chk_str.setForeground(new Color(0x444444));
 		chk_str.setBounds(115, 770, 800, 30);
 		chk_str.setVisible(false);
 		add(prev_btn);
-		prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		prev_btn.setForeground(new Color(0x222222));
+		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		prev_btn.setForeground(new Color(0xf5f6f7));
 		prev_btn.setOpaque(true);
-		prev_btn.setBackground(new Color(0xd0d0d0));
+		prev_btn.setBackground(new Color(0x8e8e8e));
 		prev_btn.setBounds(530, 810, 200, 90);
 		
 		add(null1);

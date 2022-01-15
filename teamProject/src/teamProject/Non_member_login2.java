@@ -27,7 +27,7 @@ public class Non_member_login2 extends JPanel{
 	private JButton confirm,previous;
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -37,14 +37,15 @@ public class Non_member_login2 extends JPanel{
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/비회원_로그인.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		JLabel string1 = new JLabel("비회원 로그인");
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
+		string1.setFont(new Font("NanumBarunGothic", Font.BOLD, 50));
+		string1.setForeground(new Color(0x222222));
 		string1.setBounds(0, 230, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -57,7 +58,7 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(ph);
-		ph.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		ph.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		ph.setForeground(new Color(0xd0d0d0));
 		ph.setBounds(115, 400, 560, 70);
 		ph.setText("전화번호 입력");
@@ -71,7 +72,7 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(pw);
-		pw.setFont(new Font("MapoDPP", Font.PLAIN, 40));
+		pw.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		pw.setForeground(new Color(0xd0d0d0));
 		pw.setBounds(115, 500, 560, 70);
 		
@@ -124,10 +125,10 @@ public class Non_member_login2 extends JPanel{
 			}
 		});		
 		add(confirm);
-		confirm.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		confirm.setForeground(new Color(0xffffff));
+		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		confirm.setForeground(new Color(0xf5f6f7));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0x96ad60));
+		confirm.setBackground(new Color(0x00c850));
 		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("이전 화면");
@@ -141,10 +142,10 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 	}
 }
