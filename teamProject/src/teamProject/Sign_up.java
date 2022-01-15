@@ -22,7 +22,7 @@ public class Sign_up extends JPanel {
 
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -32,20 +32,21 @@ public class Sign_up extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/회원가입.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
 		
 		JLabel string1 = new JLabel("회원 가입");
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.BOLD, 90));
-		string1.setBounds(0, 130, 800, 100);
+		string1.setFont(new Font("NanumBarunGothic", Font.BOLD, 50));
+		string1.setForeground(new Color(0x222222));
+		string1.setBounds(0, 150, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		
 		JTextField su_id = new JTextField();
 		add(su_id);
-		su_id.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+		su_id.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		su_id.setForeground(new Color(0xd0d0d0));
 		su_id.setBounds(130, 280, 540, 60);
 		su_id.setText("아이디를 입력해주세요");
@@ -59,7 +60,7 @@ public class Sign_up extends JPanel {
 		
 		JPasswordField su_pw = new JPasswordField("1234567");
 		add(su_pw);
-		su_pw.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+		su_pw.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		su_pw.setForeground(new Color(0xd0d0d0));
 		su_pw.setBounds(130, 360, 540, 60);
 		
@@ -72,7 +73,7 @@ public class Sign_up extends JPanel {
 		
 		JPasswordField su_pw_chk = new JPasswordField("7654321");
 		add(su_pw_chk);
-		su_pw_chk.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+		su_pw_chk.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		su_pw_chk.setForeground(new Color(0xd0d0d0));
 		su_pw_chk.setBounds(130, 440, 540, 60);
 		
@@ -85,7 +86,7 @@ public class Sign_up extends JPanel {
 		
 		JTextField su_name = new JTextField();
 		add(su_name);
-		su_name.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+		su_name.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		su_name.setForeground(new Color(0xd0d0d0));
 		su_name.setBounds(130, 520, 540, 60);
 		su_name.setText("이름을 입력해주세요");
@@ -99,7 +100,7 @@ public class Sign_up extends JPanel {
 		
 		JTextField su_phone = new JTextField();
 		add(su_phone);
-		su_phone.setFont(new Font("MapoDPP", Font.PLAIN, 35));
+		su_phone.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		su_phone.setForeground(new Color(0xd0d0d0));
 		su_phone.setBounds(130, 600, 540, 60);
 		su_phone.setText("휴대폰 번호를 입력해주세요");
@@ -113,18 +114,18 @@ public class Sign_up extends JPanel {
 		
 		JButton su_btn = new JButton("가입하기");
 		add(su_btn);
-		su_btn.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		su_btn.setForeground(new Color(0xffffff));
+		su_btn.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		su_btn.setForeground(new Color(0xf5f6f7));
 		su_btn.setOpaque(true);
-		su_btn.setBackground(new Color(0x96ad60));
+		su_btn.setBackground(new Color(0x00c850));
 		su_btn.setBounds(115, 690, 560, 94);
 		
 		JButton prev_btn = new JButton("이전 화면");
 		add(prev_btn);
-		prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		prev_btn.setForeground(new Color(0x222222));
+		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		prev_btn.setForeground(new Color(0xf5f6f7));
 		prev_btn.setOpaque(true);
-		prev_btn.setBackground(new Color(0xd0d0d0));
+		prev_btn.setBackground(new Color(0x8e8e8e));
 		prev_btn.setBounds(530, 810, 200, 90);
 		
 		su_tf_ml(su_id);
