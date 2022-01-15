@@ -44,6 +44,12 @@ public class Base_screen extends JPanel {
 			}
 		});
 		
+		sign_up_btn.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent arg0) {
+				F.sign_up_Panel();
+			}
+		});
+		
 		member_btn.setBounds(100,190,600,200);
 		member_btn.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 60 ));
 		member_btn.setForeground(new Color(0xffffff));

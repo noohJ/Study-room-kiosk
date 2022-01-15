@@ -12,6 +12,26 @@ import java.util.Date;
 
 public class DB_Members {
 	
+	// 정보를 받으면 정보대로 멤버에 추가됨
+	public static void mb_id_add(String id, String pw, String name, String ph) {
+		String sql = "INSERT INTO members VALUES(?, ?, ?, ?, null, null, null)";
+		try(
+			// DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+		){
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			pstmt.setString(3, name);
+			pstmt.setString(4, ph);
+			
+			int insert = pstmt.executeUpdate();
+			System.out.printf("[UPDATE members SET] %d행이 변경되었습니다.\n", insert);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//멤버의 아이디 중에 키워드가 있는지 확인, 있으면 폴스 없으면 트루
 	public static boolean mb_id_arr(String keyword) {
 		String sql = "SELECT * FROM members";
@@ -23,15 +43,11 @@ public class DB_Members {
 			ResultSet rs = pstmt.executeQuery();
 		){
 			while(rs.next()) {
-				// 논멤버의 핸드폰 번호를 non_member_phones 리스트에 담음.
 				member_id.add(rs.getString("member_id"));
 			}
 			for(int i = 0; i < member_id.size(); i++) {
 				if(member_id.get(i).equals(keyword)) return false;
 			}
-			rs.close();
-			pstmt.close();
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
