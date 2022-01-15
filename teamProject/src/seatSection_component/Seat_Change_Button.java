@@ -24,7 +24,7 @@ public class Seat_Change_Button extends JButton {
 			setText(seat_number);
 			setLocation(x, y);
 			setSize(60, 60);		
-			setFont(new Font("MapoDPP", Font.PLAIN, 18));
+			setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 18));
 			setForeground(new Color(0x545454));
 			setOpaque(true);
 			setBackground(new Color(0xdedede));
@@ -45,7 +45,7 @@ public class Seat_Change_Button extends JButton {
 			setText(seat_number);
 			setLocation(x, y);
 			setSize(60, 60);		
-			setFont(new Font("MapoDPP", Font.PLAIN, 18));
+			setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 18));
 			setForeground(new Color(0xdedede));
 			setOpaque(true);
 			setBackground(new Color(0x545454));

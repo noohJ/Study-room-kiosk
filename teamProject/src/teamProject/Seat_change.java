@@ -19,7 +19,7 @@ public class Seat_change extends JPanel {
 	
 	private Start F;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back3.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -30,7 +30,7 @@ public class Seat_change extends JPanel {
 		F = f;
 		
 		String c_user_seat = DB_Current_users_Add.c_user_seat(id);
-		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/자리_이동.jpg"));
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
 		header.setBounds(0, 0, 800, 130);
@@ -102,7 +102,7 @@ public class Seat_change extends JPanel {
 		});
 		
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 35));
+		string1.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
 		string1.setForeground(new Color(0x545454));
 		string1.setBounds(20, 830, 600, 50);
 		add(seat1);
@@ -164,10 +164,10 @@ public class Seat_change extends JPanel {
 		add(seat57);
 		add(seat58);
 		add(prev_btn);
-		prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		prev_btn.setForeground(new Color(0x222222));
+		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		prev_btn.setForeground(new Color(0xf5f6f7));
 		prev_btn.setOpaque(true);
-		prev_btn.setBackground(new Color(0xd0d0d0));
+		prev_btn.setBackground(new Color(0x8e8e8e));
 		prev_btn.setBounds(530, 810, 200, 90);
 	}
 }
