@@ -57,20 +57,13 @@ public class Main_screen extends JPanel implements ActionListener{
 	public Main_screen(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
 		setLayout(null);
-		setBackground(new Color(0xFFFFFF));
 		F = f;
-		setBackground(new Color(255,255,255));
 		
 		
-		JLabel header = new JLabel(" MAIN");
-		
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/스터디카페.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0x000000));
-		header.setOpaque(true);
-		header.setBounds(0, 0, 800, 100);
-		header.setBackground(new Color(0xBFFFD9));
+		header.setBounds(0, 0, 800, 130);
 		
 		
 		// 현재 이용권의 잔여시간 및 기한이 없으면 삭제
@@ -246,18 +239,18 @@ public class Main_screen extends JPanel implements ActionListener{
         prev_btn.setBackground(new Color(0xd0d0d0));
         prev_btn.setBounds(530, 850, 200, 90);
 
-		b1.setBounds(80, 260, 200, 100);
-		b2.setBounds(290, 260, 200, 100);
-		b3.setBounds(500, 260, 200, 100);
-		b4.setBounds(80, 370, 200, 100);
-		b5.setBounds(290, 370, 200, 100);
-		b6.setBounds(500, 370, 200, 100);
-		j.setBounds(0, 100, 200, 100);
-		j1.setBounds(200, 100, 200, 100);
-		j2.setBounds(400, 100, 200, 100);
-		j3.setBounds(600, 100, 200, 100);
+		b1.setBounds(80, 270, 200, 100);
+		b2.setBounds(290, 270, 200, 100);
+		b3.setBounds(500, 270, 200, 100);
+		b4.setBounds(80, 380, 200, 100);
+		b5.setBounds(290, 380, 200, 100);
+		b6.setBounds(500, 380, 200, 100);
+		j.setBounds(0, 130, 200, 100);
+		j1.setBounds(200, 130, 200, 100);
+		j2.setBounds(400, 130, 200, 100);
+		j3.setBounds(600, 130, 200, 100);
 		j4.setBounds(-10, 280, 800, 500);
-		j5.setBounds(130, 460, 800, 500);
+		j5.setBounds(130, 475, 800, 500);
 		j6.setBounds(480, 430, 800, 500);
 		
 		
