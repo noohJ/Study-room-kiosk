@@ -28,7 +28,7 @@ import javax.swing.border.Border;
 import seatSection_component.DB_Current_users_Add;
 
 public class Main_screen extends JPanel implements ActionListener{
-	JButton b1, b2, b3, b4, b5, b6;
+	JButton b1, b2, b3, b4, b5, b6, prev_btn;
 	
 	
 	JLabel j, j1, j2, j3 , j4, j5, j6;
@@ -59,6 +59,19 @@ public class Main_screen extends JPanel implements ActionListener{
 		setLayout(null);
 		setBackground(new Color(0xFFFFFF));
 		F = f;
+		setBackground(new Color(255,255,255));
+		
+		
+		JLabel header = new JLabel(" MAIN");
+		
+		add(header);
+		header.setFocusable(true);
+		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
+		header.setForeground(new Color(0x000000));
+		header.setOpaque(true);
+		header.setBounds(0, 0, 800, 100);
+		header.setBackground(new Color(0xBFFFD9));
+		
 		
 		// 현재 이용권의 잔여시간 및 기한이 없으면 삭제
 		if(DB_Members.mb_vc_type(id) >= 9 && 
@@ -127,7 +140,10 @@ public class Main_screen extends JPanel implements ActionListener{
 		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));		
 		b5 = new JButton(new ImageIcon("teamProject/src/icons/자리이동.jpg"));
 		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
-		
+
+		prev_btn = new JButton("나가기");
+	
+
 		
 		// Jlabel 위에 칸 설정
 		j = new JLabel("<html>" + "<div style='text-align:center'>" + "1인실 사용 좌석" + "<br>" + rs3.getInt("COUNT(SEAT_CONDITION)") + "/" + rs.getInt("COUNT(SEAT_TYPE)") + "<html>");
@@ -137,7 +153,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		j4 = new JLabel("★ 이용방법안내 ★");
 		j5 = new JLabel("<html><body> 당일권 이용방법"
 				+ "<br>"
-				+ "&nbsp;&nbsp;1) 당일권 구입 선택"
+				+ "&nbsp;&nbsp;1) 당일권 구입 선택" 
 				+ "<br>"
 				+ "&nbsp;&nbsp;2) 원하는 시간 선택"
 				+ "<br>"
@@ -160,11 +176,15 @@ public class Main_screen extends JPanel implements ActionListener{
 				+ "&nbsp;&nbsp;2) 시간 선택 "
 				+"<br>"
 				+"<br>"
-				+"좌석 이동방법"
+				);
+		
+		j6 = new JLabel("<html><body> 좌석 이동방법"		
 				+ "<br>"
 				+ "&nbsp;&nbsp;1) 화면의 좌석 이동 선택"
 				+ "<br>"
 				+ "&nbsp;&nbsp;2) 이동할 좌석 선택 "
+				+"<br>"
+				+"<br>"
 				+"<br>"
 				+"<br>"
 				+"시간 연장방법"
@@ -211,29 +231,44 @@ public class Main_screen extends JPanel implements ActionListener{
 		j3.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 13 ));
 		j4.setFont(new Font("맑은 고딕", Font.BOLD, 25 ));
 		j5.setFont(new Font("맑은 고딕", Font.BOLD, 15 ));
+		j6.setFont(new Font("맑은 고딕", Font.BOLD, 15 ));
 		
 		j.setBackground(new Color(0x1DCBEE));
 		j1.setBackground(new Color(0x1DCBEE));
 		j2.setBackground(new Color(0x1DCBEE));
 		j3.setBackground(new Color(0x1DCBEE));
-		b1.setBounds(50, 150, 200, 100);
-		b2.setBounds(260, 150, 200, 100);
-		b3.setBounds(470, 150, 200, 100);
-		b4.setBounds(50, 300, 200, 100);
-		b5.setBounds(260, 300, 200, 100);
-		b6.setBounds(470, 300, 200, 100);
-		j.setBounds(50, 30, 150, 100);
-		j1.setBounds(210, 30, 150, 100);
-		j2.setBounds(370, 30, 150, 100);
-		j3.setBounds(530, 30, 150, 100);
-		j4.setBounds(0, 200, 800, 500);
-		j5.setBounds(0, 450, 800, 500);
+
 		
 		
-		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);add(j4);add(j5);
+		prev_btn.setFont(new Font("맑은 고딕", Font.PLAIN, 35));
+        prev_btn.setForeground(new Color(0x222222));
+        prev_btn.setOpaque(true);
+        prev_btn.setBackground(new Color(0xd0d0d0));
+        prev_btn.setBounds(530, 850, 200, 90);
+
+		b1.setBounds(80, 260, 200, 100);
+		b2.setBounds(290, 260, 200, 100);
+		b3.setBounds(500, 260, 200, 100);
+		b4.setBounds(80, 370, 200, 100);
+		b5.setBounds(290, 370, 200, 100);
+		b6.setBounds(500, 370, 200, 100);
+		j.setBounds(0, 100, 200, 100);
+		j1.setBounds(200, 100, 200, 100);
+		j2.setBounds(400, 100, 200, 100);
+		j3.setBounds(600, 100, 200, 100);
+		j4.setBounds(-10, 280, 800, 500);
+		j5.setBounds(130, 460, 800, 500);
+		j6.setBounds(480, 430, 800, 500);
+		
+		
+
+		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(j);add(j1);add(j2);add(j3);add(prev_btn);add(j4);add(j5);add(j6);
+
+	
 		
 		
 		
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -326,6 +361,17 @@ public class Main_screen extends JPanel implements ActionListener{
 				}
 			}
 		});
+		prev_btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.base_screen_Panel();
+				
+			}
+		});
+		
+		
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
