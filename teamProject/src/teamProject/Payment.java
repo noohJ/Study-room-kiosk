@@ -30,7 +30,7 @@ public class Payment extends JPanel{
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
 	
-	public Payment(Start f, String id, int voucher_code) {
+	public Payment(Start f, String id, int voucher_code,int m_or_nm) {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;

@@ -144,10 +144,10 @@ public class DB_Current_users_Add {
 			int before = Integer.parseInt(hour_b)*60 + Integer.parseInt(min_b);
 			System.out.println(before);
 			
-			if(after > before) {
+			if(after >= before) {
 				usage_time = after - before;
 			} else {
-				usage_time = 1440 + after - before;
+				usage_time = after - before - 1440;
 			}
 			
 			rs.close();

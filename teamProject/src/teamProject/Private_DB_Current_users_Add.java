@@ -14,25 +14,9 @@ import teamProject.DBConnector;
 
 public class Private_DB_Current_users_Add {
    //entry_time에는 입실시간(현재시간)을 넣어서 퇴실할 때 빼준다.
-   public static void c_user_add(String seat_number, String id, int m_or_nm) {
+   public static boolean c_user_add(String seat_number, String id, int m_or_nm) {
       // current_users의 pk를 넣기 위해 총 row를 구하는 것
 	  boolean empty;
-      String sql1 = "SELECT COUNT(*) FROM current_users";
-      int user_num = 0;
-      try(
-         Connection conn = DBConnector.getConnection();
-         PreparedStatement pstmt = conn.prepareStatement(sql1);
-         ResultSet rs = pstmt.executeQuery();
-      ){
-         int rowcount = 0;
-         if(rs.next()) user_num = rs.getInt(1) + 1;         
-         
-         rs.close();
-         pstmt.close();
-         conn.close();         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      }
       
       
       
@@ -88,8 +72,9 @@ public class Private_DB_Current_users_Add {
       
       
       // current_users DB에 추가하기
-      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+phone+"',"
-            + "'"+seat_number+"',SYSDATE)";
+      int user_num = Integer.parseInt(seat_number);
+      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
+				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI'))";
       
       
       try(
@@ -106,13 +91,6 @@ public class Private_DB_Current_users_Add {
     	  empty = false;
          JOptionPane.showConfirmDialog(null, id+ "님은 자리가 있습니다");
       }
-      
-      
-      
-      
-      
-      
-      
       if(empty) {
 	      String sql3 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number ='"+seat_number+"'";      
 	      try (
@@ -126,12 +104,9 @@ public class Private_DB_Current_users_Add {
 	         conn.close();
 	      } catch (SQLException e) {
 	         e.printStackTrace();
-	      }
-	      
+	      }	      
       }
-      
-      
-      
+      return empty;
    }
    public static void c_user_del(String id) {
 		// current_users의 phone을 넣기위한 것
@@ -203,10 +178,10 @@ public class Private_DB_Current_users_Add {
 			int before = Integer.parseInt(hour_b)*60 + Integer.parseInt(min_b);
 			System.out.println(before);
 			
-			if(after > before) {
+			if(after >= before) {
 				usage_time = after - before;
 			} else {
-				usage_time = 1440 + after - before;
+				usage_time = after - before - 1440;
 			}
 			
 			rs.close();
