@@ -195,9 +195,9 @@ public class daily_pass_ticket2 extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			 
-			 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
-				f.Meeting_Room_Selection_Panel();
+			 int voucher_code = 1;
+			f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+	         f.Payment_Panel();
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
 //					PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -218,9 +218,9 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
-				f.Meeting_Room_Selection_Panel();
+				 int voucher_code = 2;
+				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+		         f.Payment_Panel();
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
 //						PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -241,9 +241,9 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 
-				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
-					f.Meeting_Room_Selection_Panel();
+				 int voucher_code = 3;
+				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+		         f.Payment_Panel();
 				
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
@@ -265,9 +265,9 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
-					f.Meeting_Room_Selection_Panel();
+				 int voucher_code = 4;
+				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+		         f.Payment_Panel();
 				
 				
 //				try (

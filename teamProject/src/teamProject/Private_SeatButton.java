@@ -41,6 +41,7 @@ public class Private_SeatButton extends JButton {
                   if(Private_DB_Current_users_Add.c_user_add(seat_number, id,m_or_nm)) F.base_screen_Panel();
                   
                   
+                  
                }               
             }
          });
