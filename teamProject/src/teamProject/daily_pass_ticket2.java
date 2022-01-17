@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class daily_pass_ticket extends JPanel{
+public class daily_pass_ticket2 extends JPanel{
 	private static String driverName = "oracle.jdbc.driver.OracleDriver";
 	private static String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private static String user = "hr";
@@ -76,7 +76,7 @@ public class daily_pass_ticket extends JPanel{
 
 	
 
-	public daily_pass_ticket(Start f , String id , int m_or_nm){
+	public daily_pass_ticket2(Start f , String id , int m_or_nm){
 	//프레임 레이아웃 설정, 사이즈 설정
 		F = f;
 		setSize(800, 1000);
@@ -157,30 +157,7 @@ public class daily_pass_ticket extends JPanel{
 	  btn9.setBounds(300, 810, 200, 90);
 	  
 	  
-	  panel1.add(btn10);
-	  btn10.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
-	  btn10.setForeground(new Color(0xf5f6f7));
-	  btn10.setOpaque(true);
-	  btn10.setBackground(new Color(0x00c850));
-	  btn10.setBounds(100, 240, 250, 150);
-	  panel1.add(btn11);
-	  btn11.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
-	  btn11.setForeground(new Color(0xf5f6f7));
-	  btn11.setOpaque(true);
-	  btn11.setBackground(new Color(0x00c850));
-	  btn11.setBounds(450, 240, 250, 150);
-	  panel1.add(btn12);
-	  btn12.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
-	  btn12.setForeground(new Color(0xf5f6f7));
-	  btn12.setOpaque(true);
-	  btn12.setBackground(new Color(0x00c850));
-	  btn12.setBounds(100, 490, 250, 150);
-	  panel1.add(btn13);
-	  btn13.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
-	  btn13.setForeground(new Color(0xf5f6f7));
-	  btn13.setOpaque(true);
-	  btn13.setBackground(new Color(0x00c850));
-	  btn13.setBounds(450, 490, 250, 150);
+	  
 	  
 	  
 	  
@@ -188,17 +165,14 @@ public class daily_pass_ticket extends JPanel{
 	  
 	  
 	 // 버튼 텍스트 입력 및 폰트 설정
-	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "3,000원");
-	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "8,000원");
-	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "15,000원");
-	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "25,000원");
+	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "6,000원");
+	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "16,000원");
+	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "30,000원");
+	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "50,000원");
 	  btn7.setText("이전 화면");
 	  btn8.setText("개인실 선택");
 	  btn9.setText("단체실 선택");
-	  btn10.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "6,000원");
-	  btn11.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "16,000원");
-	  btn12.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "30,000원");
-	  btn13.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "50,000원");
+	  
 	  String SQL = "UPDATE  members SET VOUCHER_CODE = ? , END_DATE = ? WHERE MEMBER_ID = ?";
 	  
 	  
@@ -228,9 +202,8 @@ public class daily_pass_ticket extends JPanel{
 			 btn4.setBackground(new Color(0x00c850));
 			 btn5.setBackground(new Color(0x00c850));
 			 btn6.setBackground(new Color(0x00c850));
-			 int voucher_code = 1;
-			 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
-			 f.Private_Seat_Selection_Panel();
+			 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
+				f.Meeting_Room_Selection_Panel();
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
 //					PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -255,9 +228,8 @@ public class daily_pass_ticket extends JPanel{
 				btn3.setBackground(new Color(0x00c850));
 				btn5.setBackground(new Color(0x00c850));
 				btn6.setBackground(new Color(0x00c850));
-				int voucher_code = 2;
-				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
-				 f.Private_Seat_Selection_Panel();
+				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
+				f.Meeting_Room_Selection_Panel();
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
 //						PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -282,9 +254,8 @@ public class daily_pass_ticket extends JPanel{
 				 btn3.setBackground(new Color(0x00c850));
 				 btn4.setBackground(new Color(0x00c850));
 				 btn6.setBackground(new Color(0x00c850));
-				 int voucher_code = 3;
-				 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
-				 f.Private_Seat_Selection_Panel();
+				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
+					f.Meeting_Room_Selection_Panel();
 				
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
@@ -310,9 +281,8 @@ public class daily_pass_ticket extends JPanel{
 				 btn3.setBackground(new Color(0x00c850));
 				 btn4.setBackground(new Color(0x00c850));
 				 btn5.setBackground(new Color(0x00c850));
-				 int voucher_code = 4;
-				 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
-				 f.Private_Seat_Selection_Panel();
+				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
+					f.Meeting_Room_Selection_Panel();
 				
 				
 //				try (

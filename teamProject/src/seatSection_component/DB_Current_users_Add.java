@@ -38,6 +38,18 @@ public class DB_Current_users_Add {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// current_users DB에 추가하기
 		int user_num = Integer.parseInt(seat_number);
 		String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"

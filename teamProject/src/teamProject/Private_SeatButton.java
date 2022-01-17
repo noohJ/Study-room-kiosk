@@ -16,7 +16,7 @@ public class Private_SeatButton extends JButton {
    
    private Start F;
    
-   public Private_SeatButton(int x, int y, String seat_number, Start f, String id, int m_or_nm) {
+   public Private_SeatButton(int x, int y, String seat_number, Start f, String id, int m_or_nm, int voucher_code) {
       
       F = f;
       
@@ -37,7 +37,11 @@ public class Private_SeatButton extends JButton {
             public void actionPerformed(ActionEvent e) {
                int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리를 사용하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
                if(answer==JOptionPane.YES_OPTION) {
-                  if(Private_DB_Current_users_Add.c_user_add(seat_number, id,m_or_nm)) F.base_screen_Panel();                  
+            	   f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+                   f.Payment_Panel();
+                  if(Private_DB_Current_users_Add.c_user_add(seat_number, id,m_or_nm)) F.base_screen_Panel();
+                  
+                  
                }               
             }
          });
@@ -55,6 +59,8 @@ public class Private_SeatButton extends JButton {
          setEnabled(false);
       }
       
-   };
+   }
+
+
    
 }
