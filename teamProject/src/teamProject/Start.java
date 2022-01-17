@@ -67,6 +67,9 @@ public class Start extends JFrame{
 	public void daily_pass_ticket_Panel() { //당일권 구입
 		cards.show(this.getContentPane(),"daily_pass_ticket");
 	}
+	public void daily_pass_ticket2_Panel() { //당일권 구입
+		cards.show(this.getContentPane(),"daily_pass_ticket2");
+	}
 	public void Buy_a_voucher_Panel() { //이용권 구입
 		cards.show(this.getContentPane(),"Buy_a_voucher");
 	}

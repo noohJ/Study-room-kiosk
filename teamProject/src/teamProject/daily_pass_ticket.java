@@ -31,7 +31,7 @@ public class daily_pass_ticket extends JPanel{
 	private static String password = "1234";
 	
 	private Start F;
-	
+	private CardLayout cards = new CardLayout();
 	
 	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
