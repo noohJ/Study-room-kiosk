@@ -37,18 +37,8 @@ public class DB_Current_users_Add {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+				
 		
 		// current_users DB에 추가하기
 		int user_num = Integer.parseInt(seat_number);
@@ -85,6 +75,8 @@ public class DB_Current_users_Add {
 		}
 		return empty;
 	}
+	
+	
 	
 	public static void c_user_del(String id) {
 		// current_users의 phone을 넣기위한 것
