@@ -100,11 +100,6 @@ public class daily_pass_ticket extends JPanel{
 		string1.setFont(new Font("NanumBarunGothic", Font.PLAIN | Font.BOLD, 30));
 		add(string1);
 		
-		
-		JLabel string2 = new JLabel("<html>xxxx를 선택하셨습니다.<br>사용하실 좌석타입을 선택해주세요.</html>");
-		string2.setBounds(100,670,500,60);
-		string2.setFont(new Font("NanumGothic", Font.PLAIN , 25));
-		add(string2);
 	  
 	  
 	// 라벨 설정  
@@ -224,10 +219,7 @@ public class daily_pass_ticket extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			 btn3.setBackground(new Color(0x5bb91b));
-			 btn4.setBackground(new Color(0x00c850));
-			 btn5.setBackground(new Color(0x00c850));
-			 btn6.setBackground(new Color(0x00c850));
+			
 			 int voucher_code = 1;
 			 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
 			 f.Private_Seat_Selection_Panel();
@@ -251,10 +243,7 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn4.setBackground(new Color(0x5bb91b));
-				btn3.setBackground(new Color(0x00c850));
-				btn5.setBackground(new Color(0x00c850));
-				btn6.setBackground(new Color(0x00c850));
+				
 				int voucher_code = 2;
 				f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
 				 f.Private_Seat_Selection_Panel();
@@ -278,10 +267,7 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 btn5.setBackground(new Color(0x5bb91b));
-				 btn3.setBackground(new Color(0x00c850));
-				 btn4.setBackground(new Color(0x00c850));
-				 btn6.setBackground(new Color(0x00c850));
+				 
 				 int voucher_code = 3;
 				 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
 				 f.Private_Seat_Selection_Panel();
@@ -306,10 +292,7 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn6.setBackground(new Color(0x5bb91b));
-				 btn3.setBackground(new Color(0x00c850));
-				 btn4.setBackground(new Color(0x00c850));
-				 btn5.setBackground(new Color(0x00c850));
+				
 				 int voucher_code = 4;
 				 f.add("Private_Seat_Selection", new Private_Seat_Selection(f,id,m_or_nm,voucher_code));
 				 f.Private_Seat_Selection_Panel();

@@ -95,16 +95,13 @@ public class daily_pass_ticket2 extends JPanel{
 		header.setBounds(0, 0, 800, 130);
 		
 		
-		JLabel string1 = new JLabel("정액권 구매 선택 (개인실 기준)");
+		JLabel string1 = new JLabel("정액권 구매 선택 (단체실 기준)");
 		string1.setBounds(100,160,500,50);
 		string1.setFont(new Font("NanumBarunGothic", Font.PLAIN | Font.BOLD, 30));
 		add(string1);
 		
 		
-		JLabel string2 = new JLabel("<html>xxxx를 선택하셨습니다.<br>사용하실 좌석타입을 선택해주세요.</html>");
-		string2.setBounds(100,670,500,60);
-		string2.setFont(new Font("NanumGothic", Font.PLAIN , 25));
-		add(string2);
+		
 	  
 	  
 	// 라벨 설정  
@@ -198,10 +195,7 @@ public class daily_pass_ticket2 extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			 btn3.setBackground(new Color(0x5bb91b));
-			 btn4.setBackground(new Color(0x00c850));
-			 btn5.setBackground(new Color(0x00c850));
-			 btn6.setBackground(new Color(0x00c850));
+			 
 			 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 				f.Meeting_Room_Selection_Panel();
 //			try (
@@ -224,10 +218,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn4.setBackground(new Color(0x5bb91b));
-				btn3.setBackground(new Color(0x00c850));
-				btn5.setBackground(new Color(0x00c850));
-				btn6.setBackground(new Color(0x00c850));
+				
 				f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 				f.Meeting_Room_Selection_Panel();
 //				try (
@@ -250,10 +241,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 btn5.setBackground(new Color(0x5bb91b));
-				 btn3.setBackground(new Color(0x00c850));
-				 btn4.setBackground(new Color(0x00c850));
-				 btn6.setBackground(new Color(0x00c850));
+				 
 				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 					f.Meeting_Room_Selection_Panel();
 				
@@ -277,10 +265,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btn6.setBackground(new Color(0x5bb91b));
-				 btn3.setBackground(new Color(0x00c850));
-				 btn4.setBackground(new Color(0x00c850));
-				 btn5.setBackground(new Color(0x00c850));
+				
 				 f.add("Meeting_Room_Selection", new Meeting_Room_Selection(f,id,m_or_nm));
 					f.Meeting_Room_Selection_Panel();
 				
