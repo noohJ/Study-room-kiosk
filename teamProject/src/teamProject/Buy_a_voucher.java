@@ -28,7 +28,7 @@ public class Buy_a_voucher extends JPanel {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
 	
-	public Buy_a_voucher(Start f, String id){
+	public Buy_a_voucher(Start f, String id,int m_or_nm){
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
@@ -74,7 +74,7 @@ public class Buy_a_voucher extends JPanel {
 		ffh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,5));
+				f.add("payment",new Payment(f,id,5,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -89,7 +89,7 @@ public class Buy_a_voucher extends JPanel {
 		ohh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,6));
+				f.add("payment",new Payment(f,id,6,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -104,7 +104,7 @@ public class Buy_a_voucher extends JPanel {
 		thfh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,7));
+				f.add("payment",new Payment(f,id,7,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -119,7 +119,7 @@ public class Buy_a_voucher extends JPanel {
 		fhh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,8));
+				f.add("payment",new Payment(f,id,8,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -140,8 +140,8 @@ public class Buy_a_voucher extends JPanel {
 		od = new JButton("<html><body style='text-align:center;'>1¿œ±«<br>"+price[4]+"</html>");
 		od.addActionListener(new ActionListener() {			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,9));
+			public void actionPerformed(ActionEvent e) {				
+				f.add("payment",new Payment(f,id,9,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -156,7 +156,7 @@ public class Buy_a_voucher extends JPanel {
 		sd.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,10));
+				f.add("payment",new Payment(f,id,10,m_or_nm));
 				f.Payment_Panel();
 			}
 		});
@@ -171,7 +171,7 @@ public class Buy_a_voucher extends JPanel {
 		td.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,11));
+				f.add("payment",new Payment(f,id,11,m_or_nm));
 				f.Payment_Panel();
 			}
 		});

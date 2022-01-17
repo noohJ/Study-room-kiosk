@@ -16,10 +16,11 @@ import javax.swing.JPanel;
 
 public class Extend_pass_ticket extends JPanel {
 	
-	private JLabel pass;
+	private JLabel pass,time_remaining;
 	private Start F;
 	private JButton fhb,ohhb,thhb,fhhb,previous;
 	private String[] price = new String[4];
+	private String tr;
 	
 	public Extend_pass_ticket(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
@@ -54,7 +55,36 @@ public class Extend_pass_ticket extends JPanel {
 			}
 		}
 		
-		JLabel header = new JLabel("  정액권 연장 구입");
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			System.out.println("연결 생성 완료.");
+			String lt ="";
+			if(m_or_nm == 0) {
+				lt = "SELECT * FROM MEMBERS WHERE member_id = '"+id+"'";
+			}else {
+				lt = "SELECT * FROM non_members WHERE non_member_phone = '"+id+"'";
+			}
+			PreparedStatement trt = conn.prepareStatement(lt);
+
+			ResultSet rs = trt.executeQuery();
+			
+			while(rs.next()) {
+				int t_hour = rs.getInt("end_date") / 60;
+				int t_minute = rs.getInt("end_date") % 60;
+				tr = "남은 시간 : "+t_hour+"시간 "+t_minute+"분";
+			}					
+			rs.close();
+			trt.close();
+			conn.close();
+			
+		} catch (SQLException a) {
+			a.printStackTrace();
+		}
+		
+		JLabel header = new JLabel("  정액권 연장 시간 선택");
 		add(header);
 		header.setFocusable(true);
 		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
@@ -128,8 +158,12 @@ public class Extend_pass_ticket extends JPanel {
 		fhhb.setBackground(new Color(0xc4ccf1));
 		fhhb.setBounds(420, 380, 300, 130);
 		
-		
-		
+		time_remaining = new JLabel(tr);
+		add(time_remaining);
+		time_remaining.setFont(new Font("NanumGothic", Font.BOLD, 50));
+		time_remaining.setBounds(0, 550, 800, 200);
+		time_remaining.setHorizontalAlignment(JLabel.CENTER);
+		time_remaining.setVerticalAlignment(JLabel.CENTER);		
 		
 		previous = new JButton("이전 화면");
 		previous.addActionListener(new ActionListener() {

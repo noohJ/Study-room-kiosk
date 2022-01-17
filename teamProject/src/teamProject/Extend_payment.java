@@ -164,7 +164,19 @@ public class Extend_payment extends JPanel {
 						e2.printStackTrace();
 					}
 				}else {  //그룹룸 연장
-					
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(date_col);
+					){
+						pstmt.setString(1, Integer.toString(Integer.parseInt(tr)+Integer.parseInt(time)*60));
+						pstmt.setString(2, id);
+						int cnt = pstmt.executeUpdate(); 
+
+						System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
+
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
 				}
 				Voucher_con.setText("");		
 				f.main_screen_Panel();

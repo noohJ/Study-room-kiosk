@@ -282,9 +282,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		if (m_or_nm == 1) {               //비회원은 정액권/정기권 사용및 구매 불가      (0 = 회원 1 = 비회원)
 			b2.setEnabled(false);
 			b3.setEnabled(false);
-		}
-		
-
+		}		
 		
 		// 버튼 클릭시 다른 페널 확인
 		b1.addActionListener(new ActionListener() {	//당일권 구입	
@@ -300,7 +298,7 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				f.add("Buy_a_voucher",  new Buy_a_voucher(f,id));
+				f.add("Buy_a_voucher",  new Buy_a_voucher(f,id,m_or_nm));
 				f.Buy_a_voucher_Panel();
 			}
 		});
@@ -349,9 +347,11 @@ public class Main_screen extends JPanel implements ActionListener{
 				}else if(voucod >= 9 && voucod <=11) {
 					f.add("season_ticket_extend",new Extend_season_ticket(f,id,m_or_nm));
 					f.season_ticket_extend_Panel();
-				}else {
+				}else if (voucod >= 12 && voucod <=14) {
 					f.add("group_room_extend",new Extend_group_room(f,id,m_or_nm));
 					f.group_room_extend_Panel();
+				}else {
+					JOptionPane.showMessageDialog(null, "보유하신 이용권이 없습니다.");
 				}
 			}
 		});
