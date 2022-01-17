@@ -159,25 +159,20 @@ public class daily_pass_ticket extends JPanel{
 			 btn5.setBackground(new Color(0x00c850));
 			 btn6.setBackground(new Color(0x00c850));
 			 
-//			try (
-//					Connection conn = DriverManager.getConnection(url, user, password);
-//					PreparedStatement pstmt = conn.prepareStatement(SQL);	
-//					){
-//				pstmt.setInt(1, 1);
-//				pstmt.setString(2, "60");
-//				pstmt.setString(3, id);
-//				System.out.println("값 들어감");
-//				
-//				
-//				int cnt = pstmt.executeUpdate();
-//				
-//				System.out.println(cnt + "건 실행");
-//				
-//		}catch (SQLException ex) {
-//			ex.printStackTrace();
-//		}catch (Exception e1) {	
-//			e1.printStackTrace();
-//		}
+			try (
+					Connection conn = DriverManager.getConnection(url, user, password);
+					PreparedStatement pstmt = conn.prepareStatement(SQL);	
+					){
+				pstmt.setInt(1, 1);
+				pstmt.setString(2, "60");
+				pstmt.setString(3, id);
+				System.out.println("값 들어감");
+				int cnt = pstmt.executeUpdate();
+		}catch (SQLException ex) {
+			ex.printStackTrace();
+		}catch (Exception e1) {	
+			e1.printStackTrace();
+		}
 		}
 	  });
 	  btn4.addActionListener(new ActionListener() {
@@ -246,7 +241,7 @@ public class daily_pass_ticket extends JPanel{
 						Connection conn = DriverManager.getConnection(url, user, password);
 						PreparedStatement pstmt = conn.prepareStatement(SQL);	
 						){
-					pstmt.setInt(1, 3);
+					pstmt.setInt(1, 4);
 					pstmt.setString(2, "720");
 					pstmt.setString(3, id);
 					System.out.println("값 들어감");	
