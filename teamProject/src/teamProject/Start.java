@@ -28,8 +28,7 @@ public class Start extends JFrame{
 	
 		// 프레임 내부에 패널 추가
 		
-		getContentPane().add("base_screen", new Base_screen(this));
-		getContentPane().add("sign_up", new Sign_up(this));
+		getContentPane().add("base_screen", new Base_screen(this));		
 		getContentPane().add("member_login", new Member_login(this));		
 		getContentPane().add("find_id", new Find_id(this));
 		getContentPane().add("find_pw", new Find_password(this));
@@ -43,10 +42,7 @@ public class Start extends JFrame{
 	// 특정 패널 (화면) 보기
 	public void base_screen_Panel() {  //기본 화면 
 		cards.show(this.getContentPane(),"base_screen"); 
-	}
-	public void sign_up_Panel() {  //기본 화면 
-		cards.show(this.getContentPane(),"sign_up"); 
-	}
+	} 
 	public void main_screen_Panel() {  // 메인 화면 
 		cards.show(this.getContentPane(),"main_screen"); 
 	}
