@@ -3,9 +3,11 @@ package teamProject;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import javax.swing.JPanel;
@@ -18,6 +20,10 @@ public class Meeting_Room_Selection extends JPanel {
 	
 	private Start F;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 		
 	static {
 		try {
@@ -35,7 +41,10 @@ public class Meeting_Room_Selection extends JPanel {
 	      setLayout(null);
 	      F = f;
 	      
-	      JLabel header = new JLabel(" 좌석 선택 (단체실)");
+	      JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
+			add(header);
+			header.setFocusable(true);
+			header.setBounds(0, 0, 800, 130);
 	      JLabel string0 = new JLabel("입구↓");
 	      JLabel string1 = new JLabel(": 선택 가능");
 	      JLabel string1_square = new JLabel();
@@ -55,19 +64,12 @@ public class Meeting_Room_Selection extends JPanel {
 			f.daily_pass_ticket_Panel();
 			}
 	      });
-	      add(header);
-	      header.setFocusable(true);
-	      header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-	      header.setForeground(new Color(0xdedede));
-	      header.setOpaque(true);
-	      header.setBounds(0, 0, 800, 130);
-	      header.setBackground(new Color(0x545454));
 	      add(string0);
-	      string0.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 20));
+	      string0.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 	      string0.setForeground(new Color(0x545454));
 	      string0.setBounds(360, 155, 100, 30);
 	      add(string1);
-	      string1.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 25));
+	      string1.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
 	      string1.setForeground(new Color(0x545454));
 	      string1.setBounds(100, 810, 200, 40);
 	      add(string1_square);
@@ -75,18 +77,18 @@ public class Meeting_Room_Selection extends JPanel {
 	      string1_square.setBounds(50, 820, 25, 25);
 	      string1_square.setBackground(new Color(0xcccccc));
 	      add(string2);
-	      string2.setFont(new Font("MapoDPP", Font.PLAIN | Font.BOLD, 25));
+	      string2.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
 	      string2.setForeground(new Color(0x545454));
 	      string2.setBounds(100, 850, 200, 40);
 	      add(string2_square);
 	      string2_square.setOpaque(true);
 	      string2_square.setBounds(50, 860, 25, 25);
 	      string2_square.setBackground(new Color(0x545454));
-	      prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-	      prev_btn.setForeground(new Color(0x222222));
-	      prev_btn.setOpaque(true);
-	      prev_btn.setBackground(new Color(0xd0d0d0));
-	      prev_btn.setBounds(530, 800, 200, 90);
+	      prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+			prev_btn.setForeground(new Color(0xf5f6f7));
+			prev_btn.setOpaque(true);
+			prev_btn.setBackground(new Color(0x8e8e8e));
+			prev_btn.setBounds(530, 810, 200, 90);
 	      
 	      add(seat1);
 	      add(seat2);

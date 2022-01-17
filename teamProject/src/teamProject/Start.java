@@ -1,7 +1,10 @@
 package teamProject;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Start extends JFrame{
 	
@@ -15,7 +18,7 @@ public class Start extends JFrame{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		
 		setBounds(600,20,800, 1000);
 		
 		getContentPane().setLayout(cards);
@@ -25,7 +28,8 @@ public class Start extends JFrame{
 	
 		// 프레임 내부에 패널 추가
 		
-		getContentPane().add("base_screen", new Base_screen(this));		
+		getContentPane().add("base_screen", new Base_screen(this));
+		getContentPane().add("sign_up", new Sign_up(this));
 		getContentPane().add("member_login", new Member_login(this));		
 		getContentPane().add("find_id", new Find_id(this));
 		getContentPane().add("find_pw", new Find_password(this));
@@ -39,7 +43,10 @@ public class Start extends JFrame{
 	// 특정 패널 (화면) 보기
 	public void base_screen_Panel() {  //기본 화면 
 		cards.show(this.getContentPane(),"base_screen"); 
-	} 
+	}
+	public void sign_up_Panel() {  //기본 화면 
+		cards.show(this.getContentPane(),"sign_up"); 
+	}
 	public void main_screen_Panel() {  // 메인 화면 
 		cards.show(this.getContentPane(),"main_screen"); 
 	}
@@ -70,7 +77,7 @@ public class Start extends JFrame{
 	public void Payment_Panel() {  // 결제
 		cards.show(this.getContentPane(), "payment");
 	}
-
+	
 	public void Private_Seat_Selection_Panel() { //개인실 좌석 선택
 		cards.show(this.getContentPane(),"Private_Seat_Selection"); 
 	}

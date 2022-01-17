@@ -19,10 +19,10 @@ public class Meeting_SeatButton extends JButton{
 	         setText("단체 세미나룸" + seat_number);
 	         setLocation(x, y);
 	         setSize(250, 250);      
-	         setFont(new Font("MapoDPP", Font.PLAIN, 18));
-	         setForeground(new Color(0x545454));
+	         setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 24));
+	         setForeground(new Color(0xf5f6f7));
 	         setOpaque(true);
-	         setBackground(new Color(0xdedede));
+	         setBackground(new Color(0x00c850));
 	         setHorizontalAlignment(JLabel.CENTER);
 	         setVerticalAlignment(JLabel.CENTER);
 	         
@@ -41,10 +41,10 @@ public class Meeting_SeatButton extends JButton{
 	         setText("단체 세미나룸 " +seat_number);
 	         setLocation(x, y);
 	         setSize(250, 250);      
-	         setFont(new Font("MapoDPP", Font.PLAIN, 18));
-	         setForeground(new Color(0xdedede));
+	         setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 24));
+	         setForeground(new Color(0xf5f6f7));
 	         setOpaque(true);
-	         setBackground(new Color(0x545454));
+	         setBackground(new Color(0x00c850));
 	         setHorizontalAlignment(JLabel.CENTER);
 	         setVerticalAlignment(JLabel.CENTER);
 	         setEnabled(false);

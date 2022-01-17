@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +22,11 @@ public class Buy_a_voucher extends JPanel {
 	private Start F;
 	private String id;
 	private String[] price = new String[7];
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	public Buy_a_voucher(Start f, String id){
 		setSize(800, 1000);
@@ -53,18 +60,14 @@ public class Buy_a_voucher extends JPanel {
 			}
 		}
 	
-		JLabel header = new JLabel("  Á¤¾×±Ç/Á¤±â±Ç ±¸ÀÔ");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/Çì´õ.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		pass = new JLabel("Á¤¾×±Ç ±¸¸Å ¼±ÅÃ");
 		pass.setBounds(80,160,300,50);
-		pass.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 30));
+		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		add(pass);
 		
 		ffh = new JButton("<html><body style='text-align:center;'>50½Ã°£<br>"+price[0]+"</html>");		
@@ -76,10 +79,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ffh);
-		ffh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		ffh.setForeground(new Color(0x444444));
+		ffh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		ffh.setForeground(new Color(0xf5f6f7));
 		ffh.setOpaque(true);
-		ffh.setBackground(new Color(0xc4ccf1));
+		ffh.setBackground(new Color(0x00c850));
 		ffh.setBounds(80, 220, 300, 130);
 		
 		ohh = new JButton("<html><body style='text-align:center;'>100½Ã°£<br>"+price[1]+"</html>");
@@ -91,10 +94,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(ohh);
-		ohh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		ohh.setForeground(new Color(0x444444));
+		ohh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		ohh.setForeground(new Color(0xf5f6f7));
 		ohh.setOpaque(true);
-		ohh.setBackground(new Color(0xc4ccf1));
+		ohh.setBackground(new Color(0x00c850));
 		ohh.setBounds(420, 220, 300, 130);
 		
 		thfh = new JButton("<html><body style='text-align:center;'>250½Ã°£<br>"+price[2]+"</html>");
@@ -106,10 +109,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(thfh);
-		thfh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		thfh.setForeground(new Color(0x444444));
+		thfh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		thfh.setForeground(new Color(0xf5f6f7));
 		thfh.setOpaque(true);
-		thfh.setBackground(new Color(0xc4ccf1));
+		thfh.setBackground(new Color(0x00c850));
 		thfh.setBounds(80, 380, 300, 130);
 		
 		fhh = new JButton("<html><body style='text-align:center;'>500½Ã°£<br>"+price[3]+"</html>");
@@ -121,10 +124,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(fhh);
-		fhh.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		fhh.setForeground(new Color(0x444444));
+		fhh.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		fhh.setForeground(new Color(0xf5f6f7));
 		fhh.setOpaque(true);
-		fhh.setBackground(new Color(0xc4ccf1));
+		fhh.setBackground(new Color(0x00c850));
 		fhh.setBounds(420, 380, 300, 130);
 		
 		
@@ -132,7 +135,7 @@ public class Buy_a_voucher extends JPanel {
 		season_ticket = new JLabel("Á¤±â±Ç ±¸¸Å ¼±ÅÃ");
 		add(season_ticket);
 		season_ticket.setBounds(80,550,300,50);
-		season_ticket.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 30));
+		season_ticket.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		
 		od = new JButton("<html><body style='text-align:center;'>1ÀÏ±Ç<br>"+price[4]+"</html>");
 		od.addActionListener(new ActionListener() {			
@@ -143,10 +146,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(od);
-		od.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		od.setForeground(new Color(0x444444));
+		od.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		od.setForeground(new Color(0xf5f6f7));
 		od.setOpaque(true);
-		od.setBackground(new Color(0xc4ccf1));
+		od.setBackground(new Color(0x00c850));
 		od.setBounds(80, 610, 200, 160);
 		
 		sd = new JButton("<html><body style='text-align:center;'>7ÀÏ±Ç<br>"+price[5]+"</html>");
@@ -158,10 +161,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(sd);
-		sd.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		sd.setForeground(new Color(0x444444));
+		sd.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		sd.setForeground(new Color(0xf5f6f7));
 		sd.setOpaque(true);
-		sd.setBackground(new Color(0xc4ccf1));
+		sd.setBackground(new Color(0x00c850));
 		sd.setBounds(300, 610, 200, 160);
 		
 		td = new JButton("<html><body style='text-align:center;'>30ÀÏ±Ç<br>"+price[6]+"</html>");
@@ -173,10 +176,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(td);
-		td.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 35));
-		td.setForeground(new Color(0x444444));
+		td.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
+		td.setForeground(new Color(0xf5f6f7));
 		td.setOpaque(true);
-		td.setBackground(new Color(0xc4ccf1));
+		td.setBackground(new Color(0x00c850));
 		td.setBounds(520, 610, 200, 160);
 		
 		previous = new JButton("ÀÌÀü È­¸é");
@@ -187,10 +190,10 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 		
 		exit = new JButton("³ª°¡±â");
@@ -201,10 +204,25 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(exit);
-		exit.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
-		exit.setForeground(new Color(0x222222));
+		exit.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		exit.setForeground(new Color(0xf5f6f7));
 		exit.setOpaque(true);
-		exit.setBackground(new Color(0xd0d0d0));
+		exit.setBackground(new Color(0x8e8e8e));
 		exit.setBounds(310, 810, 200, 90);
+		
+//		add(previous);
+//		previous.setOpaque(true);
+//		previous.setBounds(530, 810, 200, 90);
+//		
+//		exit = new JButton(new ImageIcon("teamProject/src/icons/³ª°¡±â.jpg"));
+//		exit.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				f.base_screen_Panel();
+//			}
+//		});
+//		add(exit);
+//		exit.setOpaque(true);
+//		exit.setBounds(310, 810, 200, 90);
 	}
 }

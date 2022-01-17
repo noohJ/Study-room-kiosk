@@ -2,9 +2,11 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,6 +14,11 @@ import javax.swing.JPanel;
 public class Use_PassOrSeasnTicket extends JPanel {
 	
 	private Start F;
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	public Use_PassOrSeasnTicket(Start f,String id) {
 		setSize(800, 1000);
@@ -23,7 +30,10 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		String end_date;
 		int t_hour;
 		int t_minute;
-		JLabel header = new JLabel(" 정액권/정기권 사용");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
+		add(header);
+		header.setFocusable(true);
+		header.setBounds(0, 0, 800, 130);
 		JLabel string1 = new JLabel("!");
 		JLabel string2 = new JLabel("?");
 		JButton seat_selection = new JButton("입실 : 좌석 선택하기");
@@ -61,34 +71,27 @@ public class Use_PassOrSeasnTicket extends JPanel {
 			};
 		});
 		
-		add(header);
-		header.setFocusable(true);
-		header.setFont(new Font("맑은 고딕", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
-		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		add(string1);
-		string1.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		string1.setFont(new Font("NanumGothic", Font.BOLD, 50));
 		string1.setBounds(0, 200, 800, 200);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		string1.setVerticalAlignment(JLabel.CENTER);
 		add(string2);
-		string2.setFont(new Font("MapoDPP", Font.BOLD, 50));
+		string2.setFont(new Font("NanumGothic", Font.BOLD, 50));
 		string2.setBounds(0, 400, 800, 200);
 		string2.setHorizontalAlignment(JLabel.CENTER);
 		string2.setVerticalAlignment(JLabel.CENTER);
 		add(seat_selection);
-		seat_selection.setFont(new Font("MapoDPP", Font.PLAIN, 46));
-		seat_selection.setForeground(new Color(0xffffff));
+		seat_selection.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		seat_selection.setForeground(new Color(0xf5f6f7));
 		seat_selection.setOpaque(true);
-		seat_selection.setBackground(new Color(0x5777ff));
+		seat_selection.setBackground(new Color(0x00c850));
 		seat_selection.setBounds(115, 670, 560, 94);
 		add(prev_btn);
-		prev_btn.setFont(new Font("MapoDPP", Font.PLAIN, 35));
-		prev_btn.setForeground(new Color(0x222222));
+		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		prev_btn.setForeground(new Color(0xf5f6f7));
 		prev_btn.setOpaque(true);
-		prev_btn.setBackground(new Color(0xd0d0d0));
+		prev_btn.setBackground(new Color(0x8e8e8e));
 		prev_btn.setBounds(530, 810, 200, 90);
 	}
 }

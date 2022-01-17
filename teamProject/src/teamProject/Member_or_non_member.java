@@ -2,9 +2,11 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,26 +16,27 @@ public class Member_or_non_member extends JPanel {
 	private JButton member,non_member,previous;
 	private Start F;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
+	
 	public Member_or_non_member(Start f) {
 		
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel("  È¸¿ø/ºñÈ¸¿ø ·Î±×ÀÎ ¼±ÅÃ");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/Çì´õ.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		member = new JButton("È¸¿ø ·Î±×ÀÎ");
-		member.setBounds(100,230,600,200);
-		member.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 60 ));
+		member.setBounds(150,300,500,150);
+		member.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 40 ));
 		member.setForeground(new Color(0xffffff));
-		member.setBackground(new Color(0x5777ff));
+		member.setBackground(new Color(0x00c850));
 		member.addActionListener(new ActionListener() {
 			
 			@Override
@@ -46,10 +49,10 @@ public class Member_or_non_member extends JPanel {
 		
 		
 		non_member = new JButton("ºñÈ¸¿ø ·Î±×ÀÎ");
-		non_member.setBounds(100,510,600,200);
-		non_member.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN | Font.BOLD, 60 ));
+		non_member.setBounds(150,500,500,150);
+		non_member.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 40 ));
 		non_member.setForeground(new Color(0xffffff));
-		non_member.setBackground(new Color(0x5777ff));
+		non_member.setBackground(new Color(0x00c850));
 		non_member.addActionListener(new ActionListener() {
 			
 			@Override
@@ -68,10 +71,10 @@ public class Member_or_non_member extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 	}
 }

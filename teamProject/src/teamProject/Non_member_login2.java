@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -12,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,23 +27,25 @@ public class Non_member_login2 extends JPanel{
 	private JButton confirm,previous;
 	private Start F;
 	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
+	
 	Non_member_login2(Start f){
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
-		JLabel header = new JLabel("  ºñÈ¸¿ø ·Î±×ÀÎ");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/Çì´õ.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("¸¼Àº °íµñ", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		JLabel string1 = new JLabel("ºñÈ¸¿ø ·Î±×ÀÎ");
 		add(string1);
-		string1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 90));
+		string1.setFont(new Font("NanumBarunGothic", Font.BOLD, 50));
+		string1.setForeground(new Color(0x222222));
 		string1.setBounds(0, 230, 800, 100);
 		string1.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -54,7 +58,7 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(ph);
-		ph.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		ph.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		ph.setForeground(new Color(0xd0d0d0));
 		ph.setBounds(115, 400, 560, 70);
 		ph.setText("ÀüÈ­¹øÈ£ ÀÔ·Â");
@@ -68,7 +72,7 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(pw);
-		pw.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 40));
+		pw.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		pw.setForeground(new Color(0xd0d0d0));
 		pw.setBounds(115, 500, 560, 70);
 		
@@ -121,10 +125,10 @@ public class Non_member_login2 extends JPanel{
 			}
 		});		
 		add(confirm);
-		confirm.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 46));
-		confirm.setForeground(new Color(0xffffff));
+		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		confirm.setForeground(new Color(0xf5f6f7));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0x5777ff));
+		confirm.setBackground(new Color(0x00c850));
 		confirm.setBounds(115, 610, 560, 94);
 		
 		previous = new JButton("ÀÌÀü È­¸é");
@@ -138,10 +142,10 @@ public class Non_member_login2 extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
+		previous.setBackground(new Color(0x8e8e8e));
 		previous.setBounds(530, 810, 200, 90);
 	}
 }
