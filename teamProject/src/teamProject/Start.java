@@ -87,7 +87,22 @@ public class Start extends JFrame{
 	public void seat_change_Panel() { // 이용권 좌석선택
 		cards.show(this.getContentPane(),"seat_change"); 
 	}
-
+	
+	public void daily_ticket_extend_Panel() { // 개인 당일권 연장
+		cards.show(this.getContentPane(),"daily_ticket_extend"); 
+	}
+	public void group_room_extend_Panel() { // 그룹 당일권 연장
+		cards.show(this.getContentPane(),"group_room_extend"); 
+	}
+	public void pass_ticket_extend_Panel() { // 정액권 연장
+		cards.show(this.getContentPane(),"pass_ticket_extend"); 
+	}
+	public void season_ticket_extend_Panel() { // 정기권 연장
+		cards.show(this.getContentPane(),"season_ticket_extend"); 
+	}
+	public void Extend_payment_Panel() { // 연장 결제
+		cards.show(this.getContentPane(),"extend_payment"); 
+	}
 
 
 	

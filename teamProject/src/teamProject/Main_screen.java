@@ -36,7 +36,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	private static String user = "hr";
 	private static String password = "1234";
 	private Start F;
-	
+	private int voucod;
 	
 	
 	
@@ -281,9 +281,47 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//new Part();
-				setVisible(false);
+				try {
+					Connection conn = DriverManager.getConnection(
+							"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+							"hr",
+							"1234");
+					String select = "";
+					if(m_or_nm == 0) {
+						select ="SELECT * FROM members Where MEMBER_ID = '"+id+"'";
+					}else {
+						select ="SELECT * FROM non_members Where NON_MEMBER_PHONE = '"+id+"'";
+					}
+					PreparedStatement memtable = conn.prepareStatement(select);
+
+					ResultSet rs = memtable.executeQuery();
+					
+					while(rs.next()) {
+						voucod = rs.getInt("VOUCHER_CODE");
+					}
+					rs.close();
+					memtable.close();
+					conn.close();
+					
+				} catch (SQLException a) {
+					a.printStackTrace();
+				}
+				if(voucod >= 1 && voucod <=4) {
+					f.add("daily_ticket_extend",new Extend_daily_ticket(f,id,m_or_nm));
+					f.daily_ticket_extend_Panel();
+				}else if (voucod >= 5 && voucod <=8) {
+					f.add("pass_ticket_extend",new Extend_pass_ticket(f,id,m_or_nm));
+					f.pass_ticket_extend_Panel();
+				}else if(voucod >= 9 && voucod <=11) {
+					f.add("season_ticket_extend",new Extend_season_ticket(f,id,m_or_nm));
+					f.season_ticket_extend_Panel();
+				}else {
+					f.add("group_room_extend",new Extend_group_room(f,id,m_or_nm));
+					f.group_room_extend_Panel();
+				}
 			}
 		});
+		
 		b5.addActionListener(new ActionListener() {	//자리이동
 			@Override
 			public void actionPerformed(ActionEvent e) {

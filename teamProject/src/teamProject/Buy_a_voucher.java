@@ -19,7 +19,7 @@ public class Buy_a_voucher extends JPanel {
 	private JButton exit,previous,ffh,ohh,thfh,fhh,od,sd,td;
 	private Start F;
 	private String id;
-	private String[] price = new String[7];;
+	private String[] price = new String[7];
 	
 	public Buy_a_voucher(Start f, String id){
 		setSize(800, 1000);
