@@ -42,7 +42,7 @@ public class Meeting_DB_Current_users_Add {
       String sql4 = "SELECT * FROM non_members Where non_member_phone = '"+id+"'";
       String non_user_phone = "";
       String phone = "";
-      
+      int user_vc_code = 0;
       if(m_or_nm == 0) {
       try(
          Connection conn = DBConnector.getConnection();
@@ -52,6 +52,7 @@ public class Meeting_DB_Current_users_Add {
          while(rs.next()) {
             user_phone = rs.getString("member_phone");
             phone = user_phone;
+            
          }
          rs.close();
          pstmt.close();
@@ -59,27 +60,8 @@ public class Meeting_DB_Current_users_Add {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      }
-      if(m_or_nm == 1) {
-          try(
-             Connection conn = DBConnector.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql4);
-             ResultSet rs = pstmt.executeQuery();
-          ){
-             while(rs.next()) {
-            	 phone = rs.getString("non_member_phone");
-             }
-             rs.close();
-             pstmt.close();
-             conn.close();         
-          } catch (SQLException e) {
-             e.printStackTrace();
-          }
-          }
-      
-      
       String sql5 = "SELECT * FROM members WHERE member_id = '"+id+"'";
-		int user_vc_code = 0;
+		
 		try(
 			Connection conn = DBConnector.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql5);
@@ -96,6 +78,47 @@ public class Meeting_DB_Current_users_Add {
 		}
       
       
+      }
+      if(m_or_nm == 1) {
+          try(
+             Connection conn = DBConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql4);
+             ResultSet rs = pstmt.executeQuery();
+          ){
+             while(rs.next()) {
+            	 phone = rs.getString("non_member_phone");
+            	 
+            	 
+            	 
+             }
+             rs.close();
+             pstmt.close();
+             conn.close();         
+          } catch (SQLException e) {
+             e.printStackTrace();
+          }
+          String sql6 = "SELECT * FROM non_members WHERE non_member_phone = '"+id+"'";
+  		
+  		try(
+  			Connection conn = DBConnector.getConnection();
+  			PreparedStatement pstmt = conn.prepareStatement(sql6);
+  			ResultSet rs = pstmt.executeQuery();
+  		){
+  			while(rs.next()) {
+  				user_vc_code = rs.getInt("G_voucher_code");
+  			}
+  			rs.close();
+  			pstmt.close();
+  			conn.close();			
+  		} catch (SQLException e) {
+  			e.printStackTrace();
+  		}
+          
+          }
+      
+      
+     
+     
       
       
       // current_users DB에 추가하기
