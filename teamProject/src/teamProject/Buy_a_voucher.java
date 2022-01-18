@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Buy_a_voucher extends JPanel {
@@ -32,7 +33,7 @@ public class Buy_a_voucher extends JPanel {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
-		
+		String vpt = "UPDATE voucher SET VOUCHER_PRICE = ? WHERE VOUCHER_CODE = ?";
 		for(int i = 0,j=5;i<price.length;++i,++j) {
 			try {
 				Connection conn = DriverManager.getConnection(
@@ -74,8 +75,24 @@ public class Buy_a_voucher extends JPanel {
 		ffh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,5,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 5);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,5,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(ffh);
@@ -89,8 +106,24 @@ public class Buy_a_voucher extends JPanel {
 		ohh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,6,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 6);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,6,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(ohh);
@@ -104,8 +137,24 @@ public class Buy_a_voucher extends JPanel {
 		thfh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,7,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 7);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,7,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(thfh);
@@ -119,8 +168,24 @@ public class Buy_a_voucher extends JPanel {
 		fhh.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,8,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 8);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,8,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(fhh);
@@ -140,9 +205,25 @@ public class Buy_a_voucher extends JPanel {
 		od = new JButton("<html><body style='text-align:center;'>1일권<br>"+price[4]+"</html>");
 		od.addActionListener(new ActionListener() {			
 			@Override
-			public void actionPerformed(ActionEvent e) {				
-				f.add("payment",new Payment(f,id,9,m_or_nm));
-				f.Payment_Panel();
+			public void actionPerformed(ActionEvent e) {	
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 9);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,9,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(od);
@@ -156,8 +237,24 @@ public class Buy_a_voucher extends JPanel {
 		sd.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,10,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 10);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,10,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(sd);
@@ -171,8 +268,24 @@ public class Buy_a_voucher extends JPanel {
 		td.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("payment",new Payment(f,id,11,m_or_nm));
-				f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = null;
+					resultStr = JOptionPane.showInputDialog("변동할 가격을 입력하세요");
+					try (
+							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+							PreparedStatement pstmt = conn.prepareStatement(vpt);
+					){
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 11);
+						pstmt.executeUpdate(); 
+						
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					f.add("payment",new Payment(f,id,11,m_or_nm));
+					f.Payment_Panel();					
+				}
 			}
 		});
 		add(td);
