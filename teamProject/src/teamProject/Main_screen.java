@@ -1,10 +1,5 @@
 package teamProject;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -15,11 +10,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -38,6 +35,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	private static String password = "1234";
 	private Start F;
 	private int voucod,gvoucod;
+	private ArrayList<String> nonmembers;
 	
 	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
@@ -377,46 +375,105 @@ public class Main_screen extends JPanel implements ActionListener{
 		b6.addActionListener(new ActionListener() {	//퇴실
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int answer = JOptionPane.showConfirmDialog(null,
-						"<html>퇴실 하시겠습니까?<br>※단체실은 시간이 저장되지 않습니다.</html>",
-						"confirm", JOptionPane.YES_NO_OPTION );
-				if(answer==JOptionPane.YES_OPTION) {
-					if(m_or_nm == 0) {
-						if(DB_Current_users_Add.m_c_user_vc_code(id) >= 12 &&
-								DB_Current_users_Add.m_c_user_vc_code(id) <= 15) {
-							DB_Members.mb_gvc_del(id);
-							System.out.println("단체실 사용 중인 유저 종료");
-							F.base_screen_Panel();
-						} else if(DB_Current_users_Add.m_c_user_vc_code(id) == 0) {
-							System.out.println("사용 중인 좌석or단체실이 없는 유저 종료");
-							F.base_screen_Panel();	
-						} else {
-							System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 유저");
-							if(DB_Members.mb_vc_type(id) >= 9 && 
-									DB_Members.mb_vc_type(id) <= 11) {
-								DB_Current_users_Add.c_season_user_del(id);
+				if(id.equals("manager")) {
+					ArrayList<String> nonmembers = new ArrayList<>(); 
+					try {
+						Connection conn = DriverManager.getConnection(url,user,password);
+						PreparedStatement memtable = conn.prepareStatement("SELECT * FROM non_members");
+						ResultSet rs = memtable.executeQuery();
+						
+						while(rs.next()) {
+							nonmembers.add(rs.getString("NON_MEMBER_PHONE"));
+						}
+						rs.close();
+						memtable.close();
+						conn.close();
+						
+					} catch (SQLException a) {
+						a.printStackTrace();
+					}
+					if(nonmembers.size()!=0) {
+						for(int i = 0; i <nonmembers.size();++i) { //비회원 자리 빈자리로 수정
+							String dnu = "UPDATE (SELECT * FROM CURRENT_USERS cu INNER JOIN seats se ON cu.seat_number = se.seat_number WHERE cu.user_phone = ?) SET SEAT_CONDITION = 'empty_seat'";
+							try (
+									Connection conn = DriverManager.getConnection(url,user,password);
+									PreparedStatement pstmt = conn.prepareStatement(dnu);
+							){
+								pstmt.setString(1, nonmembers.get(i)); 							
+							} catch (SQLException e2) {
+								e2.printStackTrace();
+							}
+						}
+						for (int i = 0; i <nonmembers.size();++i) {  //이용중 테이블에서 비회원 삭제
+							String dnu = "DELETE FROM CURRENT_USERS WHERE USER_PHONE = ?";
+							try (
+									Connection conn = DriverManager.getConnection(url,user,password);
+									PreparedStatement pstmt = conn.prepareStatement(dnu);
+							){
+								pstmt.setString(1, nonmembers.get(i)); 							
+							} catch (SQLException e2) {
+								e2.printStackTrace();
+							}
+						}
+						
+						String dnm = "DELETE FROM non_members WHERE non_member_phone = ?";
+						for(int i = 0; i<nonmembers.size();++i) {  //비회원 아이디 전부 삭제
+							try (
+									Connection conn = DriverManager.getConnection(url,user,password);
+									PreparedStatement pstmt = conn.prepareStatement(dnm);
+							){
+
+								pstmt.setString(1, nonmembers.get(i));
+								int cnt = pstmt.executeUpdate(); 									
+								
+							} catch (SQLException e2) {
+								e2.printStackTrace();
+							}
+						}
+					}					
+					F.base_screen_Panel();
+				}else {
+					int answer = JOptionPane.showConfirmDialog(null,
+							"<html>퇴실 하시겠습니까?<br>※단체실은 시간이 저장되지 않습니다.</html>",
+							"confirm", JOptionPane.YES_NO_OPTION );
+					if(answer==JOptionPane.YES_OPTION) {
+						if(m_or_nm == 0) {
+							if(DB_Current_users_Add.m_c_user_vc_code(id) >= 12 &&
+									DB_Current_users_Add.m_c_user_vc_code(id) <= 15) {
+								DB_Members.mb_gvc_del(id);
+								System.out.println("단체실 사용 중인 유저 종료");
+								F.base_screen_Panel();
+							} else if(DB_Current_users_Add.m_c_user_vc_code(id) == 0) {
+								System.out.println("사용 중인 좌석or단체실이 없는 유저 종료");
+								F.base_screen_Panel();	
+							} else {
+								System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 유저");
+								if(DB_Members.mb_vc_type(id) >= 9 && 
+										DB_Members.mb_vc_type(id) <= 11) {
+									DB_Current_users_Add.c_season_user_del(id);
+									F.base_screen_Panel();
+								} else {
+									DB_Current_users_Add.m_c_user_del(id);
+									F.base_screen_Panel();
+								}
+							}			
+						} else if(m_or_nm == 1) {
+							if(DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
+									DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
+								System.out.println("단체실 사용 중인 비회원 종료");
+								DB_Non_Members.nmb_gvc_del(id);
+								F.base_screen_Panel();
+							} else if(DB_Current_users_Add.nm_c_user_vc_code(id) == 0) {
+								System.out.println("사용 중인 좌석or단체실이 없는 비회원 종료");
 								F.base_screen_Panel();
 							} else {
-								DB_Current_users_Add.m_c_user_del(id);
+								DB_Current_users_Add.nm_c_user_del(id);
+								System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 비회원 종료");
 								F.base_screen_Panel();
 							}
-						}			
-					} else if(m_or_nm == 1) {
-						if(DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
-								DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
-							System.out.println("단체실 사용 중인 비회원 종료");
-							DB_Non_Members.nmb_gvc_del(id);
-							F.base_screen_Panel();
-						} else if(DB_Current_users_Add.nm_c_user_vc_code(id) == 0) {
-							System.out.println("사용 중인 좌석or단체실이 없는 비회원 종료");
-							F.base_screen_Panel();
-						} else {
-							DB_Current_users_Add.nm_c_user_del(id);
-							System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 비회원 종료");
-							F.base_screen_Panel();
 						}
 					}
-				}
+				}			
 			}
 		});
 		prev_btn.addActionListener(new ActionListener() {
