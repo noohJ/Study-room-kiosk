@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +23,11 @@ public class Extend_season_ticket extends JPanel{
 	private JButton odb,sdb,thdb,previous;
 	private String[] price = new String[3];
 	private String tr;
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	public Extend_season_ticket(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
@@ -83,19 +90,15 @@ public class Extend_season_ticket extends JPanel{
 			a.printStackTrace();
 		}
 		
-		JLabel header = new JLabel("  ¡§±‚±« ø¨¿Â ±∏¿‘");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/«Ï¥ı.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		pass = new JLabel("¡§±‚±« ø¨¿Â ±‚∞£ º±≈√");
 		add(pass);
 		pass.setBounds(80,160,400,50);
-		pass.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 30));
+		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		
 		odb = new JButton("<html><body style='text-align:center;'>1¿œ±«<br>"+price[0]+"</html>");
 		odb.addActionListener(new ActionListener() {			
@@ -106,10 +109,10 @@ public class Extend_season_ticket extends JPanel{
 			}
 		});
 		add(odb);
-		odb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		odb.setForeground(new Color(0x444444));
+		odb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		odb.setForeground(new Color(0xf5f6f7));
 		odb.setOpaque(true);
-		odb.setBackground(new Color(0xc4ccf1));
+		odb.setBackground(new Color(0x00c850));
 		odb.setBounds(80, 220, 200, 160);
 		
 		sdb = new JButton("<html><body style='text-align:center;'>7¿œ±«<br>"+price[1]+"</html>");
@@ -121,10 +124,10 @@ public class Extend_season_ticket extends JPanel{
 			}
 		});
 		add(sdb);
-		sdb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		sdb.setForeground(new Color(0x444444));
+		sdb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		sdb.setForeground(new Color(0xf5f6f7));
 		sdb.setOpaque(true);
-		sdb.setBackground(new Color(0xc4ccf1));
+		sdb.setBackground(new Color(0x00c850));
 		sdb.setBounds(300, 220, 200, 160);
 		
 		thdb = new JButton("<html><body style='text-align:center;'>30¿œ±«<br>"+price[2]+"</html>");
@@ -136,10 +139,10 @@ public class Extend_season_ticket extends JPanel{
 			}
 		});
 		add(thdb);
-		thdb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		thdb.setForeground(new Color(0x444444));
+		thdb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		thdb.setForeground(new Color(0xf5f6f7));
 		thdb.setOpaque(true);
-		thdb.setBackground(new Color(0xc4ccf1));
+		thdb.setBackground(new Color(0x00c850));
 		thdb.setBounds(520, 220, 200, 160);
 		
 		time_remaining = new JLabel(tr);
@@ -157,7 +160,7 @@ public class Extend_season_ticket extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN, 35));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));

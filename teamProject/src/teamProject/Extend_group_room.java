@@ -2,6 +2,7 @@ package teamProject;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +23,11 @@ public class Extend_group_room extends JPanel {
 	private JButton ohb,thb,shb,twehb,previous;
 	private String[] price = new String[4];
 	private String tr;
+	
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	public void paintComponent(Graphics g) {
+		g.drawImage(icon.getImage(), 0, 0, null);
+	}
 	
 	public Extend_group_room(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
@@ -84,19 +91,15 @@ public class Extend_group_room extends JPanel {
 			a.printStackTrace();
 		}
 		
-		JLabel header = new JLabel("  ¥‹√ºΩ« ø¨¿Â ±∏¿‘");
+		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/«Ï¥ı.jpg"));
 		add(header);
 		header.setFocusable(true);
-		header.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.ITALIC | Font.BOLD, 35));
-		header.setForeground(new Color(0xdedede));
-		header.setOpaque(true);
 		header.setBounds(0, 0, 800, 130);
-		header.setBackground(new Color(0x545454));
 		
 		pass = new JLabel("¥‹√ºΩ« ø¨¿Â Ω√∞£ º±≈√");
 		add(pass);
 		pass.setBounds(80,160,400,50);
-		pass.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 30));
+		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		
 		ohb = new JButton("<html><body style='text-align:center;'>1Ω√∞£<br>"+price[0]+"</html>");		
 		ohb.addActionListener(new ActionListener() {			
@@ -107,10 +110,10 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(ohb);
-		ohb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		ohb.setForeground(new Color(0x444444));
+		ohb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		ohb.setForeground(new Color(0xf5f6f7));
 		ohb.setOpaque(true);
-		ohb.setBackground(new Color(0xc4ccf1));
+		ohb.setBackground(new Color(0x00c850));
 		ohb.setBounds(80, 220, 300, 130);
 		
 		thb = new JButton("<html><body style='text-align:center;'>2Ω√∞£<br>"+price[1]+"</html>");
@@ -122,10 +125,10 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(thb);
-		thb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		thb.setForeground(new Color(0x444444));
+		thb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		thb.setForeground(new Color(0xf5f6f7));
 		thb.setOpaque(true);
-		thb.setBackground(new Color(0xc4ccf1));
+		thb.setBackground(new Color(0x00c850));
 		thb.setBounds(420, 220, 300, 130);
 		
 		shb = new JButton("<html><body style='text-align:center;'>4Ω√∞£<br>"+price[2]+"</html>");
@@ -137,10 +140,10 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(shb);
-		shb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		shb.setForeground(new Color(0x444444));
+		shb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		shb.setForeground(new Color(0xf5f6f7));
 		shb.setOpaque(true);
-		shb.setBackground(new Color(0xc4ccf1));
+		shb.setBackground(new Color(0x00c850));
 		shb.setBounds(80, 380, 300, 130);
 		
 		twehb = new JButton("<html><body style='text-align:center;'>8Ω√∞£<br>"+price[3]+"</html>");
@@ -152,10 +155,10 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(twehb);
-		twehb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		twehb.setForeground(new Color(0x444444));
+		twehb.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
+		twehb.setForeground(new Color(0xf5f6f7));
 		twehb.setOpaque(true);
-		twehb.setBackground(new Color(0xc4ccf1));
+		twehb.setBackground(new Color(0x00c850));
 		twehb.setBounds(420, 380, 300, 130);
 		
 		time_remaining = new JLabel(tr);
@@ -173,7 +176,7 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN, 35));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN, 35));
 		previous.setForeground(new Color(0x222222));
 		previous.setOpaque(true);
 		previous.setBackground(new Color(0xd0d0d0));
