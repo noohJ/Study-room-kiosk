@@ -29,6 +29,7 @@ public class daily_pass_ticket extends JPanel{
 	private static String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	private static String user = "hr";
 	private static String password = "1234";
+	private String[] price = new String[4];
 	
 	private Start F;
 	private CardLayout cards = new CardLayout();
@@ -178,22 +179,42 @@ public class daily_pass_ticket extends JPanel{
 	  btn13.setBounds(450, 490, 250, 150);
 	  
 	  
-	  
+	  for(int i = 0,j=1;i<price.length;++i,++j) {
+			try {
+				Connection conn = DriverManager.getConnection(
+						"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+						"hr",
+						"1234");
+				System.out.println("연결 생성 완료.");
+				
+				PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+String.valueOf(j));
+
+				ResultSet rs = voucher_tp_t.executeQuery();
+				while(rs.next()) {
+					String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
+					price[i] = money+"원";
+				}
+				
+				
+				rs.close();
+				voucher_tp_t.close();
+				conn.close();
+				
+			} catch (SQLException a) {
+				a.printStackTrace();
+			}
+		}
 	  
 	  
 	  
 	 // 버튼 텍스트 입력 및 폰트 설정
-	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "3,000원");
-	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "8,000원");
-	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "15,000원");
-	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "25,000원");
+	  btn3.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + price[0]);
+	  btn4.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + price[1]);
+	  btn5.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + price[2]);
+	  btn6.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + price[3]);
 	  btn7.setText("이전 화면");
 	  btn8.setText("개인실 선택");
 	  btn9.setText("단체실 선택");
-	  btn10.setText("<html>" + "<div style='text-align:center'>" + "1시간" + "<br>" + "6,000원");
-	  btn11.setText("<html>" + "<div style='text-align:center'>" + "3시간" + "<br>" + "16,000원");
-	  btn12.setText("<html>" + "<div style='text-align:center'>" + "6시간" + "<br>" + "30,000원");
-	  btn13.setText("<html>" + "<div style='text-align:center'>" + "12시간" + "<br>" + "50,000원");
 	  String SQL = "UPDATE  members SET VOUCHER_CODE = ? , END_DATE = ? WHERE MEMBER_ID = ?";
 	  
 	  
