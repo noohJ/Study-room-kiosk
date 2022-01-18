@@ -17,22 +17,22 @@ public class Meeting_DB_Current_users_Add {
    public static void c_user_add(String seat_number, String id, int m_or_nm) {
       // current_users의 pk를 넣기 위해 총 row를 구하는 것
 	  boolean empty;
-      String sql1 = "SELECT COUNT(*) FROM current_users";
-      int user_num = 0;
-      try(
-         Connection conn = DBConnector.getConnection();
-         PreparedStatement pstmt = conn.prepareStatement(sql1);
-         ResultSet rs = pstmt.executeQuery();
-      ){
-         int rowcount = 0;
-         if(rs.next()) user_num = rs.getInt(1) + 1;         
-         
-         rs.close();
-         pstmt.close();
-         conn.close();         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      }
+//      String sql1 = "SELECT COUNT(*) FROM current_users";
+//      int user_num = 0;
+//      try(
+//         Connection conn = DBConnector.getConnection();
+//         PreparedStatement pstmt = conn.prepareStatement(sql1);
+//         ResultSet rs = pstmt.executeQuery();
+//      ){
+//         int rowcount = 0;
+//         if(rs.next()) user_num = rs.getInt(1) + 1;         
+//         
+//         rs.close();
+//         pstmt.close();
+//         conn.close();         
+//      } catch (SQLException e) {
+//         e.printStackTrace();
+//      }
       
       
       // current_users의 phone을 넣기위한 것
@@ -80,8 +80,9 @@ public class Meeting_DB_Current_users_Add {
       
       
       // current_users DB에 추가하기
+      int user_num = Integer.parseInt(seat_number);
       String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+phone+"',"
-            + "'"+seat_number+"',SYSDATE)";
+            + "'"+seat_number+"',TO_CHAR(SYSDATE, 'HH24:MI'))";
       try(
          // DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
          Connection conn = DBConnector.getConnection();
