@@ -85,7 +85,7 @@ public class Main_screen extends JPanel implements ActionListener{
 				System.out.println("시간 유저 검사..");
 				int deferred_payment = (Integer.parseInt(DB_Members.mb_ed_arr(id)) * -1) * 50;
 				if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
-					DB_Members.mb_vc_del(id);
+					DB_Members.mb_gvc_del(id);
 					JOptionPane.showMessageDialog(null, "<html>정액권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
 				}
 			}			
@@ -95,8 +95,8 @@ public class Main_screen extends JPanel implements ActionListener{
 					DB_Non_Members.nmb_vc_type(id) <= 4) {
 				System.out.println("시간 검사..");
 				int deferred_payment = (Integer.parseInt(DB_Non_Members.nmb_ed_arr(id)) * -1) * 50;
-				if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
-					DB_Non_Members.nmb_vc_del(id);
+				if(Integer.parseInt(DB_Non_Members.nmb_ed_arr(id)) <= 0) {
+					DB_Non_Members.nmb_gvc_del(id);
 					JOptionPane.showMessageDialog(null, "<html>당일권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
 				}
 			}	
