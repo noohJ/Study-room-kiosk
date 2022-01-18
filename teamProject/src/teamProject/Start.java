@@ -113,7 +113,9 @@ public class Start extends JFrame{
 	public void Extend_payment_Panel() { // 연장 결제
 		cards.show(this.getContentPane(),"extend_payment"); 
 	}
-
+	public void Extend_select_panel() {//연장 선택
+		cards.show(this.getContentPane(), "Extend_panel");
+	}
 
 	
 	public static void main(String[] args) {

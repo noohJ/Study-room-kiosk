@@ -18,8 +18,8 @@ public class Extend_group_room extends JPanel {
 	
 	private JLabel pass,time_remaining;
 	private Start F;
-	private JButton ohb,twhb,thhb,previous;
-	private String[] price = new String[3];
+	private JButton ohb,thb,shb,twehb,previous;
+	private String[] price = new String[4];
 	private String tr;
 	
 	public Extend_group_room(Start f,String id, int m_or_nm) {
@@ -72,8 +72,8 @@ public class Extend_group_room extends JPanel {
 			ResultSet rs = trt.executeQuery();
 			
 			while(rs.next()) {
-				int t_hour = rs.getInt("end_date") / 60;
-				int t_minute = rs.getInt("end_date") % 60;
+				int t_hour = rs.getInt("g_end_date") / 60;
+				int t_minute = rs.getInt("g_end_date") % 60;
 				tr = "≥≤¿∫ Ω√∞£ : "+t_hour+"Ω√∞£ "+t_minute+"∫–";
 			}					
 			rs.close();
@@ -84,7 +84,7 @@ public class Extend_group_room extends JPanel {
 			a.printStackTrace();
 		}
 		
-		JLabel header = new JLabel(" ¥‹√ºΩ« ¥Á¿œ±« ø¨¿Â ±∏¿‘");
+		JLabel header = new JLabel("  ¥‹√ºΩ« ø¨¿Â ±∏¿‘");
 		add(header);
 		header.setFocusable(true);
 		header.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.ITALIC | Font.BOLD, 35));
@@ -98,7 +98,7 @@ public class Extend_group_room extends JPanel {
 		pass.setBounds(80,160,400,50);
 		pass.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 30));
 		
-		ohb = new JButton("<html><body style='text-align:center;'>1¿œ±«<br>"+price[0]+"</html>");
+		ohb = new JButton("<html><body style='text-align:center;'>1Ω√∞£<br>"+price[0]+"</html>");		
 		ohb.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -111,37 +111,52 @@ public class Extend_group_room extends JPanel {
 		ohb.setForeground(new Color(0x444444));
 		ohb.setOpaque(true);
 		ohb.setBackground(new Color(0xc4ccf1));
-		ohb.setBounds(80, 220, 200, 160);
+		ohb.setBounds(80, 220, 300, 130);
 		
-		twhb = new JButton("<html><body style='text-align:center;'>7¿œ±«<br>"+price[1]+"</html>");
-		twhb.addActionListener(new ActionListener() {			
+		thb = new JButton("<html><body style='text-align:center;'>2Ω√∞£<br>"+price[1]+"</html>");
+		thb.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				f.add("extend_payment",new Extend_payment(f,id,13,m_or_nm));
 				f.Extend_payment_Panel();
 			}
 		});
-		add(twhb);
-		twhb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		twhb.setForeground(new Color(0x444444));
-		twhb.setOpaque(true);
-		twhb.setBackground(new Color(0xc4ccf1));
-		twhb.setBounds(300, 220, 200, 160);
+		add(thb);
+		thb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
+		thb.setForeground(new Color(0x444444));
+		thb.setOpaque(true);
+		thb.setBackground(new Color(0xc4ccf1));
+		thb.setBounds(420, 220, 300, 130);
 		
-		thhb = new JButton("<html><body style='text-align:center;'>30¿œ±«<br>"+price[2]+"</html>");
-		thhb.addActionListener(new ActionListener() {			
+		shb = new JButton("<html><body style='text-align:center;'>4Ω√∞£<br>"+price[2]+"</html>");
+		shb.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				f.add("extend_payment",new Extend_payment(f,id,14,m_or_nm));
 				f.Extend_payment_Panel();
 			}
 		});
-		add(thhb);
-		thhb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
-		thhb.setForeground(new Color(0x444444));
-		thhb.setOpaque(true);
-		thhb.setBackground(new Color(0xc4ccf1));
-		thhb.setBounds(520, 220, 200, 160);
+		add(shb);
+		shb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
+		shb.setForeground(new Color(0x444444));
+		shb.setOpaque(true);
+		shb.setBackground(new Color(0xc4ccf1));
+		shb.setBounds(80, 380, 300, 130);
+		
+		twehb = new JButton("<html><body style='text-align:center;'>8Ω√∞£<br>"+price[3]+"</html>");
+		twehb.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.add("extend_payment",new Extend_payment(f,id,15,m_or_nm));
+				f.Extend_payment_Panel();
+			}
+		});
+		add(twehb);
+		twehb.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN | Font.BOLD, 35));
+		twehb.setForeground(new Color(0x444444));
+		twehb.setOpaque(true);
+		twehb.setBackground(new Color(0xc4ccf1));
+		twehb.setBounds(420, 380, 300, 130);
 		
 		time_remaining = new JLabel(tr);
 		add(time_remaining);
@@ -149,7 +164,7 @@ public class Extend_group_room extends JPanel {
 		time_remaining.setBounds(0, 550, 800, 200);
 		time_remaining.setHorizontalAlignment(JLabel.CENTER);
 		time_remaining.setVerticalAlignment(JLabel.CENTER);
-		
+				
 		previous = new JButton("¿Ã¿¸ »≠∏È");
 		previous.addActionListener(new ActionListener() {
 			@Override

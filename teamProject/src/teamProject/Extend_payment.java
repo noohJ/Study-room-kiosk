@@ -21,7 +21,7 @@ public class Extend_payment extends JPanel {
 	private JButton confirm,previous,main;
 	private boolean chk = false;
 	private Start F;
-	private String id,type,time,date_col,tr,dayr;
+	private String id,type,time,date_col,tr,gtr,dayr,g_date_col;
 	private int vochk;
 	private String[] split_day = new String[3];
 	
@@ -68,6 +68,7 @@ public class Extend_payment extends JPanel {
 				while(rs.next()) {
 					vochk = rs.getInt("VOUCHER_CODE");
 					tr = rs.getString("END_DATE");
+					gtr = rs.getString("G_END_DATE");
 					if(rs.getString("REMAINING_DAYS") != null) {
 						split_day =rs.getString("REMAINING_DAYS").split("/");								
 					}
@@ -81,8 +82,10 @@ public class Extend_payment extends JPanel {
 				a.printStackTrace();
 			}
 			date_col = "UPDATE MEMBERS SET  END_DATE = ? WHERE MEMBER_ID = ?";
+			g_date_col = "UPDATE MEMBERS SET G_END_DATE = ? WHERE MEMBER_ID = ?";
 		}else {
 			date_col = "UPDATE NON_MEMBERS SET  END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
+			g_date_col = "UPDATE non_members SET G_END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
 		}
 		
 		confirm = new JButton("확인");
@@ -166,9 +169,9 @@ public class Extend_payment extends JPanel {
 				}else {  //그룹룸 연장
 					try (
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
-							PreparedStatement pstmt = conn.prepareStatement(date_col);
+							PreparedStatement pstmt = conn.prepareStatement(g_date_col);
 					){
-						pstmt.setString(1, Integer.toString(Integer.parseInt(tr)+Integer.parseInt(time)*60));
+						pstmt.setString(1, Integer.toString(Integer.parseInt(gtr)+Integer.parseInt(time)*60));
 						pstmt.setString(2, id);
 						int cnt = pstmt.executeUpdate(); 
 
