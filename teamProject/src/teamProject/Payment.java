@@ -257,10 +257,7 @@ public class Payment extends JPanel{
 				
 		
 		try {
-			Connection conn = DriverManager.getConnection(
-					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-					"hr",
-					"1234");
+			Connection conn = DBConnector.getConnection();
 			System.out.println("연결 생성 완료.");
 			
 			PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
