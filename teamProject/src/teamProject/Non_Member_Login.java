@@ -36,10 +36,10 @@ public class Non_Member_Login extends JPanel {
 		header.setBounds(0, 0, 800, 130);
 		JLabel string1 = new JLabel("비회원 가입");
 		JTextField nmb_phone = new JTextField();
-		JPasswordField nmb_pw = new JPasswordField();
-		JLabel string2 = new JLabel(" 임시비밀번호를 입력해주세요.");
-		JPasswordField nmb_pw_chk = new JPasswordField();
-		JLabel string3 = new JLabel(" 임시비밀번호를 확인해주세요.");
+		JLabel string2 = new JLabel("임시비밀번호를 입력해주세요.");
+		JPasswordField nmb_pw = new JPasswordField("1234");
+		JLabel string3 = new JLabel("임시비밀번호를 확인해주세요.");
+		JPasswordField nmb_pw_chk = new JPasswordField("4321");
 		JButton chk_btn = new JButton("확인");
 		JLabel chk_str = new JLabel("123123123qqq");
 		JButton prev_btn = new JButton("이전 화면");
@@ -110,6 +110,14 @@ public class Non_Member_Login extends JPanel {
 		});
 		prev_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				nmb_phone.setText(" 휴대폰 번호를 입력해주세요.");
+				nmb_phone.setForeground(new Color(0xd0d0d0));
+				string2.setVisible(true);
+				string3.setVisible(true);
+				nmb_pw.setText("1234");
+				nmb_pw.setForeground(new Color(0xd0d0d0));
+				nmb_pw_chk.setText("4321");
+				nmb_pw_chk.setForeground(new Color(0xd0d0d0));
 				start.base_screen_Panel();
 			};
 		});
@@ -125,17 +133,17 @@ public class Non_Member_Login extends JPanel {
 		nmb_phone.setBounds(115, 370, 560, 70);
 		nmb_phone.setText(" 휴대폰 번호를 입력해주세요.");
 		add(string2);
-		string2.setFont(new Font("NanumGothic", Font.PLAIN, 40));
-		string2.setForeground(new Color(0xd0d0d0));
-		string2.setBounds(115, 470, 560, 70);
+		string2.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
+		string2.setForeground(new Color(0x222222));
+		string2.setBounds(115, 540, 540, 20);
 		add(nmb_pw);
 		nmb_pw.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		nmb_pw.setForeground(new Color(0xd0d0d0));
 		nmb_pw.setBounds(115, 470, 560, 70);
 		add(string3);
-		string3.setFont(new Font("NanumGothic", Font.PLAIN, 40));
-		string3.setForeground(new Color(0xd0d0d0));
-		string3.setBounds(115, 570, 560, 70);
+		string3.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
+		string3.setForeground(new Color(0x222222));
+		string3.setBounds(115, 640, 540, 20);
 		add(nmb_pw_chk);
 		nmb_pw_chk.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 		nmb_pw_chk.setForeground(new Color(0xd0d0d0));
@@ -160,8 +168,8 @@ public class Non_Member_Login extends JPanel {
 		
 		add(null1);
 		
+		
 		setSize(800, 1000);
-		setVisible(true);
 		setLayout(null);
 	}
 	public static void nmb_login_ml(JTextField jtf) {
@@ -196,8 +204,7 @@ public class Non_Member_Login extends JPanel {
 			
 			@Override
 			public void focusLost(FocusEvent e) {
-				if((jtf.getText()).equals("")) {
-					
+				if((jtf.getText()).equals("")) {					
 					string.setVisible(true);
 				} else {
 					string.setVisible(false);
