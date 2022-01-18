@@ -195,7 +195,7 @@ public class daily_pass_ticket2 extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			 int voucher_code = 1;
+			 int voucher_code = 12;
 			f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
 	         f.Payment_Panel();
 //			try (
@@ -218,7 +218,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 int voucher_code = 2;
+				 int voucher_code = 13;
 				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
 		         f.Payment_Panel();
 //				try (
@@ -241,7 +241,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 int voucher_code = 3;
+				 int voucher_code = 14;
 				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
 		         f.Payment_Panel();
 				
@@ -265,7 +265,7 @@ public class daily_pass_ticket2 extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 int voucher_code = 4;
+				 int voucher_code = 15;
 				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
 		         f.Payment_Panel();
 				
