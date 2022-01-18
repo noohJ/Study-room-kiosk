@@ -85,7 +85,6 @@ public class Main_screen extends JPanel implements ActionListener{
 				System.out.println("시간 유저 검사..");
 				int deferred_payment = (Integer.parseInt(DB_Members.mb_ed_arr(id)) * -1) * 50;
 				if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
-					DB_Members.mb_gvc_del(id);
 					JOptionPane.showMessageDialog(null, "<html>정액권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
 				}
 			}			
@@ -96,7 +95,6 @@ public class Main_screen extends JPanel implements ActionListener{
 				System.out.println("시간 검사..");
 				int deferred_payment = (Integer.parseInt(DB_Non_Members.nmb_ed_arr(id)) * -1) * 50;
 				if(Integer.parseInt(DB_Non_Members.nmb_ed_arr(id)) <= 0) {
-					DB_Non_Members.nmb_gvc_del(id);
 					JOptionPane.showMessageDialog(null, "<html>당일권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
 				}
 			}	
@@ -388,6 +386,7 @@ public class Main_screen extends JPanel implements ActionListener{
 								DB_Current_users_Add.m_c_user_vc_code(id) <= 15) {
 							DB_Members.mb_gvc_del(id);
 							System.out.println("단체실 사용 중인 유저 종료");
+							F.base_screen_Panel();
 						} else if(DB_Current_users_Add.m_c_user_vc_code(id) == 0) {
 							System.out.println("사용 중인 좌석or단체실이 없는 유저 종료");
 							F.base_screen_Panel();	
@@ -406,6 +405,7 @@ public class Main_screen extends JPanel implements ActionListener{
 						if(DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
 								DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
 							System.out.println("단체실 사용 중인 비회원 종료");
+							DB_Non_Members.nmb_gvc_del(id);
 							F.base_screen_Panel();
 						} else if(DB_Current_users_Add.nm_c_user_vc_code(id) == 0) {
 							System.out.println("사용 중인 좌석or단체실이 없는 비회원 종료");
