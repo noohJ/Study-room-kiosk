@@ -393,43 +393,27 @@ public class Main_screen extends JPanel implements ActionListener{
 						a.printStackTrace();
 					}
 					if(nonmembers.size()!=0) {
-						for(int i = 0; i <nonmembers.size();++i) { //비회원 자리 빈자리로 수정
-							String dnu = "UPDATE (SELECT * FROM CURRENT_USERS cu INNER JOIN seats se ON cu.seat_number = se.seat_number WHERE cu.user_phone = ?) SET SEAT_CONDITION = 'empty_seat'";
-							try (
-									Connection conn = DriverManager.getConnection(url,user,password);
-									PreparedStatement pstmt = conn.prepareStatement(dnu);
-							){
-								pstmt.setString(1, nonmembers.get(i)); 							
-							} catch (SQLException e2) {
-								e2.printStackTrace();
-							}
-						}
-						for (int i = 0; i <nonmembers.size();++i) {  //이용중 테이블에서 비회원 삭제
-							String dnu = "DELETE FROM CURRENT_USERS WHERE USER_PHONE = ?";
-							try (
-									Connection conn = DriverManager.getConnection(url,user,password);
-									PreparedStatement pstmt = conn.prepareStatement(dnu);
-							){
-								pstmt.setString(1, nonmembers.get(i)); 							
-							} catch (SQLException e2) {
-								e2.printStackTrace();
-							}
-						}
 						
+						String dnu = "UPDATE (SELECT * FROM CURRENT_USERS cu INNER JOIN seats se ON cu.seat_number = se.seat_number WHERE cu.user_phone = ?) SET SEAT_CONDITION = 'empty_seat'";
+						String dnu2 = "DELETE FROM CURRENT_USERS WHERE USER_PHONE = ?";
 						String dnm = "DELETE FROM non_members WHERE non_member_phone = ?";
-						for(int i = 0; i<nonmembers.size();++i) {  //비회원 아이디 전부 삭제
+						for (int i = 0; i <nonmembers.size();++i) {  //이용중 테이블에서 비회원 삭제
 							try (
 									Connection conn = DriverManager.getConnection(url,user,password);
-									PreparedStatement pstmt = conn.prepareStatement(dnm);
+									PreparedStatement pstmt = conn.prepareStatement(dnu);
+									PreparedStatement pstmt2 = conn.prepareStatement(dnu2);
+									PreparedStatement pstmt3 = conn.prepareStatement(dnm);
 							){
-
 								pstmt.setString(1, nonmembers.get(i));
-								int cnt = pstmt.executeUpdate(); 									
-								
+								pstmt2.setString(1, nonmembers.get(i)); 
+								pstmt3.setString(1, nonmembers.get(i));
+								pstmt.executeUpdate(); 
+								pstmt2.executeUpdate(); 
+								pstmt3.executeUpdate(); 
 							} catch (SQLException e2) {
 								e2.printStackTrace();
 							}
-						}
+						}						
 					}					
 					F.base_screen_Panel();
 				}else {
