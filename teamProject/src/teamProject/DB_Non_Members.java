@@ -32,4 +32,60 @@ public class DB_Non_Members {
 		}
 		return true;
 	}
+	
+	// 논멤버의 아이디를 키워드로 받았을 때 그 멤버의 바우쳐코드를 리턴
+	public static int nmb_vc_type(String keyword) {
+		String sql = "SELECT * FROM non_members WHERE non_member_phone = '"+keyword+"'";
+		int temp = 0;
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				temp = rs.getInt("voucher_code");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	// 논멤버의 아이디를 키워드로 받으면 논멤버의 남은 시간을 리턴
+	public static String nmb_ed_arr(String keyword) {
+		String sql = "SELECT * FROM non_members WHERE non_member_phone = '"+keyword+"'";
+		String temp = "";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				temp = rs.getString("end_date");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	// 기한 혹은 시간이 다된 논멤버의 바우쳐코드를 널로 바꿔줌
+	public static void nmb_vc_del(String keyword) {
+		String sql1 = "UPDATE non_members SET voucher_code = null, "
+				+ "end_date = null WHERE non_member_phone = '"+keyword+"'";		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql1);
+		){
+			int update = pstmt.executeUpdate();
+			System.out.printf("[UPDATE non_members SET] %d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 }

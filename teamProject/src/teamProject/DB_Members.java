@@ -14,7 +14,7 @@ public class DB_Members {
 	
 	// 정보를 받으면 정보대로 멤버에 추가됨
 	public static void mb_id_add(String id, String pw, String name, String ph) {
-		String sql = "INSERT INTO members VALUES(?, ?, ?, ?, null, null, null)";
+		String sql = "INSERT INTO members VALUES(?, ?, ?, ?, null, null, null, null, null)";
 		try(
 			// DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
 			Connection conn = DBConnector.getConnection();
@@ -103,7 +103,7 @@ public class DB_Members {
 		return temp;
 	}
 	
-	// 멤버의 아이디를 키워드로 받았을 때 그 멤버의 바우쳐코드가 시즌권이면 트루 아니면 폴스
+	// 멤버의 아이디를 키워드로 받았을 때 그 멤버의 바우쳐코드를 리턴
 	public static int mb_vc_type(String keyword) {
 		String sql = "SELECT * FROM members WHERE member_id = '"+keyword+"'";
 		int temp = 0;

@@ -68,23 +68,38 @@ public class Main_screen extends JPanel implements ActionListener{
 		header.setBounds(0, 0, 800, 130);
 		
 		
-		// 현재 이용권의 잔여시간 및 기한이 없으면 삭제
-		if(DB_Members.mb_vc_type(id) >= 9 && 
-				DB_Members.mb_vc_type(id) <= 11) {
-			System.out.println("시즌 유저 검사..");
-			if(DB_Members.mb_rd_cal(id) <= 0) {
-				DB_Members.mb_vc_del(id);
-				JOptionPane.showMessageDialog(null, "기간권이 종료되었습니다.", "기간권 종료", JOptionPane.PLAIN_MESSAGE);
-			}
-		} else if(DB_Members.mb_vc_type(id) == 0) {
-			System.out.println("이용권 없는 유저..");
-		} else {
-			System.out.println("시간 유저 검사..");
-			int deferred_payment = (Integer.parseInt(DB_Members.mb_ed_arr(id)) * -1) * 50;
-			if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
-				DB_Members.mb_vc_del(id);
-				JOptionPane.showMessageDialog(null, "<html>정액권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
-			}
+		// 멤버 - 현재 이용권의 잔여시간 및 기한이 없으면 삭제
+		if(m_or_nm == 0) {
+			System.out.println("회원 로그인..");
+			if(DB_Members.mb_vc_type(id) >= 9 && 
+					DB_Members.mb_vc_type(id) <= 11) {
+				System.out.println("시즌 유저 검사..");
+				if(DB_Members.mb_rd_cal(id) <= 0) {
+					DB_Members.mb_vc_del(id);
+					JOptionPane.showMessageDialog(null, "기간권이 종료되었습니다.", "기간권 종료", JOptionPane.PLAIN_MESSAGE);
+				}
+			} else if(DB_Members.mb_vc_type(id) == 0) {
+				System.out.println("이용권 없는 유저..");
+			} else if(DB_Members.mb_vc_type(id) >= 1 && 
+					DB_Members.mb_vc_type(id) <= 8) {
+				System.out.println("시간 유저 검사..");
+				int deferred_payment = (Integer.parseInt(DB_Members.mb_ed_arr(id)) * -1) * 50;
+				if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
+					DB_Members.mb_vc_del(id);
+					JOptionPane.showMessageDialog(null, "<html>정액권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
+				}
+			}			
+		} else if(m_or_nm == 1) {
+			System.out.println("비회원 로그인..");
+			if(DB_Non_Members.nmb_vc_type(id) >= 1 && 
+					DB_Non_Members.nmb_vc_type(id) <= 4) {
+				System.out.println("시간 검사..");
+				int deferred_payment = (Integer.parseInt(DB_Non_Members.nmb_ed_arr(id)) * -1) * 50;
+				if(Integer.parseInt(DB_Members.mb_ed_arr(id)) <= 0) {
+					DB_Non_Members.nmb_vc_del(id);
+					JOptionPane.showMessageDialog(null, "<html>당일권이 종료되었습니다.<br>정산하실 요금 : "+deferred_payment+"원</html>", "정액권 종료", JOptionPane.PLAIN_MESSAGE);
+				}
+			}	
 		}
 		
 		LocalDate str = LocalDate.now();
@@ -373,21 +388,39 @@ public class Main_screen extends JPanel implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int answer = JOptionPane.showConfirmDialog(null, "퇴실 하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 				if(answer==JOptionPane.YES_OPTION) {
-					if(DB_Members.mb_vc_type(id) >= 9 && 
-							DB_Members.mb_vc_type(id) <= 11) {
-						DB_Current_users_Add.c_season_user_del(id);
-						System.out.println("시즌 유저로 종료");
-						F.base_screen_Panel();
-					} else if(DB_Members.mb_vc_type(id) == 0) {
-						System.out.println("이용권없는 유저로 종료");
-						F.base_screen_Panel();
-					} else {
-						if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
-							System.out.println("시간 유저로 종료");
-							F.base_screen_Panel();				
-						} else {
-							DB_Current_users_Add.c_user_del(id);
-							System.out.println("시간 유저로 종료");
+					if(m_or_nm == 0) {
+						if(DB_Members.mb_vc_type(id) >= 9 && 
+								DB_Members.mb_vc_type(id) <= 11) {
+							DB_Current_users_Add.c_season_user_del(id);
+							System.out.println("시즌 멤버로 종료");
+							F.base_screen_Panel();
+						} else if(DB_Members.mb_vc_type(id) == 0) {
+							System.out.println("이용권없는 멤버로 종료");
+							F.base_screen_Panel();
+						} else if(DB_Members.mb_vc_type(id) >= 1 && 
+								DB_Members.mb_vc_type(id) <= 8) {
+							if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
+								System.out.println("시간 멤버로 종료");
+								F.base_screen_Panel();				
+							} else {
+								DB_Current_users_Add.m_c_user_del(id);
+								System.out.println("시간 멤버로 종료");
+								F.base_screen_Panel();
+							}
+						}						
+					} else if(m_or_nm == 1) {
+						if(DB_Non_Members.nmb_vc_type(id) >= 1 && 
+								DB_Non_Members.nmb_vc_type(id) <= 4) {
+							if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
+								System.out.println("당일권 비회원으로 종료");
+								F.base_screen_Panel();				
+							} else {
+								DB_Current_users_Add.nm_c_user_del(id);
+								System.out.println("당일권 비회원으로 종료");
+								F.base_screen_Panel();
+							}
+						} else if(DB_Non_Members.nmb_vc_type(id) == 0) {
+							System.out.println("이용권없는 비회원으로 종료");
 							F.base_screen_Panel();
 						}
 					}
