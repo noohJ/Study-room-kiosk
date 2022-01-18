@@ -59,7 +59,7 @@ public class DB_Current_users_Add {
 		// current_users DB에 추가하기
 		int user_num = Integer.parseInt(seat_number);
 		String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
-				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI','"+user_vc_code+"'))";
+				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI'), '"+user_vc_code+"')";
 		try(
 			// DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
 			Connection conn = DBConnector.getConnection();
@@ -436,7 +436,7 @@ public class DB_Current_users_Add {
 		return seat_num;
 	}
 	
-	//유저의 좌석번호 추출
+	//멤버의 커런트_vc_code 추출
 	public static int m_c_user_vc_code(String id) {
 		// current_users의 phone을 넣기위한 것
 		String sql1 = "SELECT * FROM members WHERE member_id = '"+id+"'";
@@ -470,6 +470,27 @@ public class DB_Current_users_Add {
 		
 		return user_vc_code;
 	}
+	
+	//멤버의 vc_code 추출
+	public static int nm_c_user_vc_code(String id) {
+		// current_users의 voucher_code를 빼기위한 것
+		String sql2 = "SELECT * FROM current_users WHERE user_phone = '"+id+"'";
+		int user_vc_code = 0;
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql2);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				user_vc_code = rs.getInt("voucher_code");
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user_vc_code;
+	}
+	
 	
 	//자리이동 시 기존의 자리를 삭제
 	public static void c_user_change_seat(String s_num, String id) {

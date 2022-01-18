@@ -208,4 +208,78 @@ public class DB_Members {
 			e.printStackTrace();
 		}	
 	}
+	
+	// 단체실 퇴실시 초기화
+	public static void mb_gvc_del(String keyword) {
+		String sql1 = "UPDATE members SET G_VOUCHER_CODE = null, "
+				+ "G_END_DATE = null WHERE member_id = '"+keyword+"'";		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql1);
+		){
+			int update = pstmt.executeUpdate();
+			System.out.printf("[UPDATE members SET] %d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// current_users의 phone을 넣기위한 것
+		String sql2 = "SELECT * FROM members WHERE member_id = '"+keyword+"'";
+		String user_phone = "";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql2);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				user_phone = rs.getString("member_phone");
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// current_users의 seat_number를 가져오기 위한 것
+		String sql4 = "SELECT * FROM current_users WHERE user_phone = '"+user_phone+"'";
+		int seat_number = 0;
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql4);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				seat_number = rs.getInt("seat_number");
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 퇴실 시 seat_condition을 다시 empty_seat로 바꿔줌
+		String sql3 = "UPDATE seats SET seat_condition = 'empty_seat' WHERE seat_number = "+seat_number+"";		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql3);
+		){
+			int update = pstmt.executeUpdate();
+			System.out.printf("[UPDATE seats SET seat_condition]%d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 퇴실버튼을 눌러 필요없어진 current_users DB를 삭제함
+		String sql5 = "DELETE FROM current_users WHERE user_phone = ?";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql5);
+		){
+			pstmt.setString(1, user_phone);
+			
+			int delete = pstmt.executeUpdate();			
+			System.out.printf("[DELETE FROM current_users]%d행이 변경되었습니다.\n", delete);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

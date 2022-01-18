@@ -379,41 +379,40 @@ public class Main_screen extends JPanel implements ActionListener{
 		b6.addActionListener(new ActionListener() {	//퇴실
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int answer = JOptionPane.showConfirmDialog(null, "퇴실 하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
+				int answer = JOptionPane.showConfirmDialog(null,
+						"<html>퇴실 하시겠습니까?<br>※단체실은 시간이 저장되지 않습니다.</html>",
+						"confirm", JOptionPane.YES_NO_OPTION );
 				if(answer==JOptionPane.YES_OPTION) {
 					if(m_or_nm == 0) {
-						if(DB_Members.mb_vc_type(id) >= 9 && 
-								DB_Members.mb_vc_type(id) <= 11) {
-							DB_Current_users_Add.c_season_user_del(id);
-							System.out.println("시즌 멤버로 종료");
-							F.base_screen_Panel();
-						} else if(DB_Members.mb_vc_type(id) == 0) {
-							System.out.println("이용권없는 멤버로 종료");
-							F.base_screen_Panel();
-						} else if(DB_Members.mb_vc_type(id) >= 1 && 
-								DB_Members.mb_vc_type(id) <= 8) {
-							if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
-								System.out.println("시간 멤버로 종료");
-								F.base_screen_Panel();				
+						if(DB_Current_users_Add.m_c_user_vc_code(id) >= 12 &&
+								DB_Current_users_Add.m_c_user_vc_code(id) <= 15) {
+							DB_Members.mb_gvc_del(id);
+							System.out.println("단체실 사용 중인 유저 종료");
+						} else if(DB_Current_users_Add.m_c_user_vc_code(id) == 0) {
+							System.out.println("사용 중인 좌석or단체실이 없는 유저 종료");
+							F.base_screen_Panel();	
+						} else {
+							System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 유저");
+							if(DB_Members.mb_vc_type(id) >= 9 && 
+									DB_Members.mb_vc_type(id) <= 11) {
+								DB_Current_users_Add.c_season_user_del(id);
+								F.base_screen_Panel();
 							} else {
 								DB_Current_users_Add.m_c_user_del(id);
-								System.out.println("시간 멤버로 종료");
 								F.base_screen_Panel();
 							}
-						}						
+						}			
 					} else if(m_or_nm == 1) {
-						if(DB_Non_Members.nmb_vc_type(id) >= 1 && 
-								DB_Non_Members.nmb_vc_type(id) <= 4) {
-							if(DB_Current_users_Add.c_user_seat(id).equals("0")) {
-								System.out.println("당일권 비회원으로 종료");
-								F.base_screen_Panel();				
-							} else {
-								DB_Current_users_Add.nm_c_user_del(id);
-								System.out.println("당일권 비회원으로 종료");
-								F.base_screen_Panel();
-							}
-						} else if(DB_Non_Members.nmb_vc_type(id) == 0) {
-							System.out.println("이용권없는 비회원으로 종료");
+						if(DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
+								DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
+							System.out.println("단체실 사용 중인 비회원 종료");
+							F.base_screen_Panel();
+						} else if(DB_Current_users_Add.nm_c_user_vc_code(id) == 0) {
+							System.out.println("사용 중인 좌석or단체실이 없는 비회원 종료");
+							F.base_screen_Panel();
+						} else {
+							DB_Current_users_Add.nm_c_user_del(id);
+							System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 비회원 종료");
 							F.base_screen_Panel();
 						}
 					}
