@@ -62,7 +62,7 @@ public class Payment extends JPanel{
 		
 		confirm = new JButton("이용권 결제하기");
 		confirm.addActionListener(new ActionListener() {
-			int vochk;
+			int vochk,grr;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -71,11 +71,17 @@ public class Payment extends JPanel{
 							"hr",
 							"1234");
 					System.out.println("연결 생성 완료.");
-					
-					PreparedStatement memtble = conn.prepareStatement("SELECT * FROM members Where member_id = '"+id+"'");
+					String lt = "";
+					if (m_or_nm == 0) {
+						lt = "SELECT * FROM members Where member_id = '"+id+"'";						
+					}else {
+						lt = "SELECT * FROM non_members Where NON_MEMBER_PHONE = '"+id+"'";
+					}
+					PreparedStatement memtble = conn.prepareStatement(lt);
 					ResultSet rs = memtble.executeQuery();
 					while(rs.next()) {
 						vochk = rs.getInt("VOUCHER_CODE");
+						grr = rs.getInt("G_VOUCHER_CODE");
 					}
 					rs.close();
 					memtble.close();
@@ -84,7 +90,20 @@ public class Payment extends JPanel{
 				} catch (SQLException a) {
 					a.printStackTrace();
 				}
-				if(vochk >= 5 && vochk <= 11) {
+				String ptt = "";
+				if(m_or_nm == 0) {
+					ptt = "UPDATE MEMBERS SET VOUCHER_CODE = ?, END_DATE = ? WHERE MEMBER_ID = ?";						
+				}else {
+					ptt = "UPDATE non_members SET VOUCHER_CODE = ?, END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
+				}
+				
+				String gtt = "";
+				if(m_or_nm == 0) {
+					gtt = "UPDATE MEMBERS SET G_VOUCHER_CODE = ?, G_END_DATE = ? WHERE MEMBER_ID = ?";						
+				}else {
+					gtt = "UPDATE non_members SET G_VOUCHER_CODE = ?, G_END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
+				}
+				if(vochk != 0 && voucher_code <=11 ) {
 					Voucher_con.setText("이미 보유하신 이용권이 있습니다.");
 				}else {
 					try {
@@ -109,8 +128,6 @@ public class Payment extends JPanel{
 					} catch (SQLException a) {
 						a.printStackTrace();
 					}
-					
-					String ptt = "UPDATE MEMBERS SET VOUCHER_CODE = ?, END_DATE = ? WHERE MEMBER_ID = ?";
 
 					String stt = "UPDATE MEMBERS SET VOUCHER_CODE = ?, REMAINING_DAYS  = ? WHERE MEMBER_ID = ?";
 					
@@ -123,9 +140,10 @@ public class Payment extends JPanel{
 							pstmt.setString(2, Integer.toString(Integer.parseInt(time)*60));
 							pstmt.setString(3, id);
 							int cnt = pstmt.executeUpdate(); 
-
+							
 							System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
-
+							f.main_screen_Panel();
+							
 						} catch (SQLException e2) {
 							e2.printStackTrace();
 						}
@@ -145,15 +163,53 @@ public class Payment extends JPanel{
 							int cnt = pstmt.executeUpdate(); 
 							
 							System.out.println("선택하신 정기권 :"+cnt + "건이 실행되었습니다.");	
+							f.main_screen_Panel();
+							
+						} catch (SQLException e2) {
+							e2.printStackTrace();
+						}
+					}else if (voucher_code >= 1 && voucher_code <= 4) {
+						try (
+								Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+								PreparedStatement pstmt = conn.prepareStatement(ptt);
+						){
+							pstmt.setInt(1, voucher_code);
+							pstmt.setString(2, Integer.toString(Integer.parseInt(time)*60));
+							pstmt.setString(3, id);
+							int cnt = pstmt.executeUpdate(); 
+
+							System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
+							f.add ("Private_Seat_Selection" , new Private_Seat_Selection(f,id,m_or_nm ,voucher_code));
+							f.Private_Seat_Selection_Panel();
+							
+						} catch (SQLException e2) {
+							e2.printStackTrace();
+						}
+					}
+					Voucher_con.setText("");							
+				}
+				if(voucher_code >= 12 && voucher_code <= 15) {
+					if(grr != 0) {
+						Voucher_con.setText("이미 단체실을 이용중입니다.");
+					}else {
+						try (
+								Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
+								PreparedStatement pstmt = conn.prepareStatement(gtt);
+						){
+							pstmt.setInt(1, voucher_code);
+							pstmt.setString(2, Integer.toString(Integer.parseInt(time)*60));
+							pstmt.setString(3, id);
+							int cnt = pstmt.executeUpdate(); 
+
+							System.out.println("선택하신 정액권 : "+cnt + "건이 실행되었습니다.");	
+							f.add("Meeting_Room_Selection" , new Meeting_Room_Selection(f,id,m_or_nm));
+							f.Meeting_Room_Selection_Panel();
 
 						} catch (SQLException e2) {
 							e2.printStackTrace();
 						}
 					}
-					Voucher_con.setText("");		
-					f.main_screen_Panel();
-				}
-
+				}				
 			}
 		});
 		add(confirm);
@@ -168,7 +224,12 @@ public class Payment extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Voucher_con.setText("");
-				f.Buy_a_voucher_Panel();
+				System.out.println(voucher_code);
+				if ((voucher_code >= 1 && voucher_code <= 4)||(voucher_code >= 12 && voucher_code <=15)) {
+					f.daily_pass_ticket_Panel();
+				}else {
+					f.Buy_a_voucher_Panel();					
+				}
 			}
 		});
 		add(previous);
@@ -184,6 +245,7 @@ public class Payment extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				Voucher_con.setText("");
 				f.main_screen_Panel();
+				
 			}
 		});
 		main.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));

@@ -37,7 +37,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	private static String user = "hr";
 	private static String password = "1234";
 	private Start F;
-	private int voucod;
+	private int voucod,gvoucod;
 	
 	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
@@ -330,6 +330,7 @@ public class Main_screen extends JPanel implements ActionListener{
 					
 					while(rs.next()) {
 						voucod = rs.getInt("VOUCHER_CODE");
+						gvoucod = rs.getInt("G_VOUCHER_CODE");
 					}
 					rs.close();
 					memtable.close();
@@ -338,18 +339,10 @@ public class Main_screen extends JPanel implements ActionListener{
 				} catch (SQLException a) {
 					a.printStackTrace();
 				}
-				if(voucod >= 1 && voucod <=4) {
-					f.add("daily_ticket_extend",new Extend_daily_ticket(f,id,m_or_nm));
-					f.daily_ticket_extend_Panel();
-				}else if (voucod >= 5 && voucod <=8) {
-					f.add("pass_ticket_extend",new Extend_pass_ticket(f,id,m_or_nm));
-					f.pass_ticket_extend_Panel();
-				}else if(voucod >= 9 && voucod <=11) {
-					f.add("season_ticket_extend",new Extend_season_ticket(f,id,m_or_nm));
-					f.season_ticket_extend_Panel();
-				}else if (voucod >= 12 && voucod <=14) {
-					f.add("group_room_extend",new Extend_group_room(f,id,m_or_nm));
-					f.group_room_extend_Panel();
+
+				if((voucod >= 1 && voucod<=11) || gvoucod !=0) {
+					f.add("Extend_panel",new Extend_panel(f,id,m_or_nm));
+					f.Extend_select_panel();
 				}else {
 					JOptionPane.showMessageDialog(null, "보유하신 이용권이 없습니다.");
 				}
