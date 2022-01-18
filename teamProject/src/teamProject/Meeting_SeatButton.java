@@ -48,6 +48,8 @@ public class Meeting_SeatButton extends JButton{
 	         setHorizontalAlignment(JLabel.CENTER);
 	         setVerticalAlignment(JLabel.CENTER);
 	         setEnabled(false);
+	         
+	         
 	      }
 	}
 }

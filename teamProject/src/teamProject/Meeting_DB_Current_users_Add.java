@@ -78,11 +78,30 @@ public class Meeting_DB_Current_users_Add {
           }
       
       
+      String sql5 = "SELECT * FROM members WHERE member_id = '"+id+"'";
+		int user_vc_code = 0;
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql5);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				user_vc_code = rs.getInt("G_voucher_code");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+      
+      
+      
       
       // current_users DB에 추가하기
       int user_num = Integer.parseInt(seat_number);
       String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+phone+"',"
-            + "'"+seat_number+"',TO_CHAR(SYSDATE, 'HH24:MI'))";
+            + "'"+seat_number+"',TO_CHAR(SYSDATE, 'HH24:MI'), '"+user_vc_code+"')";
       try(
          // DBConnector 클래스에서 DB를 가져오기 위한 기본정보를 가져옴.
          Connection conn = DBConnector.getConnection();
@@ -96,7 +115,8 @@ public class Meeting_DB_Current_users_Add {
       } catch (SQLException e) {
     	  empty = false;
          JOptionPane.showConfirmDialog(null, id+ "님은 자리가 있습니다");
-      }
+         e.printStackTrace();
+      } 
       
       if(empty) {
       String sql3 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number ='"+seat_number+"'";      

@@ -66,15 +66,30 @@ public class Private_DB_Current_users_Add {
           }
       } 
       
-      
+      String sql5 = "SELECT * FROM members WHERE member_id = '"+id+"'";
+    		int user_vc_code = 0;
+    		try(
+    			Connection conn = DBConnector.getConnection();
+    			PreparedStatement pstmt = conn.prepareStatement(sql5);
+    			ResultSet rs = pstmt.executeQuery();
+    		){
+    			while(rs.next()) {
+    				user_vc_code = rs.getInt("voucher_code");
+    			}
+    			rs.close();
+    			pstmt.close();
+    			conn.close();			
+    		} catch (SQLException e) {
+    			e.printStackTrace();
+    		}
       
    
       
       
       // current_users DB에 추가하기
       int user_num = Integer.parseInt(seat_number);
-      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+user_phone+"',"
-				+ "'"+seat_number+"', TO_CHAR(SYSDATE, 'HH24:MI'))";
+      String sql = "INSERT INTO current_users VALUES('"+user_num+"','"+phone+"',"
+              + "'"+seat_number+"',TO_CHAR(SYSDATE, 'HH24:MI'), '"+user_vc_code+"')";
       
       
       try(

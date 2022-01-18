@@ -73,7 +73,10 @@ public class DB_Current_users_Add {
 		} catch (SQLException e) {
 			empty = false;
 			JOptionPane.showMessageDialog(null, id+"님은 자리가 있습니다!");
+			e.printStackTrace();
 		}
+		
+		
 		if(empty) {
 			String sql3 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number ='"+seat_number+"'";		
 			try (
