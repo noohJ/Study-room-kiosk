@@ -142,7 +142,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		// JButton 설정
 		b1 = new JButton(new ImageIcon("teamProject/src/icons/당일권구입.jpg"));
 		b2 = new JButton(new ImageIcon("teamProject/src/icons/정액권구입.jpg"));
-		b3 = new JButton(new ImageIcon("teamProject/src/icons/정액권정기권사용.jpg"));
+		b3 = new JButton(new ImageIcon("teamProject/src/icons/이용권사용.jpg"));
 		b4 = new JButton(new ImageIcon("teamProject/src/icons/시간연장.jpg"));		
 		b5 = new JButton(new ImageIcon("teamProject/src/icons/자리이동.jpg"));
 		b6 = new JButton(new ImageIcon("teamProject/src/icons/퇴실.jpg"));
@@ -315,7 +315,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		b3.addActionListener(new ActionListener() {	// 정액권/정기권 사용
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.add("Use_PassOrSeasnTicket",new Use_PassOrSeasnTicket(f,id));
+				f.add("Use_PassOrSeasnTicket",new Use_PassOrSeasnTicket(f,id,m_or_nm));
 				f.use_post_Panel();
 			}
 		});
@@ -362,17 +362,22 @@ public class Main_screen extends JPanel implements ActionListener{
 		b5.addActionListener(new ActionListener() {	//자리이동
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String c_user_seat = DB_Current_users_Add.c_user_seat(id);
+				String m_c_user_seat = "";
+				if(m_or_nm == 0) {
+					m_c_user_seat = DB_Current_users_Add.m_c_user_seat(id);					
+				} else if(m_or_nm == 1) {
+					m_c_user_seat = DB_Current_users_Add.nm_c_user_seat(id);
+				}
 				if((DB_Current_users_Add.m_c_user_vc_code(id) >= 12 &&
 						DB_Current_users_Add.m_c_user_vc_code(id) <= 15) ||
 						DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
 						DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
 					JOptionPane.showMessageDialog(null, "단체실은 좌석이동을 할 수 없습니다.");
 				} else {
-					if(c_user_seat.equals("0")) {
+					if(m_c_user_seat.equals("0")) {
 						JOptionPane.showMessageDialog(null, "이용 중인 자리가 없습니다.");
 					} else {
-						f.add("seat_change",new Seat_change(f,id));
+						f.add("seat_change",new Seat_change(f,id,m_or_nm));
 						f.seat_change_Panel();					
 					}
 				}
@@ -457,9 +462,12 @@ public class Main_screen extends JPanel implements ActionListener{
 								System.out.println("사용 중인 좌석or단체실이 없는 비회원 종료");
 								F.base_screen_Panel();
 							} else {
-								DB_Current_users_Add.nm_c_user_del(id);
 								System.out.println("사용 중인 좌석이 있으나 단체실은 아닌 비회원 종료");
-								F.base_screen_Panel();
+								if(DB_Non_Members.nmb_vc_type(id) >= 1 && 
+										DB_Non_Members.nmb_vc_type(id) <= 4) {
+									DB_Current_users_Add.nm_c_user_del(id);
+									F.base_screen_Panel();
+								}
 							}
 						}
 					}

@@ -24,12 +24,17 @@ public class Seat_change extends JPanel {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
 	
-	public Seat_change(Start f,String id) {
+	public Seat_change(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
-		String c_user_seat = DB_Current_users_Add.c_user_seat(id);
+		String c_user_seat = "";
+		if(m_or_nm == 0) {
+			c_user_seat = DB_Current_users_Add.m_c_user_seat(id); // 회원			
+		} else if (m_or_nm == 1) {
+			c_user_seat = DB_Current_users_Add.nm_c_user_seat(id); // 비회원
+		}
 		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);

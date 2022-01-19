@@ -73,6 +73,29 @@ public class DB_Non_Members {
 		return temp;
 	}
 	
+	// 멤버의 id값을 키워드로 받으면 그 멤버의 바우쳐_타입 + 바우쳐_네임을 리턴 
+	public static String nmb_code_arr(String keyword) {
+		String sql = "SELECT * FROM non_members INNER JOIN voucher USING (voucher_code) "
+				+ "WHERE non_member_phone = '"+keyword+"'";
+		String temp = "";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				temp = rs.getString("voucher_type") +" "+rs.getString("voucher_name");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
 	// 기한 혹은 시간이 다된 논멤버의 바우쳐코드를 널로 바꿔줌
 	public static void nmb_vc_del(String keyword) {
 		String sql1 = "UPDATE non_members SET voucher_code = null, "

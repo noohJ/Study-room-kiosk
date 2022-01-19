@@ -20,12 +20,12 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
 	
-	public Use_PassOrSeasnTicket(Start f,String id) {
+	public Use_PassOrSeasnTicket(Start f,String id, int m_or_nm) {
 		setSize(800, 1000);
 		setLayout(null);
 		F = f;
 		
-		String ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름		
+		String ticket; // 티켓 종류 + 티켓 이름		
 		String remaining_days;
 		String end_date;
 		int t_hour;
@@ -38,30 +38,52 @@ public class Use_PassOrSeasnTicket extends JPanel {
 		JLabel string2 = new JLabel("?");
 		JButton seat_selection = new JButton("입실 : 좌석 선택하기");
 		JButton prev_btn = new JButton("이전 화면");
-		if(ticket.equals("")) {
-			string1.setText("<html><body style='text-align:center;'>"
-					+ "현재 사용 중인 티켓 :<br>사용 중인 티켓이 없습니다.</html>");
-			string2.setText("<html><body style='text-align:center;'>"
-					+ "티켓을 구해하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
-			seat_selection.setEnabled(false);
-		} else {
-			remaining_days = DB_Members.mb_rd_arr(id);
-			end_date = DB_Members.mb_ed_arr(id);
-			string1.setText("<html><body style='text-align:center;'>"
-					+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
-			if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
-				t_hour = Integer.parseInt(end_date) / 60;
-				t_minute = Integer.parseInt(end_date) % 60;
-				string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
-			} else if(ticket.contains("season_ticket")) {
-				string2.setText("사용 기한 : "+remaining_days);
-			}
-			seat_selection.setEnabled(true);
+		if(m_or_nm == 0) {
+			ticket = DB_Members.mb_code_arr(id); // 티켓 종류 + 티켓 이름
+			if(ticket.equals("")) {
+				string1.setText("<html><body style='text-align:center;'>"
+						+ "현재 사용 중인 티켓 :<br>사용 중인 티켓이 없습니다.</html>");
+				string2.setText("<html><body style='text-align:center;'>"
+						+ "티켓을 구해하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
+				seat_selection.setEnabled(false);
+			} else {
+				remaining_days = DB_Members.mb_rd_arr(id);
+				end_date = DB_Members.mb_ed_arr(id);
+				string1.setText("<html><body style='text-align:center;'>"
+						+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
+				if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
+					t_hour = Integer.parseInt(end_date) / 60;
+					t_minute = Integer.parseInt(end_date) % 60;
+					string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
+				} else if(ticket.contains("season_ticket")) {
+					string2.setText("사용 기한 : "+remaining_days);
+				}
+				seat_selection.setEnabled(true);
+			}			
+		} else if(m_or_nm == 1) {
+			ticket = DB_Non_Members.nmb_code_arr(id); // 티켓 종류 + 티켓 이름
+			if(ticket.equals("")) {
+				string1.setText("<html><body style='text-align:center;'>"
+						+ "현재 사용 중인 티켓 :<br>사용 중인 티켓이 없습니다.</html>");
+				string2.setText("<html><body style='text-align:center;'>"
+						+ "티켓을 구해하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
+				seat_selection.setEnabled(false);
+			} else {
+				end_date = DB_Non_Members.nmb_ed_arr(id);
+				string1.setText("<html><body style='text-align:center;'>"
+						+ "현재 사용 중인 티켓 :<br>"+ticket+"</html>");
+				if(ticket.contains("daily_ticket") || ticket.contains("pass_ticket")) {
+					t_hour = Integer.parseInt(end_date) / 60;
+					t_minute = Integer.parseInt(end_date) % 60;
+					string2.setText("남은 시간 : "+t_hour+"시간 "+t_minute+"분");
+				}
+				seat_selection.setEnabled(true);
+			}	
 		}
 		
 		seat_selection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				F.add("seat_selection",new Seat_Selection(F, id));
+				F.add("seat_selection",new Seat_Selection(F, id, m_or_nm));
 				F.seat_selection_Panel();
 			};
 		});
