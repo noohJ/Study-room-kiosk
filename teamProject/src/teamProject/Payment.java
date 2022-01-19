@@ -214,7 +214,7 @@ public class Payment extends JPanel{
 		confirm.setForeground(new Color(0xf5f6f7));
 		confirm.setOpaque(true);
 		confirm.setBackground(new Color(0x00c850));
-		confirm.setBounds(115, 610, 560, 94);
+		confirm.setBounds(115, 660, 560, 94);
 		
 		previous = new JButton("이전 화면");
 		previous.addActionListener(new ActionListener() {		
@@ -245,11 +245,11 @@ public class Payment extends JPanel{
 				
 			}
 		});
-		main.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		main.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		main.setForeground(new Color(0xf5f6f7));
 		main.setOpaque(true);
-		main.setBackground(new Color(0x8e8e8e));
-		main.setBounds(310, 810, 200, 90);
+		main.setBackground(new Color(0x34D40B));
+		main.setBounds(410, 880, 150, 50);
 		add(main);
 				
 		

@@ -379,7 +379,7 @@ public class Buy_a_voucher extends JPanel {
 		exit.setForeground(new Color(0xf5f6f7));
 		exit.setOpaque(true);
 		exit.setBackground(new Color(0x34D40B));
-		exit.setBounds(380, 880, 150, 50);
+		exit.setBounds(410, 880, 150, 50);
 		
 	}
 }
