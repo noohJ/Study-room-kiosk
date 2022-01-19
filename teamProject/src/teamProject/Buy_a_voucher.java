@@ -361,11 +361,11 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0x8e8e8e));
-		previous.setBounds(530, 810, 200, 90);
+		previous.setBackground(new Color(0x34D40B));
+		previous.setBounds(580, 880, 150, 50);
 		
 		exit = new JButton("³ª°¡±â");
 		exit.addActionListener(new ActionListener() {
@@ -375,11 +375,11 @@ public class Buy_a_voucher extends JPanel {
 			}
 		});
 		add(exit);
-		exit.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		exit.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		exit.setForeground(new Color(0xf5f6f7));
 		exit.setOpaque(true);
-		exit.setBackground(new Color(0x8e8e8e));
-		exit.setBounds(310, 810, 200, 90);
+		exit.setBackground(new Color(0x34D40B));
+		exit.setBounds(380, 880, 150, 50);
 		
 	}
 }

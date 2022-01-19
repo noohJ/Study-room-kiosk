@@ -176,10 +176,10 @@ public class Extend_group_room extends JPanel {
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("NanumGothic", Font.PLAIN, 35));
-		previous.setForeground(new Color(0x222222));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
+		previous.setForeground(new Color(0xf5f6f7));
 		previous.setOpaque(true);
-		previous.setBackground(new Color(0xd0d0d0));
-		previous.setBounds(530, 810, 200, 90);
+		previous.setBackground(new Color(0x34D40B));
+		previous.setBounds(580, 880, 150, 50);
 	}
 }

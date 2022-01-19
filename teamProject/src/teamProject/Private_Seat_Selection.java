@@ -185,10 +185,10 @@ public class Private_Seat_Selection extends JPanel {
       add(seat57);
       add(seat58);
       add(prev_btn);
-      prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+      prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		prev_btn.setForeground(new Color(0xf5f6f7));
-		prev_btn.setOpaque(true);
-		prev_btn.setBackground(new Color(0x8e8e8e));
-		prev_btn.setBounds(530, 810, 200, 90);
+      prev_btn.setOpaque(true);
+      prev_btn.setBackground(new Color(0x34D40B));
+      prev_btn.setBounds(580, 880, 150, 50);
    }
 }

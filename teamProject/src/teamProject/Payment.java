@@ -230,11 +230,11 @@ public class Payment extends JPanel{
 			}
 		});
 		add(previous);
-		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
+		previous.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		previous.setForeground(new Color(0xf5f6f7));
-		previous.setOpaque(true);
-		previous.setBackground(new Color(0x8e8e8e));
-		previous.setBounds(530, 810, 200, 90);
+        previous.setOpaque(true);
+        previous.setBackground(new Color(0x34D40B));
+        previous.setBounds(580, 880, 150, 50);
 		
 		main = new JButton("메인 화면");
 		main.addActionListener(new ActionListener() {	

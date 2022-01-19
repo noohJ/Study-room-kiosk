@@ -139,7 +139,7 @@ public class daily_pass_ticket extends JPanel{
 	  btn7.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
 	  btn7.setForeground(new Color(0xf5f6f7));
 	  btn7.setOpaque(true);
-	  btn7.setBackground(new Color(0x8e8e8e));
+	  btn7.setBackground(new Color(0x34D40B));
 	  btn7.setBounds(530, 810, 200, 90);
 	  add(btn8);
 	  btn8.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
