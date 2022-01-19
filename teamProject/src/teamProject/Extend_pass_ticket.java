@@ -97,7 +97,7 @@ public class Extend_pass_ticket extends JPanel {
 		header.setBounds(0, 0, 800, 130);
 		
 		pass = new JLabel("연장 시간 선택");
-		pass.setBounds(80,160,300,50);
+		pass.setBounds(80,215,300,50);
 		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		add(pass);
 		
@@ -114,7 +114,7 @@ public class Extend_pass_ticket extends JPanel {
 		fhb.setForeground(new Color(0xf5f6f7));
 		fhb.setOpaque(true);
 		fhb.setBackground(new Color(0x00c850));
-		fhb.setBounds(80, 220, 300, 130);
+		fhb.setBounds(80, 300, 300, 130);
 		
 		ohhb = new JButton("<html><body style='text-align:center;'>100시간<br>"+price[1]+"</html>");
 		ohhb.addActionListener(new ActionListener() {			
@@ -129,7 +129,7 @@ public class Extend_pass_ticket extends JPanel {
 		ohhb.setForeground(new Color(0xf5f6f7));
 		ohhb.setOpaque(true);
 		ohhb.setBackground(new Color(0x00c850));
-		ohhb.setBounds(420, 220, 300, 130);
+		ohhb.setBounds(420, 300, 300, 130);
 		
 		thhb = new JButton("<html><body style='text-align:center;'>250시간<br>"+price[2]+"</html>");
 		thhb.addActionListener(new ActionListener() {			
@@ -144,7 +144,7 @@ public class Extend_pass_ticket extends JPanel {
 		thhb.setForeground(new Color(0xf5f6f7));
 		thhb.setOpaque(true);
 		thhb.setBackground(new Color(0x00c850));
-		thhb.setBounds(80, 380, 300, 130);
+		thhb.setBounds(80, 460, 300, 130);
 		
 		fhhb = new JButton("<html><body style='text-align:center;'>500시간<br>"+price[3]+"</html>");
 		fhhb.addActionListener(new ActionListener() {			
@@ -159,12 +159,12 @@ public class Extend_pass_ticket extends JPanel {
 		fhhb.setForeground(new Color(0xf5f6f7));
 		fhhb.setOpaque(true);
 		fhhb.setBackground(new Color(0x00c850));
-		fhhb.setBounds(420, 380, 300, 130);
+		fhhb.setBounds(420, 460, 300, 130);
 		
 		time_remaining = new JLabel(tr);
 		add(time_remaining);
 		time_remaining.setFont(new Font("NanumGothic", Font.BOLD, 50));
-		time_remaining.setBounds(0, 550, 800, 200);
+		time_remaining.setBounds(0, 630, 800, 200);
 		time_remaining.setHorizontalAlignment(JLabel.CENTER);
 		time_remaining.setVerticalAlignment(JLabel.CENTER);		
 		

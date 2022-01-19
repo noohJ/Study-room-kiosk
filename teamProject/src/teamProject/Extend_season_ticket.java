@@ -97,7 +97,7 @@ public class Extend_season_ticket extends JPanel{
 		
 		pass = new JLabel("정기권 연장 기간 선택");
 		add(pass);
-		pass.setBounds(80,160,400,50);
+		pass.setBounds(80,215,400,50);
 		pass.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 30));
 		
 		odb = new JButton("<html><body style='text-align:center;'>1일권<br>"+price[0]+"</html>");
@@ -113,7 +113,7 @@ public class Extend_season_ticket extends JPanel{
 		odb.setForeground(new Color(0xf5f6f7));
 		odb.setOpaque(true);
 		odb.setBackground(new Color(0x00c850));
-		odb.setBounds(80, 220, 200, 160);
+		odb.setBounds(80, 300, 200, 160);
 		
 		sdb = new JButton("<html><body style='text-align:center;'>7일권<br>"+price[1]+"</html>");
 		sdb.addActionListener(new ActionListener() {			
@@ -128,7 +128,7 @@ public class Extend_season_ticket extends JPanel{
 		sdb.setForeground(new Color(0xf5f6f7));
 		sdb.setOpaque(true);
 		sdb.setBackground(new Color(0x00c850));
-		sdb.setBounds(300, 220, 200, 160);
+		sdb.setBounds(300, 300, 200, 160);
 		
 		thdb = new JButton("<html><body style='text-align:center;'>30일권<br>"+price[2]+"</html>");
 		thdb.addActionListener(new ActionListener() {			
@@ -143,12 +143,12 @@ public class Extend_season_ticket extends JPanel{
 		thdb.setForeground(new Color(0xf5f6f7));
 		thdb.setOpaque(true);
 		thdb.setBackground(new Color(0x00c850));
-		thdb.setBounds(520, 220, 200, 160);
+		thdb.setBounds(520, 300, 200, 160);
 		
 		time_remaining = new JLabel(tr);
 		add(time_remaining);
 		time_remaining.setFont(new Font("NanumGothic", Font.BOLD, 50));
-		time_remaining.setBounds(0, 550, 800, 200);
+		time_remaining.setBounds(0, 530, 800, 200);
 		time_remaining.setHorizontalAlignment(JLabel.CENTER);
 		time_remaining.setVerticalAlignment(JLabel.CENTER);
 		
