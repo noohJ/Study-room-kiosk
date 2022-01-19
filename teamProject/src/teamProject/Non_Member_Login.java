@@ -22,6 +22,9 @@ public class Non_Member_Login extends JPanel {
 	
 	private Start start;
 	
+	static String pw1 = "1234";
+	static String pw2 = "4321";
+	
 	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
@@ -37,9 +40,9 @@ public class Non_Member_Login extends JPanel {
 		JLabel string1 = new JLabel("비회원 가입");
 		JTextField nmb_phone = new JTextField();
 		JLabel string2 = new JLabel("임시비밀번호를 입력해주세요.");
-		JPasswordField nmb_pw = new JPasswordField("1234");
+		JPasswordField nmb_pw = new JPasswordField(pw1);
 		JLabel string3 = new JLabel("임시비밀번호를 확인해주세요.");
-		JPasswordField nmb_pw_chk = new JPasswordField("4321");
+		JPasswordField nmb_pw_chk = new JPasswordField(pw2);
 		JButton chk_btn = new JButton("확인");
 		JLabel chk_str = new JLabel("123123123qqq");
 		JButton prev_btn = new JButton("이전 화면");
@@ -48,9 +51,8 @@ public class Non_Member_Login extends JPanel {
 		nmb_login_ml(nmb_phone);
 		nmb_login_ph_fl(nmb_phone);
 		nmb_login_ml(nmb_pw);
-		nmb_login_pw_fl(nmb_pw, string2);
+		nmb_login_pw_fl(nmb_pw, nmb_pw_chk,string2, string3);
 		nmb_login_ml(nmb_pw_chk);
-		nmb_login_pw_fl(nmb_pw_chk, string3);
 
 		chk_btn.addActionListener(new ActionListener() {
 			@Override
@@ -199,12 +201,14 @@ public class Non_Member_Login extends JPanel {
 			}
 		});
 	}
-	public static void nmb_login_pw_fl(JTextField jtf, JLabel string) {	
+	public static void nmb_login_pw_fl(JTextField jtf,JTextField jtf2, JLabel string,JLabel string2) {	
 		jtf.addFocusListener(new FocusListener() {
 			
 			@Override
 			public void focusLost(FocusEvent e) {
-				if((jtf.getText()).equals("")) {					
+				if((jtf.getText()).equals("")) {
+					jtf.setText(pw1);
+					jtf.setForeground(new Color(0xd0d0d0));
 					string.setVisible(true);
 				} else {
 					string.setVisible(false);
@@ -216,6 +220,26 @@ public class Non_Member_Login extends JPanel {
 				jtf.setText("");
 				jtf.setForeground(new Color(0x222222));
 				string.setVisible(false);
+			}
+		});
+		jtf2.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				if((jtf2.getText()).equals("")) {
+					jtf2.setText(pw2);
+					jtf2.setForeground(new Color(0xd0d0d0));
+					string2.setVisible(true);
+				} else {
+					string2.setVisible(false);
+				}
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				jtf2.setText("");
+				jtf2.setForeground(new Color(0x222222));
+				string2.setVisible(false);
 			}
 		});
 	}

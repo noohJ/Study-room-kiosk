@@ -50,10 +50,10 @@ public class Meeting_Room_Selection extends JPanel {
 	      JLabel string1_square = new JLabel();
 	      JLabel string2 = new JLabel(": 선택 불가능");
 	      JLabel string2_square = new JLabel();
-	      JButton seat1 = new Meeting_SeatButton(110, 200, "59", F, id,m_or_nm);
-	      JButton seat2 = new Meeting_SeatButton(410, 200, "60", F, id,m_or_nm);
-	      JButton seat3 = new Meeting_SeatButton(110, 500, "61", F, id,m_or_nm);
-	      JButton seat4 = new Meeting_SeatButton(410, 500, "62", F, id,m_or_nm);
+	      JButton seat1 = new Meeting_SeatButton(110, 200, "59", F, id,m_or_nm,"1");
+	      JButton seat2 = new Meeting_SeatButton(410, 200, "60", F, id,m_or_nm, "2");
+	      JButton seat3 = new Meeting_SeatButton(110, 500, "61", F, id,m_or_nm, "3");
+	      JButton seat4 = new Meeting_SeatButton(410, 500, "62", F, id,m_or_nm, "4");
 	      JButton prev_btn = new JButton("이전 화면");
 	      
 	      prev_btn.addActionListener(new ActionListener() {
