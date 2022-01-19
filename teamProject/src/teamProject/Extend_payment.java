@@ -62,6 +62,29 @@ public class Extend_payment extends JPanel {
 		voucher_price.setHorizontalAlignment(JLabel.CENTER);
 		voucher_price.setVerticalAlignment(JLabel.CENTER);
 		
+
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			System.out.println("연결 생성 완료.");
+			
+			PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
+			ResultSet rs = voucher_tp_t.executeQuery();
+			
+			while(rs.next()) {
+				time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
+			}
+			
+			
+			rs.close();
+			voucher_tp_t.close();
+			conn.close();
+
+		} catch (SQLException a) {
+			a.printStackTrace();
+		}
 		
 		if (m_or_nm == 0) {
 			try {
@@ -99,31 +122,7 @@ public class Extend_payment extends JPanel {
 		confirm.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					Connection conn = DriverManager.getConnection(
-							"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-							"hr",
-							"1234");
-					System.out.println("연결 생성 완료.");
-					
-					PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
-					ResultSet rs = voucher_tp_t.executeQuery();
-					
-					while(rs.next()) {
-						time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
-					}
-					
-					
-					rs.close();
-					voucher_tp_t.close();
-					conn.close();
-
-				} catch (SQLException a) {
-					a.printStackTrace();
-				}
-								
+			public void actionPerformed(ActionEvent e) {			
 				String day_col = "UPDATE MEMBERS SET REMAINING_DAYS  = ? WHERE MEMBER_ID = ?";
 				if(voucher_code >= 1 && voucher_code <= 4) { // 당일권 연장
 					try (
@@ -257,10 +256,10 @@ public class Extend_payment extends JPanel {
 				String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
 				if(type.equals("season_ticket")) {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+"연장할 기간 :<br>"+money+"</html>");
+							+"연장할 기간 :<br>"+time+" 일</html>");
 				}else {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+"연장할 시간 :<br>"+money+"</html>");
+							+"연장할 시간 :<br>"+time+" 시간</html>");
 				}
 				voucher_price.setText("<html><body style='text-align:center;'>"
 						+"결제하실 금액 :<br>"+money+"원"+"</html>");
