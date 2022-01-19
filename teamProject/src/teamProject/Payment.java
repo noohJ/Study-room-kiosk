@@ -264,10 +264,11 @@ public class Payment extends JPanel{
 				type = rs.getString("VOUCHER_TYPE");
 				String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
 				if(type.equals("daily_ticket")) {
-					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));					
+					voucher_type.setText("<html><body style='text-align:center;'>"
+							+ "선택하신 당일권 :<br> "+time+" 시간</html>");					
 				}else if (type.equals("pass_ticket")) {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+ "선택하신 정액권 :<br> "+time+" 기</html>");
+							+ "선택하신 정액권 :<br> "+time+" 시간</html>");
 				}else {
 					voucher_type.setText("<html><body style='text-align:center;'>"
 							+ "선택하신 정기권 :<br> "+time+" 일</html>");
