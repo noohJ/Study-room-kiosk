@@ -82,9 +82,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 5);
-						pstmt.executeUpdate(); 
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 5);
+							pstmt.executeUpdate(); 							
+						}
 						
 					} catch (SQLException e2) {
 						e2.printStackTrace();
@@ -113,9 +115,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 6);
-						pstmt.executeUpdate(); 
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 6);
+							pstmt.executeUpdate(); 							
+						}
 						
 					} catch (SQLException e2) {
 						e2.printStackTrace();
@@ -144,10 +148,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 7);
-						pstmt.executeUpdate(); 
-						
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 7);
+							pstmt.executeUpdate(); 													
+						}
 					} catch (SQLException e2) {
 						e2.printStackTrace();
 					}
@@ -175,10 +180,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 8);
-						pstmt.executeUpdate(); 
-						
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 8);
+							pstmt.executeUpdate(); 							
+						}						
 					} catch (SQLException e2) {
 						e2.printStackTrace();
 					}
@@ -213,10 +219,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 9);
-						pstmt.executeUpdate(); 
-						
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 9);
+							pstmt.executeUpdate();							
+						}						
 					} catch (SQLException e2) {
 						e2.printStackTrace();
 					}
@@ -244,9 +251,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 10);
-						pstmt.executeUpdate(); 
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 10);
+							pstmt.executeUpdate(); 							
+						}
 						
 					} catch (SQLException e2) {
 						e2.printStackTrace();
@@ -275,9 +284,11 @@ public class Buy_a_voucher extends JPanel {
 							Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","hr","1234");
 							PreparedStatement pstmt = conn.prepareStatement(vpt);
 					){
-						pstmt.setInt(1, Integer.parseInt(resultStr));
-						pstmt.setInt(2, 11);
-						pstmt.executeUpdate(); 
+						if(resultStr != null && resultStr == "") {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 11);
+							pstmt.executeUpdate(); 							
+						}
 						
 					} catch (SQLException e2) {
 						e2.printStackTrace();

@@ -292,7 +292,6 @@ public class Main_screen extends JPanel implements ActionListener{
 
 		if (m_or_nm == 1) {               //비회원은 정액권/정기권 사용및 구매 불가      (0 = 회원 1 = 비회원)
 			b2.setEnabled(false);
-			b3.setEnabled(false);
 		}		
 		
 		// 버튼 클릭시 다른 페널 확인
