@@ -75,9 +75,7 @@ public class Extend_payment extends JPanel {
 			
 			while(rs.next()) {
 				time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
-			}
-			
-			
+			}	
 			rs.close();
 			voucher_tp_t.close();
 			conn.close();

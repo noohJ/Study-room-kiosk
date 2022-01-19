@@ -41,6 +41,26 @@ public class Payment extends JPanel{
 		header.setBounds(0, 0, 800, 130);
 		
 		String code = String.valueOf(voucher_code);
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			System.out.println("연결 생성 완료.");
+			
+			PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
+			ResultSet rs = voucher_tp_t.executeQuery();
+			
+			while(rs.next()) {
+				time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
+			}			
+			rs.close();
+			voucher_tp_t.close();
+			conn.close();
+
+		} catch (SQLException a) {
+			a.printStackTrace();
+		}
 		
 		Voucher_con = new JLabel("");
 		Voucher_con.setBounds(115,704,600,150);
@@ -106,29 +126,6 @@ public class Payment extends JPanel{
 				if(vochk != 0 && voucher_code <=11 ) {
 					Voucher_con.setText("이미 보유하신 이용권이 있습니다.");
 				}else {
-					try {
-						Connection conn = DriverManager.getConnection(
-								"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-								"hr",
-								"1234");
-						System.out.println("연결 생성 완료.");
-						
-						PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
-						ResultSet rs = voucher_tp_t.executeQuery();
-						
-						while(rs.next()) {
-							time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
-						}
-						
-						
-						rs.close();
-						voucher_tp_t.close();
-						conn.close();
-
-					} catch (SQLException a) {
-						a.printStackTrace();
-					}
-
 					String stt = "UPDATE MEMBERS SET VOUCHER_CODE = ?, REMAINING_DAYS  = ? WHERE MEMBER_ID = ?";
 					
 					if (voucher_code >= 5 && voucher_code <= 8) {
@@ -270,10 +267,10 @@ public class Payment extends JPanel{
 					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));					
 				}else if (type.equals("pass_ticket")) {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+ "선택하신 정액권 :<br> "+money+" </html>");
+							+ "선택하신 정액권 :<br> "+time+" 일</html>");
 				}else {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+ "선택하신 정기권 :<br> "+money+" </html>");
+							+ "선택하신 정기권 :<br> "+time+" 시</html>");
 				}
 				voucher_price.setText("<html><body style='text-align:center;'>"
 						+ "결제하실 금액 :<br> "+money+"원 </html>");
