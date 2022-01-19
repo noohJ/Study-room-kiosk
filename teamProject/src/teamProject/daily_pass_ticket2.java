@@ -100,7 +100,7 @@ public class daily_pass_ticket2 extends JPanel{
 		
 		
 		JLabel string1 = new JLabel("정액권 구매 선택 (단체실 기준)");
-		string1.setBounds(100,160,500,50);
+		string1.setBounds(100,190,500,50);
 		string1.setFont(new Font("NanumBarunGothic", Font.PLAIN | Font.BOLD, 30));
 		add(string1);
 		
@@ -119,25 +119,25 @@ public class daily_pass_ticket2 extends JPanel{
 	  btn3.setForeground(new Color(0xf5f6f7));
 	  btn3.setOpaque(true);
 	  btn3.setBackground(new Color(0x00c850));
-	  btn3.setBounds(100, 240, 250, 150);
+	  btn3.setBounds(100, 290, 250, 150);
 	  add(btn4);
 	  btn4.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
 	  btn4.setForeground(new Color(0xf5f6f7));
 	  btn4.setOpaque(true);
 	  btn4.setBackground(new Color(0x00c850));
-	  btn4.setBounds(450, 240, 250, 150);
+	  btn4.setBounds(450, 290, 250, 150);
 	  add(btn5);
 	  btn5.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
 	  btn5.setForeground(new Color(0xf5f6f7));
 	  btn5.setOpaque(true);
 	  btn5.setBackground(new Color(0x00c850));
-	  btn5.setBounds(100, 490, 250, 150);
+	  btn5.setBounds(100, 540, 250, 150);
 	  add(btn6);
 	  btn6.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 35));
 	  btn6.setForeground(new Color(0xf5f6f7));
 	  btn6.setOpaque(true);
 	  btn6.setBackground(new Color(0x00c850));
-	  btn6.setBounds(450, 490, 250, 150);
+	  btn6.setBounds(450, 540, 250, 150);
 	  add(btn7);
 	  btn7.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 25));
 	  btn7.setForeground(new Color(0xf5f6f7));
