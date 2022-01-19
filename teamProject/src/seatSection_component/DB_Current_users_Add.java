@@ -580,7 +580,7 @@ public class DB_Current_users_Add {
 	
 	
 	//자리이동 시 기존의 자리를 삭제
-	public static void c_user_change_seat(String s_num, String id) {
+	public static void m_c_user_change_seat(String s_num, String id) {
 		// current_users의 phone을 넣기위한 것
 		String sql1 = "SELECT * FROM members WHERE member_id = '"+id+"'";
 		String user_phone = "";
@@ -646,6 +646,66 @@ public class DB_Current_users_Add {
 		){
 			pstmt.setInt(1, Integer.parseInt(s_num));
 			pstmt.setString(2, user_phone);
+			
+			int update = pstmt.executeUpdate();			
+			System.out.printf("[UPDATE current_users SET seat_number]%d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void nm_c_user_change_seat(String s_num, String id) {
+		// current_users의 seat_number를 가져오기 위한 것
+		String sql2 = "SELECT * FROM current_users WHERE user_phone = '"+id+"'";
+		int seat_number = 0;
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql2);
+			ResultSet rs = pstmt.executeQuery();
+		){
+			while(rs.next()) {
+				seat_number = rs.getInt("seat_number");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 자리이동 시 전에 seat_condition을 다시 empty_seat로 바꿔줌
+		String sql3 = "UPDATE seats SET seat_condition = 'empty_seat' WHERE seat_number = "+seat_number+"";		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql3);
+		){
+			int update = pstmt.executeUpdate();
+			System.out.printf("[UPDATE seats SET seat_condition] %d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 이동한 자리의 seat_condition을 다시 using_seat로 바꿔줌
+		String sql4 = "UPDATE seats SET seat_condition = 'using_seat' WHERE seat_number = ?";		
+		try (
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql4);
+		){
+			pstmt.setInt(1, Integer.parseInt(s_num));
+			int update = pstmt.executeUpdate();
+			System.out.printf("[UPDATE seats SET seat_condition] %d행이 변경되었습니다.\n", update);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 기존의 자리 seat_number를 업데이트
+		String sql5 = "UPDATE current_users SET seat_number = ? WHERE user_phone = ?";
+		try(
+			Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql5);
+		){
+			pstmt.setInt(1, Integer.parseInt(s_num));
+			pstmt.setString(2, id);
 			
 			int update = pstmt.executeUpdate();			
 			System.out.printf("[UPDATE current_users SET seat_number]%d행이 변경되었습니다.\n", update);

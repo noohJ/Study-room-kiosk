@@ -16,7 +16,7 @@ public class Seat_Change_Button extends JButton {
 	
 	private Start F;
 	
-	public Seat_Change_Button(int x, int y, String seat_number, Start f, String id) {
+	public Seat_Change_Button(int x, int y, String seat_number, Start f, String id, int m_or_nm) {
 		
 		F = f;
 		
@@ -36,8 +36,13 @@ public class Seat_Change_Button extends JButton {
 				public void actionPerformed(ActionEvent e) {
 					int answer = JOptionPane.showConfirmDialog(null, ""+seat_number+"번 자리로 이동하시겠습니까?", "confirm", JOptionPane.YES_NO_OPTION );
 					if(answer==JOptionPane.YES_OPTION) {
-						DB_Current_users_Add.c_user_change_seat(seat_number, id);
-						F.base_screen_Panel();
+						if(m_or_nm == 0) {
+							DB_Current_users_Add.m_c_user_change_seat(seat_number, id);
+							F.base_screen_Panel();							
+						} else if(m_or_nm == 1) {
+							DB_Current_users_Add.nm_c_user_change_seat(seat_number, id);
+							F.base_screen_Panel();
+						}
 					}					
 				}
 			});			
