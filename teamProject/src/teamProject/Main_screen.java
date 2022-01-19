@@ -37,7 +37,7 @@ public class Main_screen extends JPanel implements ActionListener{
 	private int voucod,gvoucod;
 	private ArrayList<String> nonmembers;
 	
-	ImageIcon icon = new ImageIcon("teamProject/src/icons/back4.jpg");
+	ImageIcon icon = new ImageIcon("teamProject/src/icons/back5.jpg");
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 	}
@@ -219,22 +219,22 @@ public class Main_screen extends JPanel implements ActionListener{
 		
 		
 		// font 및 배경색 , 위치 설정
-		b1.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
+		b1.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20 ));
 		b1.setBackground(new Color(0xEEF4F6));
-		b2.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
+		b2.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20 ));
 		b2.setBackground(new Color(0xEEF4F6));
-		b3.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
+		b3.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20 ));
 		b3.setBackground(new Color(0xEEF4F6));
-		b4.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 15 ));
+		b4.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 15 ));
 		b4.setBackground(new Color(0xEEF4F6));
-		b5.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
+		b5.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20 ));
 		b5.setBackground(new Color(0xEEF4F6));
-		b6.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 20 ));
+		b6.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20 ));
 		b6.setBackground(new Color(0xEEF4F6));
-		j.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18));
-		j1.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18 ));
-		j2.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 18 ));
-		j3.setFont(new Font("NanumGothic", Font.ITALIC | Font.BOLD, 13 ));
+		j.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 18));
+		j1.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 18 ));
+		j2.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 18 ));
+		j3.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 13 ));
 		j4.setFont(new Font("NanumGothic", Font.BOLD, 25 ));
 		j5.setFont(new Font("NanumGothic", Font.BOLD, 15 ));
 		j6.setFont(new Font("NanumGothic", Font.BOLD, 15 ));
