@@ -85,37 +85,41 @@ public class Extend_payment extends JPanel {
 		} catch (SQLException a) {
 			a.printStackTrace();
 		}
-		
-		if (m_or_nm == 0) {
-			try {
-				Connection conn = DriverManager.getConnection(
-						"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-						"hr",
-						"1234");
-				
-				PreparedStatement memtble = conn.prepareStatement("SELECT * FROM members Where member_id = '"+id+"'");
-				ResultSet rs = memtble.executeQuery();
-				while(rs.next()) {
-					vochk = rs.getInt("VOUCHER_CODE");
-					tr = rs.getString("END_DATE");
-					gtr = rs.getString("G_END_DATE");
-					if(rs.getString("REMAINING_DAYS") != null) {
-						split_day =rs.getString("REMAINING_DAYS").split("/");								
-					}
-
-				}
-				rs.close();
-				memtble.close();
-				conn.close();
-				
-			} catch (SQLException a) {
-				a.printStackTrace();
-			}
+		String tn="";
+		if (m_or_nm ==0) {
+			tn = "SELECT * FROM members Where member_id = '";
 			date_col = "UPDATE MEMBERS SET  END_DATE = ? WHERE MEMBER_ID = ?";
 			g_date_col = "UPDATE MEMBERS SET G_END_DATE = ? WHERE MEMBER_ID = ?";
 		}else {
+			tn = "SELECT * FROM non_members Where NON_MEMBER_PHONE = '";
 			date_col = "UPDATE NON_MEMBERS SET  END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
 			g_date_col = "UPDATE non_members SET G_END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
+		}
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			
+			PreparedStatement memtble = conn.prepareStatement(tn+id+"'");
+			ResultSet rs = memtble.executeQuery();
+			while(rs.next()) {
+				vochk = rs.getInt("VOUCHER_CODE");
+				tr = rs.getString("END_DATE");
+				gtr = rs.getString("G_END_DATE");
+				if(m_or_nm ==0) {
+					if(rs.getString("REMAINING_DAYS") != null) {
+						split_day =rs.getString("REMAINING_DAYS").split("/");								
+					}					
+				}
+
+			}
+			rs.close();
+			memtble.close();
+			conn.close();
+			
+		} catch (SQLException a) {
+			a.printStackTrace();
 		}
 		
 		confirm = new JButton("»Æ¿Œ");
