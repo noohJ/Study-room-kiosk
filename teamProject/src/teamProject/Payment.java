@@ -267,10 +267,10 @@ public class Payment extends JPanel{
 					voucher_type.setText("당일 "+rs.getString("VOUCHER_NAME"));					
 				}else if (type.equals("pass_ticket")) {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+ "선택하신 정액권 :<br> "+time+" 일</html>");
+							+ "선택하신 정액권 :<br> "+time+" 기</html>");
 				}else {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+ "선택하신 정기권 :<br> "+time+" 시</html>");
+							+ "선택하신 정기권 :<br> "+time+" 일</html>");
 				}
 				voucher_price.setText("<html><body style='text-align:center;'>"
 						+ "결제하실 금액 :<br> "+money+"원 </html>");
