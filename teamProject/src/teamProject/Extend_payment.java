@@ -195,11 +195,11 @@ public class Extend_payment extends JPanel {
 
 			}
 		});
-		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 35));
-		confirm.setForeground(new Color(0x222222));
+		confirm.setFont(new Font("NanumGothic", Font.PLAIN, 40));
+		confirm.setForeground(new Color(0xf5f6f7));
 		confirm.setOpaque(true);
-		confirm.setBackground(new Color(0xd0d0d0));
-		confirm.setBounds(90,810,200,90);
+		confirm.setBackground(new Color(0x00c850));
+		confirm.setBounds(115, 660, 560, 94);
 		add(confirm);
 		System.out.println(vochk);
 		previous = new JButton("이전 화면");
@@ -235,11 +235,11 @@ public class Extend_payment extends JPanel {
 				f.main_screen_Panel();
 			}
 		});
-		main.setFont(new Font("NanumGothic", Font.PLAIN, 35));
-		main.setForeground(new Color(0x222222));
+		main.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
+		main.setForeground(new Color(0xf5f6f7));
 		main.setOpaque(true);
-		main.setBackground(new Color(0xd0d0d0));
-		main.setBounds(310,810,200,90);
+		main.setBackground(new Color(0x34D40B));
+		main.setBounds(410,880,150,50);
 		add(main);
 				
 		
