@@ -43,7 +43,7 @@ public class SeatButton extends JButton {
 						}
 					}					
 				}
-			});			
+			});
 		} else {
 			setText(seat_number);
 			setLocation(x, y);
@@ -56,6 +56,5 @@ public class SeatButton extends JButton {
 			setVerticalAlignment(JLabel.CENTER);
 			setEnabled(false);
 		}		
-	}
-	
+	}	
 }
