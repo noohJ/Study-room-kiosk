@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class daily_pass_ticket extends JPanel{
@@ -30,6 +31,7 @@ public class daily_pass_ticket extends JPanel{
 	private static String user = "hr";
 	private static String password = "1234";
 	private String[] price = new String[4];
+	private int[] pricet = new int[4];
 	
 	private Start F;
 	private CardLayout cards = new CardLayout();
@@ -89,7 +91,7 @@ public class daily_pass_ticket extends JPanel{
 		panel1.setBounds(0, 200, 800,400);
 		
 		
-		
+		String dpt = "UPDATE voucher SET VOUCHER_PRICE = ? WHERE VOUCHER_CODE = ?";
 		JLabel header = new JLabel(new ImageIcon("teamProject/src/header/헤더.jpg"));
 		add(header);
 		header.setFocusable(true);
@@ -193,6 +195,7 @@ public class daily_pass_ticket extends JPanel{
 				while(rs.next()) {
 					String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
 					price[i] = money+"원";
+					pricet[i] = rs.getInt("VOUCHER_PRICE");
 				}
 				
 				
@@ -240,10 +243,33 @@ public class daily_pass_ticket extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			 int voucher_code = 1;
-			 f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
-	         f.Payment_Panel();
+			if (id.equals("manager")) {
+				String resultStr = JOptionPane.showInputDialog(null,"변동할 가격을 입력하세요","가격을 기입하세요");
+				try (
+						Connection conn = DriverManager.getConnection(url,user,password);
+						PreparedStatement pstmt = conn.prepareStatement(dpt);
+				){
+					boolean isNumeric = false;
+					if(resultStr != null){
+						isNumeric =  resultStr.matches("[+-]?\\d*(\\.\\d+)?");							
+					}
+					if(resultStr != null && isNumeric == true) {
+						pstmt.setInt(1, Integer.parseInt(resultStr));
+						pstmt.setInt(2, 1);
+						pstmt.executeUpdate();													
+					}else {							
+						pstmt.setInt(1, pricet[0]);
+						pstmt.setInt(2, 1);
+						pstmt.executeUpdate();
+					}		
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
+			}else {
+				int voucher_code = 1;
+				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+				f.Payment_Panel();				
+			}
 //			try (
 //					Connection conn = DriverManager.getConnection(url, user, password);
 //					PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -264,10 +290,33 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				int voucher_code = 2;
-				f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
-		         f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = JOptionPane.showInputDialog(null,"변동할 가격을 입력하세요","가격을 기입하세요");
+					try (
+							Connection conn = DriverManager.getConnection(url,user,password);
+							PreparedStatement pstmt = conn.prepareStatement(dpt);
+					){
+						boolean isNumeric = false;
+						if(resultStr != null){
+							isNumeric =  resultStr.matches("[+-]?\\d*(\\.\\d+)?");							
+						}
+						if(resultStr != null && isNumeric == true) {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 2);
+							pstmt.executeUpdate();													
+						}else {							
+							pstmt.setInt(1, pricet[1]);
+							pstmt.setInt(2, 2);
+							pstmt.executeUpdate();
+						}
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else{
+					int voucher_code = 2;
+					f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+					f.Payment_Panel();				
+				}
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
 //						PreparedStatement pstmt = conn.prepareStatement(SQL);	
@@ -288,10 +337,33 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 
-				 int voucher_code = 3;
-				 f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
-		         f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = JOptionPane.showInputDialog(null,"변동할 가격을 입력하세요","가격을 기입하세요");
+					try (
+							Connection conn = DriverManager.getConnection(url,user,password);
+							PreparedStatement pstmt = conn.prepareStatement(dpt);
+					){
+						boolean isNumeric = false;
+						if(resultStr != null){
+							isNumeric =  resultStr.matches("[+-]?\\d*(\\.\\d+)?");							
+						}
+						if(resultStr != null && isNumeric == true) {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 3);
+							pstmt.executeUpdate();													
+						}else {							
+							pstmt.setInt(1, pricet[2]);
+							pstmt.setInt(2, 3);
+							pstmt.executeUpdate();
+						}
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					int voucher_code = 3;
+					f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+					f.Payment_Panel();					
+				}
 				
 //				try (
 //						Connection conn = DriverManager.getConnection(url, user, password);
@@ -313,10 +385,33 @@ public class daily_pass_ticket extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				 int voucher_code = 4;
-				 f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
-		         f.Payment_Panel();
+				if (id.equals("manager")) {
+					String resultStr = JOptionPane.showInputDialog(null,"변동할 가격을 입력하세요","가격을 기입하세요");
+					try (
+							Connection conn = DriverManager.getConnection(url,user,password);
+							PreparedStatement pstmt = conn.prepareStatement(dpt);
+					){
+						boolean isNumeric = false;
+						if(resultStr != null){
+							isNumeric =  resultStr.matches("[+-]?\\d*(\\.\\d+)?");							
+						}
+						if(resultStr != null && isNumeric == true) {
+							pstmt.setInt(1, Integer.parseInt(resultStr));
+							pstmt.setInt(2, 4);
+							pstmt.executeUpdate();													
+						}else {							
+							pstmt.setInt(1, pricet[3]);
+							pstmt.setInt(2, 4);
+							pstmt.executeUpdate();
+						}
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					}
+				}else {
+					int voucher_code = 4;
+					f.add("payment",new Payment(f, id, voucher_code, m_or_nm));
+					f.Payment_Panel();					
+				}
 				
 				
 //				try (
