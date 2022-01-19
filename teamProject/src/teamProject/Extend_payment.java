@@ -62,68 +62,69 @@ public class Extend_payment extends JPanel {
 		voucher_price.setHorizontalAlignment(JLabel.CENTER);
 		voucher_price.setVerticalAlignment(JLabel.CENTER);
 		
-		
-		if (m_or_nm == 0) {
-			try {
-				Connection conn = DriverManager.getConnection(
-						"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-						"hr",
-						"1234");
-				
-				PreparedStatement memtble = conn.prepareStatement("SELECT * FROM members Where member_id = '"+id+"'");
-				ResultSet rs = memtble.executeQuery();
-				while(rs.next()) {
-					vochk = rs.getInt("VOUCHER_CODE");
-					tr = rs.getString("END_DATE");
-					gtr = rs.getString("G_END_DATE");
-					if(rs.getString("REMAINING_DAYS") != null) {
-						split_day =rs.getString("REMAINING_DAYS").split("/");								
-					}
 
-				}
-				rs.close();
-				memtble.close();
-				conn.close();
-				
-			} catch (SQLException a) {
-				a.printStackTrace();
-			}
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			System.out.println("연결 생성 완료.");
+			
+			PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
+			ResultSet rs = voucher_tp_t.executeQuery();
+			
+			while(rs.next()) {
+				time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
+			}	
+			rs.close();
+			voucher_tp_t.close();
+			conn.close();
+
+		} catch (SQLException a) {
+			a.printStackTrace();
+		}
+		String tn="";
+		if (m_or_nm ==0) {
+			tn = "SELECT * FROM members Where member_id = '";
 			date_col = "UPDATE MEMBERS SET  END_DATE = ? WHERE MEMBER_ID = ?";
 			g_date_col = "UPDATE MEMBERS SET G_END_DATE = ? WHERE MEMBER_ID = ?";
 		}else {
+			tn = "SELECT * FROM non_members Where NON_MEMBER_PHONE = '";
 			date_col = "UPDATE NON_MEMBERS SET  END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
 			g_date_col = "UPDATE non_members SET G_END_DATE = ? WHERE NON_MEMBER_PHONE = ?";
+		}
+		try {
+			Connection conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@127.0.0.1:1521:XE",
+					"hr",
+					"1234");
+			
+			PreparedStatement memtble = conn.prepareStatement(tn+id+"'");
+			ResultSet rs = memtble.executeQuery();
+			while(rs.next()) {
+				vochk = rs.getInt("VOUCHER_CODE");
+				tr = rs.getString("END_DATE");
+				gtr = rs.getString("G_END_DATE");
+				if(m_or_nm ==0) {
+					if(rs.getString("REMAINING_DAYS") != null) {
+						split_day =rs.getString("REMAINING_DAYS").split("/");								
+					}					
+				}
+
+			}
+			rs.close();
+			memtble.close();
+			conn.close();
+			
+		} catch (SQLException a) {
+			a.printStackTrace();
 		}
 		
 		confirm = new JButton("확인");
 		confirm.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					Connection conn = DriverManager.getConnection(
-							"jdbc:oracle:thin:@127.0.0.1:1521:XE",
-							"hr",
-							"1234");
-					System.out.println("연결 생성 완료.");
-					
-					PreparedStatement voucher_tp_t = conn.prepareStatement("SELECT * FROM Voucher Where voucher_code = "+code);
-					ResultSet rs = voucher_tp_t.executeQuery();
-					
-					while(rs.next()) {
-						time = rs.getString("VOUCHER_NAME").replaceAll("[^0-9]", "");
-					}
-					
-					
-					rs.close();
-					voucher_tp_t.close();
-					conn.close();
-
-				} catch (SQLException a) {
-					a.printStackTrace();
-				}
-								
+			public void actionPerformed(ActionEvent e) {			
 				String day_col = "UPDATE MEMBERS SET REMAINING_DAYS  = ? WHERE MEMBER_ID = ?";
 				if(voucher_code >= 1 && voucher_code <= 4) { // 당일권 연장
 					try (
@@ -257,10 +258,10 @@ public class Extend_payment extends JPanel {
 				String money = String.format("%,d", rs.getInt("VOUCHER_PRICE"));
 				if(type.equals("season_ticket")) {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+"연장할 기간 :<br>"+money+"</html>");
+							+"연장할 기간 :<br>"+time+" 일</html>");
 				}else {
 					voucher_type.setText("<html><body style='text-align:center;'>"
-							+"연장할 시간 :<br>"+money+"</html>");
+							+"연장할 시간 :<br>"+time+" 시간</html>");
 				}
 				voucher_price.setText("<html><body style='text-align:center;'>"
 						+"결제하실 금액 :<br>"+money+"원"+"</html>");
