@@ -138,6 +138,8 @@ public class Non_member_login2 extends JPanel{
 				ph.setText("전화번호");
 				pw.setText("비밀번호");
 				chk.setText("");
+				ph.setForeground(new Color(0xd0d0d0));
+				pw.setForeground(new Color(0xd0d0d0));
 				f.member_or_non_member_Panel();
 			}
 		});

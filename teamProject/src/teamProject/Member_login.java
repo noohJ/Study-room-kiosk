@@ -151,6 +151,8 @@ public class Member_login extends JPanel {
 				id.setText("아아디");
 				pw.setText("비밀번호");
 				chk.setText("");
+				id.setForeground(new Color(0xd0d0d0));
+				pw.setForeground(new Color(0xd0d0d0));
 				f.member_or_non_member_Panel();
 			}
 		});

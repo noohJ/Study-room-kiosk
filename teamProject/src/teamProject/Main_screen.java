@@ -364,11 +364,18 @@ public class Main_screen extends JPanel implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String c_user_seat = DB_Current_users_Add.c_user_seat(id);
-				if(c_user_seat.equals("0")) {
-					JOptionPane.showMessageDialog(null, "이용 중인 자리가 없습니다.");
+				if((DB_Current_users_Add.m_c_user_vc_code(id) >= 12 &&
+						DB_Current_users_Add.m_c_user_vc_code(id) <= 15) ||
+						DB_Current_users_Add.nm_c_user_vc_code(id) >= 12 &&
+						DB_Current_users_Add.nm_c_user_vc_code(id) <= 15) {
+					JOptionPane.showMessageDialog(null, "단체실은 좌석이동을 할 수 없습니다.");
 				} else {
-					f.add("seat_change",new Seat_change(f,id));
-					f.seat_change_Panel();					
+					if(c_user_seat.equals("0")) {
+						JOptionPane.showMessageDialog(null, "이용 중인 자리가 없습니다.");
+					} else {
+						f.add("seat_change",new Seat_change(f,id));
+						f.seat_change_Panel();					
+					}
 				}
 			}
 		});
