@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -57,24 +59,26 @@ public class Find_id extends JPanel {
 		add(look_id);
 		
 		name = new JTextField("이름");
-		name.addMouseListener(new MouseAdapter() {		
+		name.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				name.setText("");
+				name.setForeground(new Color(0x000000));
 			}
-		});
+		});	
 		add(name);
 		name.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 //		name.setForeground(new Color(0xd0d0d0));
 		name.setBounds(115, 400, 560, 70);
 
 		ph = new JTextField("핸드폰 번호");
-		ph.addMouseListener(new MouseAdapter() {		
+		ph.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				ph.setText("");
+				ph.setForeground(new Color(0x000000));
 			}
-		});
+		});	
 		add(ph);
 		ph.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 //		ph.setForeground(new Color(0xd0d0d0));

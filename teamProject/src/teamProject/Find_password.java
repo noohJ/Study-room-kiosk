@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -53,24 +55,26 @@ public class Find_password extends JPanel {
 		add(look_pw);
 		
 		id = new JTextField("아이디");
-		id.addMouseListener(new MouseAdapter() {		
+		id.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				id.setText("");
+				id.setForeground(new Color(0x000000));
 			}
-		});
+		});	
 		add(id);
 		id.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 //		name.setForeground(new Color(0xd0d0d0));
 		id.setBounds(115, 400, 560, 70);
 
 		ph = new JTextField("핸드폰 번호");
-		ph.addMouseListener(new MouseAdapter() {		
+		ph.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void focusGained(FocusEvent e) {
 				ph.setText("");
+				ph.setForeground(new Color(0x000000));
 			}
-		});
+		});	
 		add(ph);
 		ph.setFont(new Font("NanumGothic", Font.PLAIN, 40));
 //		ph.setForeground(new Color(0xd0d0d0));
@@ -96,7 +100,7 @@ public class Find_password extends JPanel {
 					while (rs.next()){
 						if(rs.getString("MEMBER_ID").equals(id.getText())&&rs.getString("MEMBER_PHONE").equals(ph.getText())) {
 							System.out.println(rs.getString("MEMBER_ID"));
-							look_pw.setText("고객님의 비밀번호는 : "+rs.getString("MEMBER_ID") +" 입니다.");		
+							look_pw.setText("고객님의 비밀번호는 : "+rs.getString("MEMBER_PW") +" 입니다.");		
 							fpw = true;
 							break;
 						}						
