@@ -182,6 +182,7 @@ public class Seat_Selection extends JPanel {
 		add(seat56);
 		add(seat57);
 		add(seat58);
+		add(prev_btn);
 		prev_btn.setFont(new Font("NanumGothic", Font.PLAIN | Font.BOLD, 20));
 		prev_btn.setForeground(new Color(0xf5f6f7));
         prev_btn.setOpaque(true);
