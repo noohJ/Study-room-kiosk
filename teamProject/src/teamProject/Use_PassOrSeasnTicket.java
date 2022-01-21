@@ -44,7 +44,7 @@ public class Use_PassOrSeasnTicket extends JPanel {
 				string1.setText("<html><body style='text-align:center;'>"
 						+ "현재 사용 중인 티켓 :<br>사용 중인 티켓이 없습니다.</html>");
 				string2.setText("<html><body style='text-align:center;'>"
-						+ "티켓을 구해하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
+						+ "티켓을 구매하시려면,<br>이전화면 버튼을 눌러주세요.</html>");
 				seat_selection.setEnabled(false);
 			} else {
 				remaining_days = DB_Members.mb_rd_arr(id);
