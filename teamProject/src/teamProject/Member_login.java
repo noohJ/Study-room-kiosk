@@ -148,7 +148,7 @@ public class Member_login extends JPanel {
 		previous.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				id.setText("아아디");
+				id.setText("아이디");
 				pw.setText("비밀번호");
 				chk.setText("");
 				id.setForeground(new Color(0xd0d0d0));
