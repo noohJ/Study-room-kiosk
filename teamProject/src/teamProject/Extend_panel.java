@@ -111,7 +111,10 @@ public class Extend_panel extends JPanel {
 		});
 		add(groom);
 		if(grr == 0) {
-		groom.setEnabled(false);
+			groom.setEnabled(false);
+		}
+		if(voucod == 0) {
+			proom.setEnabled(false);
 		}
 		
 		previous = new JButton("이전 화면");
