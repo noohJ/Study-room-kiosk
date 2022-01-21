@@ -163,23 +163,25 @@ public class Main_screen extends JPanel implements ActionListener{
 				+ "<br>"
 				+ "&nbsp;&nbsp;2) 원하는 시간 선택"
 				+ "<br>"
-				+ "&nbsp;&nbsp;3) 원하는 빈 좌석 선택"
+				+ "&nbsp;&nbsp;3) 결제하기"
 				+ "<br>"
-				+ "&nbsp;&nbsp;4) 결제"
+				+ "&nbsp;&nbsp;4) 원하는 빈 좌석 선택"
 				+"<br>"
 				+"<br>"
-				+ "정기권 이용방법"
+				+ "이용권 이용방법"
 				+ "<br>"
-				+ "&nbsp;&nbsp;1) 화면의 정기권 사용 선택"
+				+ "&nbsp;&nbsp;1) 화면의 이용권 사용 선택"
 				+ "<br>"
 				+ "&nbsp;&nbsp;2) 좌석 선택 "
 				+"<br>"
 				+"<br>"
-				+"정액권 구입방법"
+				+"정액권/정기권 구입방법"
 				+ "<br>"
-				+ "&nbsp;&nbsp;1) 화면의 정액권 구입 선택"
+				+ "&nbsp;&nbsp;1) 화면의 정액권/정기권 구입 선택"
 				+ "<br>"
 				+ "&nbsp;&nbsp;2) 시간 선택 "
+				+ "<br>"
+				+ "&nbsp;&nbsp;3) 결제하기 "
 				+"<br>"
 				+"<br>"
 				);
@@ -197,7 +199,11 @@ public class Main_screen extends JPanel implements ActionListener{
 				+ "<br>"
 				+ "&nbsp;&nbsp;1) 화면의 시간 연장 선택"
 				+ "<br>"
-				+ "&nbsp;&nbsp;2) 연장할 시간 선택 "
+				+ "&nbsp;&nbsp;2) 연장할 이용권 타입 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;3) 연장할 시간 선택"
+				+ "<br>"
+				+ "&nbsp;&nbsp;4) 결제하기"
 				+"<br>"
 				+"<br>"
 				);
@@ -264,7 +270,7 @@ public class Main_screen extends JPanel implements ActionListener{
 		j3.setBounds(600, 130, 200, 100);
 		j4.setBounds(-10, 280, 800, 500);
 		j5.setBounds(130, 475, 800, 500);
-		j6.setBounds(480, 430, 800, 500);
+		j6.setBounds(480, 445, 800, 500);
 		
 		
 
