@@ -1,2 +1,2 @@
-# new_project
-new_project
+# Study-room-kiosk
+Study-room-kiosk
